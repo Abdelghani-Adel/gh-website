@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-500 p-20 text-white grid grid-cols-3">
-      <div className="p-5">
+    <div className="bg-blue-500 p-20 text-white grid 2xl:grid-cols-3 gap-5">
+      <div>
         <h2 className="text-3xl mb-8">Contact</h2>
         <p>Business oncultant</p>
         <p>+43 699 15872826</p>
@@ -12,7 +12,7 @@ const Footer = () => {
         <p>(+49) 790 78799 0023</p>
       </div>
 
-      <div className="border-l border-l-white flex ps-20">
+      <div className="2xl:border-l border-l-white flex 2xl:ps-20">
         <div>
           <h2 className="text-3xl mb-8">Menu</h2>
           <div className="flex flex-col">
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-l border-l-white flex ps-20">
+      <div className="2xl:border-l border-l-white flex 2xl:ps-20">
         <div>
           <h2 className="text-3xl mb-8">Instagram</h2>
         </div>

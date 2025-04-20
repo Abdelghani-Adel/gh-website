@@ -46,7 +46,7 @@ const timelineData = [
 const Page = () => {
   return (
     <div className="">
-      <section className="relative w-full h-[90vh]">
+      <section className="relative w-full h-[50vh] 2xl:h-[90vh]">
         <Image src="/hero.png" alt="ddd" fill />
 
         <div className="absolute top-[40%] left-20 text-white space-y-4">
@@ -60,8 +60,8 @@ const Page = () => {
       </section>
 
       <section className="bg-cyan-400 p-10">
-        <div className="flex gap-10">
-          <div className="w-1/2 space-y-5">
+        <div className="flex flex-col 2xl:flex-row gap-10">
+          <div className="2xl:w-1/2 space-y-5">
             <h1 className="text-4xl text-white">About Us</h1>
             <h2 className="text-blue-700 text-4xl font-bold">
               Welcome to the World of GH360, your near shore tourism service partner.
@@ -77,18 +77,16 @@ const Page = () => {
             </button>
           </div>
 
-          <div className="w-1/2">
-            <div className="relative h-[60vh] w-[90vh] p-4 outline outline-[15px] outline-blue-700 rounded-ss-[10rem] rounded-ee-[10rem] overflow-hidden">
-              {/* <div className="relative rounded-ss-[10rem] rounded-ee-[10rem] overflow-hidden shadow-lg clip-rounded-corner"> */}
+          <div className="2xl:w-1/2">
+            <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-blue-700 2xl:rounded-ss-[10rem] 2xlrounded-ee-[10rem] overflow-hidden">
               <Image src="/hero.png" alt="Team working" fill />
-              {/* </div> */}
             </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div className="grid grid-cols-4">
+        <div className="grid 2xl:grid-cols-4">
           <div className="bg-purple-800 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">350</h2>
@@ -118,7 +116,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid 2xl:grid-cols-3">
           <div className="bg-blue-500 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">5</h2>
@@ -209,8 +207,8 @@ const Page = () => {
           <h1 className="text-2xl font-bold text-white text-center">Testimonials</h1>
           <h2 className="text-4xl mt-2 font-bold text-white text-center">From Our Customers</h2>
 
-          <div className="flex justify-evenly px-10 mt-10">
-            <div className="bg-white p-10 w-1/4 relative">
+          <div className="flex flex-col 2xl:flex-row justify-evenly px-10 mt-10">
+            <div className="bg-white p-10 2xl:w-1/4 relative">
               <div className="flex items-center gap-5">
                 <RxAvatar className="text-6xl text-blue-500" />
 
@@ -228,7 +226,7 @@ const Page = () => {
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
             </div>
 
-            <div className="bg-white p-10 w-1/4 relative">
+            <div className="bg-white p-10 2xl:w-1/4 relative hidden 2xl:block">
               <div className="flex items-center gap-5">
                 <RxAvatar className="text-6xl text-blue-500" />
 
@@ -246,7 +244,7 @@ const Page = () => {
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
             </div>
 
-            <div className="bg-white p-10 w-1/4 relative">
+            <div className="bg-white p-10 2xl:w-1/4 relative hidden 2xl:block">
               <div className="flex items-center gap-5">
                 <RxAvatar className="text-6xl text-blue-500" />
 
@@ -270,8 +268,8 @@ const Page = () => {
       <section className="p-20 bg-gray-100 text-center">
         <h1 className="text-4xl font-bold text-blue-500">Drop Us A Message</h1>
 
-        <form action="" className="max-w-4xl m-auto mt-12">
-          <div className="flex gap-4">
+        <form action="" className="2xl:max-w-4xl m-auto mt-12">
+          <div className="flex flex-col 2xl:flex-row gap-4">
             <input
               type="text"
               placeholder="Enter your name"
