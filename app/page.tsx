@@ -78,7 +78,7 @@ const Page = () => {
           </div>
 
           <div className="2xl:w-1/2">
-            <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-blue-700 2xl:rounded-ss-[10rem] 2xlrounded-ee-[10rem] overflow-hidden">
+            <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-blue-700 2xl:rounded-ss-[10rem] 2xl:rounded-ee-[10rem] overflow-hidden">
               <Image src="/hero.png" alt="Team working" fill />
             </div>
           </div>
