@@ -1,0 +1,24 @@
+{
+  "heroBackground": "",
+  "heroImage": "",
+  "heroTitle": "",
+  "description": "<></>",
+  "teams": [
+    {
+      "location": "Tirana",
+      "people": [
+        {
+          "avatar": "",
+          "name": "",
+          "position": ""
+        }
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "logo": "",
+      "title": ""
+    }
+  ]
+}

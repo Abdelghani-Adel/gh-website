@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "backgroundImage": "/hero.png",
+    "title": "Welcome to the world of GH360",
+    "description": "<p>The future of tourism</p>"
+  },
+  "aboutUs": {
+    "title": "Welcome to the World of GH360, your near shore tourism service partner",
+    "image": "/hero.png",
+    "description": "<p>Founded 2012 fully operational since 2013 we offer tailor made business solutions for the big players in tourism industry. GH360 provides you with a range of services such as simple customer care to more complex accounting as well as development. <strong>All in one for your convenience and satisfaction.</strong></p>"
+  },
+  "analytics": {
+    "employees": "350",
+    "languages": "12",
+    "locations": "3",
+    "qmTeam": "1",
+    "coaches": "5",
+    "pl": "4",
+    "tl": "10"
+  },
+  "timeline": {
+    "title": "Founded 2012 fully operational since 2013 we offer tailor made business solutions for the big players in tourism industry",
+    "years": [
+      {
+        "year": "2013",
+        "icon": "",
+        "title": "GH Dialog was founded in 2013",
+        "description": "<p>From the cooperation between Lukas Rütschi and Rainer Götz</p>"
+      },
+      {
+        "year": "2014",
+        "icon": "",
+        "title": "Acquisition of the customer Unister and thus strategic alignment: Tourism",
+        "description": "<p></p>"
+      },
+      {
+        "year": "2015",
+        "icon": "",
+        "title": "PCI DSS full certification",
+        "description": "<p>Growth to 80 FTE, acquired 7 Travel customers and Kuoni Swiss AG</p>"
+      },
+      {
+        "year": "2016",
+        "icon": "",
+        "title": "Schmetterling Reisen International is won as a customer",
+        "description": "<p>Expansion of cooperation with Kuoni to include Helvetictours.ch and Lastminute.ch</p>"
+      },
+      {
+        "year": "2017",
+        "icon": "",
+        "title": "FTI is acquired as a customer. Kurz mal weg.de extends the contract,",
+        "description": "<p>Growth to 160 FTE</p>"
+      },
+      {
+        "year": "2018",
+        "icon": "",
+        "title": "At the end of the year GH Dialog has 240 employees",
+        "description": "<p>Invia Travel (formerly Unister) and GH Dialog conclude a sales agreement for the creation of a new location in Tirana. With Sunways, the first 24/7/365 shifts are started. Driveboo and LMX are added as travel providers with Dertouristik Suisse (Kuoni) and Schmetterling Reisen together.</p>"
+      },
+      {
+        "year": "2019",
+        "icon": "",
+        "title": "",
+        "description": "<p>GH Dialog has 240 employees spread over 2 locations. The first 24/7/365 shifts are started in cooperation with TUI up with the parallel department. GH Dialog ends the year with Sunways and TUI Austria among our customers.</p>"
+      },
+      {
+        "year": "2022",
+        "icon": "",
+        "title": "At the end of the year GH Dialog has 240 employees",
+        "description": "<p>Invia Travel (formerly Unister) and GH Dialog conclude a sales agreement for the creation of a new location in Tirana. With Sunways, the first 24/7/365 shifts are started. Driveboo and LMX are added as external providers with Dertouristik Suisse (Kuoni) and Schmetterling Reisen.</p>"
+      }
+    ]
+  },
+  "customers": ["", ""],
+  "testimonials": [
+    {
+      "name": "Jahannes Sehring",
+      "position": "CEO of Travador",
+      "comment": "Since the outsourcing of our customer service, we work more or less cost- covering through the generated sales.",
+      "avatar": ""
+    },
+    {
+      "name": "Jahannes Sehring",
+      "position": "CEO of Travador",
+      "comment": "Since the outsourcing of our customer service, we work more or less cost- covering through the generated sales.",
+      "avatar": ""
+    },
+    {
+      "name": "Jahannes Sehring",
+      "position": "CEO of Travador",
+      "comment": "Since the outsourcing of our customer service, we work more or less cost- covering through the generated sales.",
+      "avatar": ""
+    }
+  ]
+}

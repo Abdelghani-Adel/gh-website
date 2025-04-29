@@ -1,36 +1,96 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { IoMdMenu } from "react-icons/io";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <div className="absolute z-10 w-screen text-white">
-      <div className="flex p-5">
-        <h2>Logo</h2>
-        <ul className="flex ms-auto gap-10 text-lg font-bold">
+    <header className="bg-primary text-white">
+      <div className="flex items-center justify-between p-5 relative z-20">
+        <h2 className="text-2xl font-bold">Logo</h2>
+
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex ms-auto gap-10 text-lg font-bold">
           <li>
-            <Link href="#">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="#">About Us</Link>
+            <Link href="/about-us">About Us</Link>
           </li>
           <li>
-            <Link href="#">Services</Link>
+            <Link href="/services">Services</Link>
           </li>
           <li>
-            <Link href="#">Our Team</Link>
+            <Link href="/our-team">Our Team</Link>
           </li>
           <li>
-            <Link href="#">Career</Link>
+            <Link href="/career">Career</Link>
           </li>
           <li>
-            <Link href="#">Resources</Link>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+
+        {/* Mobile Hamburger */}
+        <button onClick={toggleMenu} className="block md:hidden" aria-label="Toggle Menu">
+          <IoMdMenu className="text-2xl" />
+        </button>
+      </div>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          onClick={closeMenu}
+          className="fixed inset-0 bg-black bg-opacity-50 z-10 backdrop-blur-sm transition-opacity duration-300"
+        />
+      )}
+
+      {/* Mobile Menu */}
+      <div
+        className={`absolute top-0 left-0 w-full bg-white text-black transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-screen py-10" : "max-h-0"
+        } z-20`}
+      >
+        <ul className="flex flex-col items-center gap-6 text-lg font-bold">
+          <li>
+            <Link href="/" onClick={closeMenu}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="#">Contact</Link>
+            <Link href="/about-us" onClick={closeMenu}>
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link href="/services" onClick={closeMenu}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="/our-team" onClick={closeMenu}>
+              Our Team
+            </Link>
+          </li>
+          <li>
+            <Link href="/career" onClick={closeMenu}>
+              Career
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" onClick={closeMenu}>
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   );
 };
 

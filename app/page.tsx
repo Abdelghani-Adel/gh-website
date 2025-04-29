@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
+import homeData from "@/public/data/home.json";
 
 const timelineData = [
   {
@@ -50,36 +51,29 @@ const Page = () => {
         <Image src="/hero.png" alt="ddd" fill />
 
         <div className="absolute top-[40%] left-20 text-white space-y-4">
-          <h1 className="text-4xl font-bold">Welcome to the world of GH360</h1>
-          <h2 className="text-2xl">The future of tourism</h2>
+          <h1 className="text-4xl font-bold">{homeData.hero.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: homeData.hero.description }} />
 
-          <button className="bg-blue-700 py-2 px-5 rounded-lg">
-            <Link href="#">More Details</Link>
+          <button className="bg-secondary py-2 px-5 rounded-lg">
+            <Link href="/about-us">More Details</Link>
           </button>
         </div>
       </section>
 
-      <section className="bg-cyan-400 p-10">
+      <section className="bg-secondary p-10">
         <div className="flex flex-col 2xl:flex-row gap-10">
           <div className="2xl:w-1/2 space-y-5">
             <h1 className="text-4xl text-white">About Us</h1>
-            <h2 className="text-blue-700 text-4xl font-bold">
-              Welcome to the World of GH360, your near shore tourism service partner.
-            </h2>
-            <p className="text-xl">
-              Founded 2012 fully operational since 2013 we offer tailor made business solutions for the big players in
-              tourism industry. GH360 provides you with a range of services such as simple customer care to more complex
-              accounting as well as development.
-              <strong> All in one for your convenience and satisfaction.</strong>
-            </p>
-            <button className="bg-blue-700 py-2 px-5 rounded-lg text-white">
-              <Link href="#">Read More</Link>
+            <h2 className="text-primary text-4xl font-bold">{homeData.aboutUs.title}</h2>
+            <div dangerouslySetInnerHTML={{ __html: homeData.aboutUs.description }} />
+            <button className="bg-primary text-white py-2 px-5 rounded-lg">
+              <Link href="/about-us">Read More</Link>
             </button>
           </div>
 
           <div className="2xl:w-1/2">
-            <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-blue-700 2xl:rounded-ss-[10rem] 2xl:rounded-ee-[10rem] overflow-hidden">
-              <Image src="/hero.png" alt="Team working" fill />
+            <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-primary 2xl:rounded-ss-[10rem] 2xl:rounded-ee-[10rem] overflow-hidden">
+              <Image src={homeData.aboutUs.image} alt="Team working" fill />
             </div>
           </div>
         </div>
@@ -89,28 +83,28 @@ const Page = () => {
         <div className="grid 2xl:grid-cols-4">
           <div className="bg-purple-800 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">350</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.employees}</h2>
               <h3 className="text-3xl text-white">Employees</h3>
             </div>
           </div>
 
           <div className="bg-pink-600 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">12</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.languages}</h2>
               <h3 className="text-3xl text-white">Languages</h3>
             </div>
           </div>
 
           <div className="bg-orange-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">3</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.locations}</h2>
               <h3 className="text-3xl text-white">Locations</h3>
             </div>
           </div>
 
           <div className="bg-yellow-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">1</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.qmTeam}</h2>
               <h3 className="text-3xl text-white">QM team</h3>
             </div>
           </div>
@@ -119,21 +113,21 @@ const Page = () => {
         <div className="grid 2xl:grid-cols-3">
           <div className="bg-blue-500 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">5</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.coaches}</h2>
               <h3 className="text-3xl text-white">Coaches</h3>
             </div>
           </div>
 
           <div className="bg-gray-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">4</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.pl}</h2>
               <h3 className="text-3xl text-white">PL</h3>
             </div>
           </div>
 
           <div className="bg-blue-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">10</h2>
+              <h2 className="text-white text-6xl font-bold">{homeData.analytics.tl}</h2>
               <h3 className="text-3xl text-white">TL</h3>
             </div>
           </div>
@@ -143,18 +137,15 @@ const Page = () => {
       <section>
         <div className="min-h-screen bg-white py-10 px-4">
           <div className="text-center mb-16 text-3xl">
-            <h2 className="text-blue-500 font-medium">
-              Founded 2012 fully operational since 2013 we offer tailor made
-            </h2>
-            <h2 className="text-blue-500 font-medium">business solutions for the big players in tourism industry</h2>
+            <h2 className="text-secondary font-medium">{homeData.timeline.title}</h2>
           </div>
 
           <div className="relative max-w-5xl mx-auto">
             {/* Vertical Line */}
-            <div className="absolute left-1/2 top-0 w-1 bg-blue-500 h-full transform -translate-x-1/2"></div>
+            <div className="absolute left-1/2 top-0 w-1 bg-secondary h-full transform -translate-x-1/2"></div>
 
             <div className="flex flex-col space-y-12">
-              {timelineData.map((item, idx) => {
+              {homeData.timeline.years.map((year, idx) => {
                 const isLeft = idx % 2 === 0;
                 return (
                   <div key={idx} className="grid grid-cols-9 items-center">
@@ -162,23 +153,25 @@ const Page = () => {
                     <div className={`col-span-4 ${isLeft ? "text-right pr-4" : ""}`}>
                       {isLeft && (
                         <div className="inline-block">
-                          <h3 className="text-xl font-bold text-gray-900">{item.year}</h3>
-                          <p className="text-gray-700 mt-2 whitespace-pre-line">{item.content}</p>
+                          <h3 className="text-xl font-bold text-gray-900">{year.year}</h3>
+                          <p className="text-gray-700 mt-2 whitespace-pre-line">{year.title}</p>
+                          <div dangerouslySetInnerHTML={{ __html: year.description }} />
                         </div>
                       )}
                     </div>
 
                     {/* Dot */}
                     <div className="col-span-1 flex justify-center">
-                      <div className="w-8 h-8 bg-blue-500 rounded-full border-4 border-white z-10"></div>
+                      <div className="w-8 h-8 bg-secondary rounded-full border-4 border-white z-10"></div>
                     </div>
 
                     {/* Right Side */}
                     <div className={`col-span-4 ${!isLeft ? "text-left pl-4" : ""}`}>
                       {!isLeft && (
                         <div className="inline-block">
-                          <h3 className="text-xl font-bold text-gray-900">{item.year}</h3>
-                          <p className="text-gray-700 mt-2 whitespace-pre-line">{item.content}</p>
+                          <h3 className="text-xl font-bold text-gray-900">{year.year}</h3>
+                          <p className="text-gray-700 mt-2 whitespace-pre-line">{year.title}</p>
+                          <div dangerouslySetInnerHTML={{ __html: year.description }} />
                         </div>
                       )}
                     </div>
@@ -187,11 +180,6 @@ const Page = () => {
               })}
             </div>
           </div>
-
-          <h2 className="text-blue-500 font-medium max-w-4xl mt-16 text-center m-auto text-3xl">
-            A smooth modern day to day operation, with high flexibility to ramp up and down as well as a higher margin
-            for the client as well as an state of the art customer experience.
-          </h2>
         </div>
       </section>
 

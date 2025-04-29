@@ -9,7 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        primary: "#0b2361",
+        secondary: "#05ccc5",
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("tailwindcss-rtl")],
