@@ -1,13 +1,254 @@
 [
   {
-    "images": [""],
-    "title": "",
-    "description": "<></>",
-    "products": [
-      {
-        "title": "",
-        "description": "<></>"
-      }
-    ]
+    "images": ["/placeholder.jpg"],
+    "title": "Outsourcing Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "Training Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "Consulting Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "Accounting Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "Development Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "Call Center Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
+  },
+  {
+    "images": ["/placeholder.jpg"],
+    "title": "IT Services",
+    "shortDescription": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+    "details": {
+      "title": "We advise you on setting up your internal customer service center",
+      "shortDesc": "With over 10 years branch experience, we offer you an A to Z consulting from project implementation.",
+      "description": "<p>Services HOME > SERVICES > GH360 Call Center Services Consulting Services  Social Media Services Training Services Programming Development Accounting Outsourcing Services G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer service and thus help tourism companies in particular to attract customers.</p>",
+      "products": [
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        },
+        {
+          "title": "Project Management",
+          "description": "<p>Creation of schedules and project plan</p>"
+        }
+      ]
+    }
   }
 ]
