@@ -41,6 +41,39 @@ const Page = () => {
           </div>
         </section>
       ))}
+
+      <section className="p-20 bg-gray-100 text-center">
+        <h1 className="text-4xl font-bold text-primary">Drop Us A Message</h1>
+
+        <form action="" className="2xl:max-w-4xl m-auto mt-12">
+          <div className="flex flex-col 2xl:flex-row gap-4">
+            <input
+              type="text"
+              placeholder="Enter your name"
+              className="border border-black text-xl rounded-sm p-2 w-full"
+            />
+            <input
+              type="text"
+              placeholder="Enter your email"
+              className="border border-black text-xl rounded-sm p-2 w-full"
+            />
+          </div>
+
+          <input
+            type="text"
+            placeholder="Enter your phone number"
+            className="border border-black text-xl rounded-sm p-2 w-full mt-4"
+          />
+
+          <textarea
+            placeholder="Enter you message"
+            rows={4}
+            className="border border-black text-xl rounded-sm p-2 w-full mt-4"
+          />
+
+          <button className="bg-primary py-4 px-6 rounded-lg text-xl text-white mt-4">Send Message</button>
+        </form>
+      </section>
     </div>
   );
 };
