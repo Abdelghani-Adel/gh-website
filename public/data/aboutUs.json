@@ -1,16 +1,47 @@
 {
-  "heroBackground": "",
-  "heroImage": "",
-  "heroTitle": "",
-  "description": "<></>",
+  "heroBackground": "/placeholder.jpg",
+  "heroImage": "/placeholder.jpg",
+  "heroTitle": "GH360 offers a 360 degree BPO solution with core focus on tourism.",
+  "heroShortDesc": "<p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p>",
+  "heroDescription": "<p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p>",
   "teams": [
     {
       "location": "Tirana",
       "people": [
         {
-          "avatar": "",
-          "name": "",
-          "position": ""
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
+        },
+        {
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
+        },
+        {
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
+        }
+      ]
+    },
+    {
+      "location": "Kosvo",
+      "people": [
+        {
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
+        },
+        {
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
+        },
+        {
+          "avatar": "/placeholder.jpg",
+          "name": "Leonard Ferazini",
+          "position": "Director Call Center"
         }
       ]
     }
