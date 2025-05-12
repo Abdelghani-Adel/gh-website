@@ -1,25 +1,33 @@
 {
-  "heroBackground": "/placeholder.jpg",
-  "heroImage": "/placeholder.jpg",
+  "heroBackground": "/aboutus-hero.jpg",
+  "heroImage": "/aboutus-hero2.jfif",
   "heroTitle": "GH360 offers a 360 degree BPO solution with core focus on tourism.",
   "heroShortDesc": "<p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p>",
   "heroDescription": "<p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p><p>Together with our 350 highly skilled employees, it is our mission to provide best-in-class swrvice withgreatest flexibility in a constantly changing environment</p> <p>From friendly and knowledgeable customer care agents, over accutants to IT experts we are here 7/24?365 to provide the perfect solution for your demand.</p>",
+  "managers": [
+    {
+      "avatar": "/lukas.png",
+      "name": "Lukas Hirschl",
+      "position": "Director Call Center",
+      "description": "<p>Lukas Hirschl was born on July 16th 1991. traveling is my passion – I was lucky that my father traveld the world with me</p>"
+    }
+  ],
   "teams": [
     {
       "location": "Tirana",
       "people": [
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar1.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         },
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar2.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         },
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar3.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         }
@@ -29,17 +37,17 @@
       "location": "Kosvo",
       "people": [
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar4.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         },
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar4.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         },
         {
-          "avatar": "/placeholder.jpg",
+          "avatar": "/avatar4.png",
           "name": "Leonard Ferazini",
           "position": "Director Call Center"
         }

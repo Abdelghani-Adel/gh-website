@@ -1,50 +1,34 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import homeData from "@/public/data/home.json";
 
-const timelineData = [
-  {
-    year: "2013",
-    content: "GH Dialog was founded in 2013\nFrom the cooperation between Lukas Rütschi and Rainer Götz",
-  },
-  {
-    year: "2014",
-    content: "Acquisition of the customer Unister and thus strategic alignment: Tourism",
-  },
-  {
-    year: "2015",
-    content: "PCI DSS full certification\nGrowth to 80 FTE, acquired 7 Travel customers and Kuoni Swiss AG",
-  },
-  {
-    year: "2016",
-    content:
-      "Schmetterling Reisen International is won as a customer\nExpansion of cooperation with Kuoni to include Helvetictours.ch and Lastminute.ch\nGrowth to 100 FTE",
-  },
-  {
-    year: "2017",
-    content: "FTI is acquired as a customer. Kurz mal weg.de extends the contract,\nGrowth to 160 FTE",
-  },
-  {
-    year: "2018",
-    content:
-      "Invia Travel (formerly Unister) and GH Dialog conclude a sales agreement for the creation of a new location in Tirana. With Sunways, the first 24/7/365 shifts are started. Driveboo and LMX are added as travel providers with Dertouristik Suisse (Kuoni) and Schmetterling Reisen together.\nAt the end of the year GH Dialog has 240 employees",
-  },
-  {
-    year: "2019",
-    content:
-      "GH Dialog has 240 employees spread over 2 locations. The first 24/7/365 shifts are started in cooperation with TUI up with the parallel department. GH Dialog ends the year with Sunways and TUI Austria among our customers.",
-  },
-  {
-    year: "2022",
-    content:
-      "Invia Travel (formerly Unister) and GH Dialog conclude a sales agreement for the creation of a new location in Tirana. With Sunways, the first 24/7/365 shifts are started. Driveboo and LMX are added as external providers with Dertouristik Suisse (Kuoni) and Schmetterling Reisen.\nAt the end of the year GH Dialog has 240 employees",
-  },
-];
-
 const Page = () => {
+  const [data, setData] = useState<any>();
+  const [aboutUs, setAboutUs] = useState<any>();
+  const [hero, setHero] = useState<any>();
+  const [analytics, setAnalytics] = useState<any>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // const respnonse = await fetch("http://localhost:3010/api/pages/home");
+      // const result = await respnonse.json();
+      // setData(result);
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const heroData = data?.content.sections.hero.en;
+    const analytics = data?.content.sections.analytics.en;
+    setHero(heroData);
+    setAnalytics(analytics);
+  }, [data]);
+
   return (
     <div className="">
       <section className="relative w-full h-[50vh] 2xl:h-[90vh]">
@@ -52,7 +36,9 @@ const Page = () => {
 
         <div className="absolute top-[40%] left-20 text-white space-y-4">
           <h1 className="text-4xl font-bold">{homeData.hero.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: homeData.hero.description }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: homeData.hero.description }}
+          />
 
           <button className="bg-secondary py-2 px-5 rounded-lg">
             <Link href="/about-us">More Details</Link>
@@ -64,8 +50,10 @@ const Page = () => {
         <div className="flex flex-col 2xl:flex-row gap-10">
           <div className="2xl:w-1/2 space-y-5">
             <h1 className="text-4xl text-white">About Us</h1>
-            <h2 className="text-primary text-4xl font-bold">{homeData.aboutUs.title}</h2>
-            <div dangerouslySetInnerHTML={{ __html: homeData.aboutUs.description }} />
+            {/* <h2 className="text-primary text-4xl font-bold">{aboutUs?.title}</h2> */}
+            <div
+              dangerouslySetInnerHTML={{ __html: homeData.aboutUs.description }}
+            />
             <button className="bg-primary text-white py-2 px-5 rounded-lg">
               <Link href="/about-us">Read More</Link>
             </button>
@@ -83,28 +71,36 @@ const Page = () => {
         <div className="grid 2xl:grid-cols-4">
           <div className="bg-purple-800 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.employees}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.employees}
+              </h2>
               <h3 className="text-3xl text-white">Employees</h3>
             </div>
           </div>
 
           <div className="bg-pink-600 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.languages}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.languages}
+              </h2>
               <h3 className="text-3xl text-white">Languages</h3>
             </div>
           </div>
 
           <div className="bg-orange-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.locations}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.locations}
+              </h2>
               <h3 className="text-3xl text-white">Locations</h3>
             </div>
           </div>
 
           <div className="bg-yellow-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.qmTeam}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.qmTeam}
+              </h2>
               <h3 className="text-3xl text-white">QM team</h3>
             </div>
           </div>
@@ -113,21 +109,27 @@ const Page = () => {
         <div className="grid 2xl:grid-cols-3">
           <div className="bg-blue-500 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.coaches}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.coaches}
+              </h2>
               <h3 className="text-3xl text-white">Coaches</h3>
             </div>
           </div>
 
           <div className="bg-gray-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.pl}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.pl}
+              </h2>
               <h3 className="text-3xl text-white">PL</h3>
             </div>
           </div>
 
           <div className="bg-blue-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
-              <h2 className="text-white text-6xl font-bold">{homeData.analytics.tl}</h2>
+              <h2 className="text-white text-6xl font-bold">
+                {homeData.analytics?.tl}
+              </h2>
               <h3 className="text-3xl text-white">TL</h3>
             </div>
           </div>
@@ -137,7 +139,9 @@ const Page = () => {
       <section>
         <div className="min-h-screen bg-white py-10 px-4">
           <div className="text-center mb-16 text-3xl">
-            <h2 className="text-secondary font-medium">{homeData.timeline.title}</h2>
+            <h2 className="text-secondary font-medium">
+              {homeData.timeline.title}
+            </h2>
           </div>
 
           <div className="relative max-w-5xl mx-auto">
@@ -150,12 +154,24 @@ const Page = () => {
                 return (
                   <div key={idx} className="grid grid-cols-9 items-center">
                     {/* Left Side */}
-                    <div className={`col-span-4 ${isLeft ? "text-right pr-4" : ""}`}>
+                    <div
+                      className={`col-span-4 ${
+                        isLeft ? "text-right pr-4" : ""
+                      }`}
+                    >
                       {isLeft && (
                         <div className="inline-block">
-                          <h3 className="text-xl font-bold text-gray-900">{year.year}</h3>
-                          <p className="text-gray-700 mt-2 whitespace-pre-line">{year.title}</p>
-                          <div dangerouslySetInnerHTML={{ __html: year.description }} />
+                          <h3 className="text-xl font-bold text-gray-900">
+                            {year.year}
+                          </h3>
+                          <p className="text-gray-700 mt-2 whitespace-pre-line">
+                            {year.title}
+                          </p>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: year.description,
+                            }}
+                          />
                         </div>
                       )}
                     </div>
@@ -166,12 +182,24 @@ const Page = () => {
                     </div>
 
                     {/* Right Side */}
-                    <div className={`col-span-4 ${!isLeft ? "text-left pl-4" : ""}`}>
+                    <div
+                      className={`col-span-4 ${
+                        !isLeft ? "text-left pl-4" : ""
+                      }`}
+                    >
                       {!isLeft && (
                         <div className="inline-block">
-                          <h3 className="text-xl font-bold text-gray-900">{year.year}</h3>
-                          <p className="text-gray-700 mt-2 whitespace-pre-line">{year.title}</p>
-                          <div dangerouslySetInnerHTML={{ __html: year.description }} />
+                          <h3 className="text-xl font-bold text-gray-900">
+                            {year.year}
+                          </h3>
+                          <p className="text-gray-700 mt-2 whitespace-pre-line">
+                            {year.title}
+                          </p>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: year.description,
+                            }}
+                          />
                         </div>
                       )}
                     </div>
@@ -185,15 +213,24 @@ const Page = () => {
 
       <section className="relative w-full h-[90vh] p-10">
         {/* Background Image */}
-        <Image src="/testi-back.jpeg" alt="testi" fill className="object-cover" />
+        <Image
+          src="/testi-back.jpeg"
+          alt="testi"
+          fill
+          className="object-cover"
+        />
 
         {/* Blue overlay */}
         <div className="absolute inset-0 bg-blue-800 bg-opacity-50 z-10"></div>
 
         {/* Content */}
         <div className="z-20 relative py-20">
-          <h1 className="text-2xl font-bold text-white text-center">Testimonials</h1>
-          <h2 className="text-4xl mt-2 font-bold text-white text-center">From Our Customers</h2>
+          <h1 className="text-2xl font-bold text-white text-center">
+            Testimonials
+          </h1>
+          <h2 className="text-4xl mt-2 font-bold text-white text-center">
+            From Our Customers
+          </h2>
 
           <div className="flex flex-col 2xl:flex-row justify-evenly px-10 mt-10">
             <div className="bg-white p-10 2xl:w-1/4 relative">
@@ -207,8 +244,8 @@ const Page = () => {
               </div>
 
               <p>
-                "Since the outsourcing of our customer service, we work more or less cost- covering through the
-                generated sales."
+                "Since the outsourcing of our customer service, we work more or
+                less cost- covering through the generated sales."
               </p>
 
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
@@ -225,8 +262,8 @@ const Page = () => {
               </div>
 
               <p>
-                "Since the outsourcing of our customer service, we work more or less cost- covering through the
-                generated sales."
+                "Since the outsourcing of our customer service, we work more or
+                less cost- covering through the generated sales."
               </p>
 
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
@@ -243,8 +280,8 @@ const Page = () => {
               </div>
 
               <p>
-                "Since the outsourcing of our customer service, we work more or less cost- covering through the
-                generated sales."
+                "Since the outsourcing of our customer service, we work more or
+                less cost- covering through the generated sales."
               </p>
 
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
@@ -282,7 +319,9 @@ const Page = () => {
             className="border border-black text-xl rounded-sm p-2 w-full mt-4"
           />
 
-          <button className="bg-blue-700 py-4 px-6 rounded-lg text-xl text-white mt-4">Send Message</button>
+          <button className="bg-blue-700 py-4 px-6 rounded-lg text-xl text-white mt-4">
+            Send Message
+          </button>
         </form>
       </section>
     </div>

@@ -6,6 +6,10 @@ const Page = () => {
   return (
     <div>
       <section className="relative w-full h-[40vh] 2xl:h-[80vh]">
+        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
+          <h1 className="text-6xl font-bold">About LTS</h1>
+        </div>
+        <div className="absolute inset-0 bg-primary opacity-60 z-10" />
         <Image src={data.heroBackground} alt="" fill />
       </section>
 
@@ -24,9 +28,26 @@ const Page = () => {
         <div dangerouslySetInnerHTML={{ __html: data.heroDescription }} />
       </section>
 
+      {data.managers.map((manager, i) => (
+        <div key={i} className="flex gap-10 max-w-6xl mx-auto py-10">
+          <div className="relative h-[500px] w-[600px] rounded-lg overflow-hidden mb-5">
+            <Image src={manager.avatar} alt="" fill />
+          </div>
+
+          <div className="max-w-2xl">
+            <h1 className="text-4xl font-bold mb-5 text-secondary">
+              {manager.name}
+            </h1>
+            <div dangerouslySetInnerHTML={{ __html: manager.description }} />
+          </div>
+        </div>
+      ))}
+
       {data.teams.map((team, i) => (
         <section key={i} className="p-10">
-          <h1 className="text-4xl font-bold mb-10 text-center text-primary">Meet our team in {team.location}</h1>
+          <h1 className="text-4xl font-bold mb-10 text-center text-primary">
+            Meet our team in {team.location}
+          </h1>
 
           <div className="flex justify-around flex-col gap-4 2xl:flex-row">
             {team.people.map((person, i) => (
@@ -35,8 +56,12 @@ const Page = () => {
                   <Image src={person.avatar} alt="" fill />
                 </div>
 
-                <h2 className="text-center mb-2 text-3xl font-bold text-secondary">{person.name}</h2>
-                <h2 className="text-center font-bold text-xl">{person.position}</h2>
+                <h2 className="text-center mb-2 text-3xl font-bold text-secondary">
+                  {person.name}
+                </h2>
+                <h2 className="text-center font-bold text-xl">
+                  {person.position}
+                </h2>
               </div>
             ))}
           </div>
@@ -72,7 +97,9 @@ const Page = () => {
             className="border border-black text-xl rounded-sm p-2 w-full mt-4"
           />
 
-          <button className="bg-primary py-4 px-6 rounded-lg text-xl text-white mt-4">Send Message</button>
+          <button className="bg-primary py-4 px-6 rounded-lg text-xl text-white mt-4">
+            Send Message
+          </button>
         </form>
       </section>
     </div>

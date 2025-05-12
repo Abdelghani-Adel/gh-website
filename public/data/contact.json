@@ -1,0 +1,25 @@
+{
+  "heroImage": "/placeholder.jpg",
+  "branches": [
+    {
+      "name": "Main",
+      "address": "Main Street 123",
+      "phone": "1234567890",
+      "email": "Main Street 123",
+      "instagram": "instagram.com",
+      "facebook": "facebook.com",
+      "linkedin": "linkedin.com",
+      "mapLocation": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d33.123456789!3d27.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x123456789abcdef!2sHurghada!5e0!3m2!1sen!2seg!4v1234567890"
+    },
+    {
+      "name": "Main",
+      "address": "Main Street 123",
+      "phone": "1234567890",
+      "email": "Main Street 123",
+      "instagram": "instagram.com",
+      "facebook": "facebook.com",
+      "linkedin": "linkedin.com",
+      "mapLocation": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d33.123456789!3d27.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x123456789abcdef!2sHurghada!5e0!3m2!1sen!2seg!4v1234567890"
+    }
+  ]
+}

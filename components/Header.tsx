@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
@@ -11,9 +12,11 @@ const Header = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="bg-primary text-white">
+    <header className="bg-white">
       <div className="flex items-center justify-between p-5 relative z-20">
-        <h2 className="text-2xl font-bold">Logo</h2>
+        <Link href="/" className="relative block h-[50px] w-[100px]">
+          <Image src="/logo.png" alt="Logo" fill />
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex ms-auto gap-10 text-lg font-bold">
@@ -27,9 +30,6 @@ const Header = () => {
             <Link href="/services">Services</Link>
           </li>
           <li>
-            <Link href="/our-team">Our Team</Link>
-          </li>
-          <li>
             <Link href="/career">Career</Link>
           </li>
           <li>
@@ -38,7 +38,11 @@ const Header = () => {
         </ul>
 
         {/* Mobile Hamburger */}
-        <button onClick={toggleMenu} className="block md:hidden" aria-label="Toggle Menu">
+        <button
+          onClick={toggleMenu}
+          className="block md:hidden"
+          aria-label="Toggle Menu"
+        >
           <IoMdMenu className="text-2xl" />
         </button>
       </div>
