@@ -34,13 +34,14 @@ const Page = () => {
       <section className="relative w-full h-[50vh] 2xl:h-[90vh]">
         <Image src="/hero.png" alt="ddd" fill />
 
-        <div className="absolute top-[40%] left-20 text-white space-y-4">
-          <h1 className="text-4xl font-bold">{homeData.hero.title}</h1>
+        <div className="absolute top-[40%] left-20 text-white space-y-6">
+          <h1 className="text-6xl">{homeData.hero.title}</h1>
           <div
+            className="text-4xl font-bold"
             dangerouslySetInnerHTML={{ __html: homeData.hero.description }}
           />
 
-          <button className="bg-secondary py-2 px-5 rounded-lg">
+          <button className="bg-primary py-3 px-6 rounded-lg text-xl">
             <Link href="/about-us">More Details</Link>
           </button>
         </div>
@@ -54,7 +55,7 @@ const Page = () => {
             <div
               dangerouslySetInnerHTML={{ __html: homeData.aboutUs.description }}
             />
-            <button className="bg-primary text-white py-2 px-5 rounded-lg">
+            <button className="bg-primary py-3 px-6 rounded-lg text-xl text-white">
               <Link href="/about-us">Read More</Link>
             </button>
           </div>

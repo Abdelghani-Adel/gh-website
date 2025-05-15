@@ -10,8 +10,13 @@ const Page = () => {
         <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
           <h1 className="text-6xl font-bold">LTS Services</h1>
         </div>
-        <div className="absolute inset-0 bg-primary opacity-60 z-10" />
-        <Image src="/services-background.jpg" alt="" fill />
+        <div className="absolute inset-0 bg-primary opacity-30 z-10" />
+        <Image
+          src="/services-background.jpg"
+          alt=""
+          fill
+          className="blur-[2px]"
+        />
       </section>
 
       <section className="p-10 bg-secondary space-y-20">

@@ -5,8 +5,12 @@ import data from "@/public/data/contact.json";
 const Page = () => {
   return (
     <div>
-      <section className="relative w-full h-[40vh] 2xl:h-[80vh]">
-        <Image src={data.heroImage} alt="" fill />
+      <section className="relative w-full h-[40vh] 2xl:h-[100vh]">
+        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
+          <h1 className="text-6xl font-bold">Contact Us</h1>
+        </div>
+        <div className="absolute inset-0 bg-primary opacity-20 z-10" />
+        <Image src="/contact-hero2.jpg" alt="" fill className="blur-[1px]" />
       </section>
 
       <section className="bg-secondary p-10">
