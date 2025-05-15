@@ -53,15 +53,15 @@ const Page = () => {
 
   return (
     <div>
-      <section className="relative w-full h-[40vh] 2xl:h-[80vh]">
-        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
-          <h1 className="text-6xl font-bold">Career</h1>
+      <section className="relative w-full h-[20vh] lg:h-[80vh]">
+        <div className="z-20 absolute text-white top-[40%] left-[10%]">
+          <h1 className="text-2xl lg:text-6xl font-bold">Career</h1>
         </div>
         <div className="absolute inset-0 bg-primary opacity-20 z-10" />
         <Image src="/career-hero.jpeg" alt="" fill className="blur-[1px]" />
       </section>
 
-      <section className="bg-secondary px-10 py-20 text-white grid grid-cols-2 gap-20 items-start">
+      <section className="bg-secondary px-10 py-20 text-white grid grid-cols-1 lg:grid-cols-2 gap-20  items-start">
         <div>
           <h2 className="text-4xl font-bold text-primary mb-10">
             Are you dedicated, hardworking and fun? Join us at G&H Dialogue!
@@ -74,11 +74,11 @@ const Page = () => {
             customers, our customers' customers and our employees.
           </p>
 
-          <div className="flex justify-evenly">
-            <button className="bg-primary py-3 px-6 rounded-lg text-xl text-white">
+          <div className="flex flex-col lg:flex-row gap-3 justify-evenly">
+            <button className="bg-primary py-3 px-6 rounded-lg block w-full text-xl text-white">
               <Link href="/about-us">Apply Now in Albania</Link>
             </button>
-            <button className="bg-primary py-3 px-6 rounded-lg text-xl text-white">
+            <button className="bg-primary py-3 px-6 rounded-lg block w-full text-xl text-white">
               <Link href="/about-us">Apply Now in Kosvo</Link>
             </button>
           </div>
@@ -126,15 +126,15 @@ const Page = () => {
 
         <div
           className={`
-                  grid gap-4 p-8
+                  grid grid-cols-1 gap-4 p-8
                   ${
                     positions.length % 4 === 1
-                      ? "grid-cols-1"
+                      ? "lg:grid-cols-1"
                       : positions.length % 4 === 2
-                      ? "grid-cols-2"
+                      ? "lg:grid-cols-2"
                       : positions.length % 4 === 3
-                      ? "grid-cols-3"
-                      : "grid-cols-4"
+                      ? "lg:grid-cols-3"
+                      : "lg:grid-cols-4"
                   }
                 `}
         >
@@ -152,7 +152,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="bg-secondary p-10 text-white flex justify-evenly">
+      <section className="bg-secondary p-10 text-white flex flex-col lg:flex-row gap-10 items-center justify-evenly">
         <div className="bg-primary shrink-0 h-[200px] w-[200px] rounded-full relative">
           <div className="absolute top-[45%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[80%] max-w-[150%]">
             <div className="flex flex-col justify-center items-center gap-4">

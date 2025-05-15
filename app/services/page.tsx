@@ -6,9 +6,9 @@ import Link from "next/link";
 const Page = () => {
   return (
     <div>
-      <section className="relative w-full h-[40vh] 2xl:h-[80vh]">
-        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
-          <h1 className="text-6xl font-bold">LTS Services</h1>
+      <section className="relative w-full h-[20vh] lg:h-[80vh]">
+        <div className="z-20 absolute text-white top-[40%] left-[10%]">
+          <h1 className="text-2xl lg:text-6xl font-bold">LTS Services</h1>
         </div>
         <div className="absolute inset-0 bg-primary opacity-30 z-10" />
         <Image

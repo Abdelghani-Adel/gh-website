@@ -68,23 +68,18 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about-us" onClick={closeMenu}>
-              About Us
-            </Link>
-          </li>
-          <li>
             <Link href="/services" onClick={closeMenu}>
               Services
             </Link>
           </li>
           <li>
-            <Link href="/our-team" onClick={closeMenu}>
-              Our Team
+            <Link href="/career" onClick={closeMenu}>
+              Career
             </Link>
           </li>
           <li>
-            <Link href="/career" onClick={closeMenu}>
-              Career
+            <Link href="/about-us" onClick={closeMenu}>
+              About Us
             </Link>
           </li>
           <li>

@@ -5,9 +5,9 @@ import data from "@/public/data/aboutUs.json";
 const Page = () => {
   return (
     <div>
-      <section className="relative w-full h-[40vh] 2xl:h-[80vh]">
-        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
-          <h1 className="text-6xl font-bold">About LTS</h1>
+      <section className="relative w-full h-[20vh] lg:h-[80vh]">
+        <div className="z-20 absolute text-white top-[40%] left-[10%]">
+          <h1 className="text-2xl lg:text-6xl font-bold">About LTS</h1>
         </div>
         <div className="absolute inset-0 bg-primary opacity-30 z-10" />
         <Image src={data.heroBackground} alt="" fill className="blur-[2px]" />
@@ -29,8 +29,11 @@ const Page = () => {
       </section>
 
       {data.managers.map((manager, i) => (
-        <div key={i} className="flex gap-10 max-w-6xl mx-auto py-10">
-          <div className="relative h-[500px] w-[600px] rounded-lg overflow-hidden mb-5">
+        <div
+          key={i}
+          className="flex flex-col lg:flex-row gap-10 max-w-6xl mx-auto p-10"
+        >
+          <div className="relative h-[400px] lg:h-[500px] lg:w-[600px] rounded-lg overflow-hidden mb-5">
             <Image src={manager.avatar} alt="" fill />
           </div>
 

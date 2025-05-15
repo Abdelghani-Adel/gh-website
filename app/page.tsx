@@ -34,10 +34,10 @@ const Page = () => {
       <section className="relative w-full h-[50vh] 2xl:h-[90vh]">
         <Image src="/hero.png" alt="ddd" fill />
 
-        <div className="absolute top-[40%] left-20 text-white space-y-6">
-          <h1 className="text-6xl">{homeData.hero.title}</h1>
+        <div className="absolute top-[40%] left-10 2xl:left-20 text-white space-y-6">
+          <h1 className="text-2xl 2xl:text-6xl">{homeData.hero.title}</h1>
           <div
-            className="text-4xl font-bold"
+            className="text-xl 2xl:text-4xl font-bold"
             dangerouslySetInnerHTML={{ __html: homeData.hero.description }}
           />
 

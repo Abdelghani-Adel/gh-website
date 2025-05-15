@@ -5,18 +5,21 @@ import data from "@/public/data/contact.json";
 const Page = () => {
   return (
     <div>
-      <section className="relative w-full h-[40vh] 2xl:h-[100vh]">
-        <div className="z-20 absolute text-white lg:top-[40%] lg:left-[10%]">
-          <h1 className="text-6xl font-bold">Contact Us</h1>
+      <section className="relative w-full h-[20vh] lg:h-[80vh]">
+        <div className="z-20 absolute text-white top-[40%] left-[10%]">
+          <h1 className="text-2xl lg:text-6xl font-bold">Contact Us</h1>
         </div>
         <div className="absolute inset-0 bg-primary opacity-20 z-10" />
         <Image src="/contact-hero2.jpg" alt="" fill className="blur-[1px]" />
       </section>
 
       <section className="bg-secondary p-10">
-        <div className="grid grid-cols-2 max-w-6xl mx-auto gap-10">
+        <div className="grid gir-cols-1 lg:grid-cols-2 max-w-6xl mx-auto gap-10">
           {data.branches.map((branch, i) => (
-            <div key={i} className="flex justify-between">
+            <div
+              key={i}
+              className="flex flex-col lg:flex-row gap-10 justify-between"
+            >
               <div className="space-y-3 shrink-0">
                 <h2 className="text-3xl font-bold mb-4">{branch.name}</h2>
                 <p>{branch.address}</p>
