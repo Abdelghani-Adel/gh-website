@@ -31,7 +31,7 @@ const Page = () => {
 
   return (
     <div className="">
-      <section className="relative w-full h-[50vh] 2xl:h-[90vh]">
+      <section className="relative w-full h-[50vh] 2xl:h-[90vh]" id="hero">
         <Image src="/hero.png" alt="ddd" fill />
 
         <div className="absolute top-[40%] left-10 2xl:left-20 text-white space-y-6">
@@ -47,7 +47,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="bg-secondary p-10">
+      <section className="bg-secondary p-10" id="about-us">
         <div className="flex flex-col 2xl:flex-row gap-10">
           <div className="2xl:w-1/2 space-y-5">
             <h1 className="text-4xl text-white">About Us</h1>
@@ -68,7 +68,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section>
+      <section id="analytics">
         <div className="grid 2xl:grid-cols-4">
           <div className="bg-purple-800 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
@@ -137,7 +137,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section>
+      <section id="timeline">
         <div className="min-h-screen bg-white py-10 px-4">
           <div className="text-center mb-16 text-3xl">
             <h2 className="text-secondary font-medium">
