@@ -5,29 +5,20 @@ import React, { useEffect, useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import homeData from "@/public/data/home.json";
+import { getPageData } from "@/utils/ApiService";
 
 const Page = () => {
-  const [data, setData] = useState<any>();
-  const [aboutUs, setAboutUs] = useState<any>();
-  const [hero, setHero] = useState<any>();
-  const [analytics, setAnalytics] = useState<any>();
+  const [sections, setSections] = useState<any>();
 
   useEffect(() => {
     const fetchData = async () => {
-      // const respnonse = await fetch("http://localhost:3010/api/pages/home");
-      // const result = await respnonse.json();
-      // setData(result);
+      const sections = await getPageData(1, "en");
+      console.log(sections);
+      setSections(sections);
     };
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const heroData = data?.content.sections.hero.en;
-    const analytics = data?.content.sections.analytics.en;
-    setHero(heroData);
-    setAnalytics(analytics);
-  }, [data]);
 
   return (
     <div className="">
@@ -35,10 +26,10 @@ const Page = () => {
         <Image src="/hero.png" alt="ddd" fill />
 
         <div className="absolute top-[40%] left-10 2xl:left-20 text-white space-y-6">
-          <h1 className="text-2xl 2xl:text-6xl">{homeData.hero.title}</h1>
+          <h1 className="text-2xl 2xl:text-6xl">{sections?.hero?.title}</h1>
           <div
             className="text-xl 2xl:text-4xl font-bold"
-            dangerouslySetInnerHTML={{ __html: homeData.hero.description }}
+            dangerouslySetInnerHTML={{ __html: sections?.hero?.description }}
           />
 
           <button className="bg-primary py-3 px-6 rounded-lg text-xl">
@@ -51,9 +42,13 @@ const Page = () => {
         <div className="flex flex-col 2xl:flex-row gap-10">
           <div className="2xl:w-1/2 space-y-5">
             <h1 className="text-4xl text-white">About Us</h1>
-            {/* <h2 className="text-primary text-4xl font-bold">{aboutUs?.title}</h2> */}
+            <h2 className="text-primary text-4xl font-bold">
+              {sections?.aboutus?.title}
+            </h2>
             <div
-              dangerouslySetInnerHTML={{ __html: homeData.aboutUs.description }}
+              dangerouslySetInnerHTML={{
+                __html: sections?.aboutus?.description,
+              }}
             />
             <button className="bg-primary py-3 px-6 rounded-lg text-xl text-white">
               <Link href="/about-us">Read More</Link>
@@ -62,7 +57,7 @@ const Page = () => {
 
           <div className="2xl:w-1/2">
             <div className="relative h-[30vh] 2xl:h-[60vh] 2xl:w-[90vh] p-4 outline outline-[15px] outline-primary 2xl:rounded-ss-[10rem] 2xl:rounded-ee-[10rem] overflow-hidden">
-              <Image src={homeData.aboutUs.image} alt="Team working" fill />
+              <Image src={sections?.aboutus?.image} alt="Team working" fill />
             </div>
           </div>
         </div>
@@ -73,7 +68,7 @@ const Page = () => {
           <div className="bg-purple-800 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.employees}
+                {sections?.analytics?.employees}
               </h2>
               <h3 className="text-3xl text-white">Employees</h3>
             </div>
@@ -82,7 +77,7 @@ const Page = () => {
           <div className="bg-pink-600 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.languages}
+                {sections?.analytics?.languages}
               </h2>
               <h3 className="text-3xl text-white">Languages</h3>
             </div>
@@ -91,7 +86,7 @@ const Page = () => {
           <div className="bg-orange-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.locations}
+                {sections?.analytics?.locations}
               </h2>
               <h3 className="text-3xl text-white">Locations</h3>
             </div>
@@ -100,7 +95,7 @@ const Page = () => {
           <div className="bg-yellow-400 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.qmTeam}
+                {sections?.analytics?.qmTeam}
               </h2>
               <h3 className="text-3xl text-white">QM team</h3>
             </div>
@@ -111,7 +106,7 @@ const Page = () => {
           <div className="bg-blue-500 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.coaches}
+                {sections?.analytics?.coaches}
               </h2>
               <h3 className="text-3xl text-white">Coaches</h3>
             </div>
@@ -120,7 +115,7 @@ const Page = () => {
           <div className="bg-gray-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.pl}
+                {sections?.analytics?.pl}
               </h2>
               <h3 className="text-3xl text-white">PL</h3>
             </div>
@@ -129,7 +124,7 @@ const Page = () => {
           <div className="bg-blue-300 p-10 flex items-center justify-center text-center">
             <div className="space-y-3">
               <h2 className="text-white text-6xl font-bold">
-                {homeData.analytics?.tl}
+                {sections?.analytics?.tl}
               </h2>
               <h3 className="text-3xl text-white">TL</h3>
             </div>
@@ -141,7 +136,7 @@ const Page = () => {
         <div className="min-h-screen bg-white py-10 px-4">
           <div className="text-center mb-16 text-3xl">
             <h2 className="text-secondary font-medium">
-              {homeData.timeline.title}
+              {sections?.timeline?.title}
             </h2>
           </div>
 
@@ -150,7 +145,7 @@ const Page = () => {
             <div className="absolute left-1/2 top-0 w-1 bg-secondary h-full transform -translate-x-1/2"></div>
 
             <div className="flex flex-col space-y-12">
-              {homeData.timeline.years.map((year, idx) => {
+              {sections?.timeline?.years.map((year: any, idx: any) => {
                 const isLeft = idx % 2 === 0;
                 return (
                   <div key={idx} className="grid grid-cols-9 items-center">
@@ -234,7 +229,24 @@ const Page = () => {
           </h2>
 
           <div className="flex flex-col 2xl:flex-row justify-evenly px-10 mt-10">
-            <div className="bg-white p-10 2xl:w-1/4 relative">
+            {sections?.testimonials?.map((review: any) => (
+              <div className="bg-white p-10 2xl:w-1/4 relative">
+                <div className="flex items-center gap-5">
+                  <RxAvatar className="text-6xl text-blue-500" />
+
+                  <div>
+                    <p>{review.name}</p>
+                    <p className="font-bold">{review.position}</p>
+                  </div>
+                </div>
+
+                <p>{review.comment}</p>
+
+                <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
+              </div>
+            ))}
+
+            {/* <div className="bg-white p-10 2xl:w-1/4 relative">
               <div className="flex items-center gap-5">
                 <RxAvatar className="text-6xl text-blue-500" />
 
@@ -286,7 +298,7 @@ const Page = () => {
               </p>
 
               <FaQuoteLeft className="absolute right-5 -bottom-5 text-6xl text-blue-500" />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
