@@ -132,14 +132,14 @@ export const servicesData = {
 };
 
 const HeroSection = ({ hero }) => (
-  <section className="relative min-h-[600px] bg-gradient-to-br from-slate-900 via-blue-900 to-teal-800 text-white overflow-hidden">
+  <section className="relative min-h-[600px] bg-gradient-to-br from-slate-900 via-blue-800 to-teal-800 text-white overflow-hidden">
     {/* Background Pattern */}
     <div className="absolute inset-0 opacity-20">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-4 border-cyan-400 animate-pulse"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full border-2 border-cyan-300 animate-ping"></div>
     </div>
 
-    <div className="relative z-10 container max-w-6xl mx-auto px-6 py-20 lg:py-32">
+    <div className="relative z-10 container max-w-6xl mx-auto px-6 pt-20 lg:pt-40">
       <div className="max-w-2xl">
         <h1 className="text-5xl lg:text-6xl font-bold mb-6">{hero.title}</h1>
         <h2 className="text-xl lg:text-2xl font-light mb-8 text-cyan-100">
@@ -148,25 +148,6 @@ const HeroSection = ({ hero }) => (
         <p className="text-lg mb-8 text-gray-200 leading-relaxed">
           {hero.description}
         </p>
-        <a
-          href={hero.buttonLink}
-          className="inline-flex items-center px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
-        >
-          {hero.buttonText}
-          <svg
-            className="ml-2 w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </a>
       </div>
     </div>
   </section>
@@ -187,7 +168,9 @@ const ServiceCard = ({ service, index }) => {
   const isEven = index % 2 === 0;
 
   return (
-    <section className={`py-28 ${isEven ? "bg-white" : "bg-secondary"}`}>
+    <section
+      className={`py-28 ${isEven ? "bg-white" : "bg-second text-white"}`}
+    >
       <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-6">
         <div
           className={`flex flex-col lg:flex-row items-center gap-12 ${
@@ -196,17 +179,15 @@ const ServiceCard = ({ service, index }) => {
         >
           {/* Content */}
           <div className="flex-1 space-y-6">
-            <h3 className="text-4xl lg:text-5xl font-bold text-gray-900">
+            <h3 className="text-4xl lg:text-5xl font-bold text-main">
               {service.title}
             </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {service.description}
-            </p>
+            <p className="text-lg leading-relaxed">{service.description}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.items.map((item, idx) => (
                 <div key={idx} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-gray-700 font-medium">{item}</span>
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="font-medium">{item}</span>
                 </div>
               ))}
             </div>
