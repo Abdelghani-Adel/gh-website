@@ -51,7 +51,7 @@ const Header = () => {
 
   // Function to get link styles based on active state
   const getLinkStyles = (href: string) => {
-    const baseStyles = "block p-5 rounded transition-all duration-200";
+    const baseStyles = "block px-5 py-2 rounded transition-all duration-200";
     const activeStyles = "bg-second text-white";
     const inactiveStyles = "hover:bg-gray-100 hover:text-gray-800";
 
@@ -76,7 +76,7 @@ const Header = () => {
             </SheetTrigger>
 
             <Link href="/" className="relative block h-[50px] w-[100px]">
-              <Image src="/logo.png" alt="Logo" fill />
+              <Image src="/logo_white.png" alt="Logo" fill />
             </Link>
           </div>
 
@@ -86,16 +86,16 @@ const Header = () => {
             </button>
           </div>
 
-          <SheetContent side="left">
+          <SheetContent side="left" className="bg-main border-main text-white">
             <SheetHeader>
               <SheetClose asChild>
                 <Link href="/" className="relative block h-[50px] w-[100px]">
-                  <Image src="/logo.png" alt="Logo" fill />
+                  <Image src="/logo_white.png" alt="Logo" fill />
                 </Link>
               </SheetClose>
             </SheetHeader>
 
-            <div className="flex flex-col mt-10 space-y-4 text-xl font-bold">
+            <div className="flex flex-col mt-10 space-y-2 text-xl font-bold">
               {navItems.map((item) => (
                 <SheetClose key={item.href} asChild>
                   <Link href={item.href} className={getLinkStyles(item.href)}>

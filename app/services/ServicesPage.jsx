@@ -171,7 +171,7 @@ const ServiceCard = ({ service, index }) => {
     <section
       className={`py-28 ${isEven ? "bg-white" : "bg-second text-white"}`}
     >
-      <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-6">
+      <div className="container max-w-6xl mx-auto px-6">
         <div
           className={`flex flex-col lg:flex-row items-center gap-12 ${
             !isEven ? "lg:flex-row-reverse" : ""
