@@ -14,7 +14,9 @@ import {
   Command,
   Quote,
   Star,
+  CircleCheck,
 } from "lucide-react";
+import Image from "next/image";
 
 const LTSHomepage = () => {
   // JSON data structure for backend integration
@@ -23,20 +25,15 @@ const LTSHomepage = () => {
       title: "We're LTS.",
       subtitle: "The future of trouism.",
       description:
-        "We're an intelligent solutions-first technology leader dedicated to helping our clients evolve their business, organizations, and sales lines everywhere LTS touches them.",
-      primaryButton: {
-        text: "Learn More",
-        href: "#learn-more",
-      },
+        "<p>We're an intelligent solutions-first technology leader dedicated to helping our clients evolve their business, organizations, and sales lines everywhere LTS touches them.</p>",
     },
-    solutionSection: {
+    about: {
       title: "Welcome to the world of LTS. your near shore tourism partner.",
       description:
-        "Founded 2012 fully operational since 2013 we offer tailor made business solutions for the big players in tourism industry. GH360 provides you with a range of services such as simple customer care to more complex accounting as well as development. All in one for your convenience and  satisfaction.",
-      image: "/api/placeholder/500/300",
-      button: {
-        text: "Our Story",
-        href: "#our-story",
+        "<p>Founded 2012 fully operational since 2013 we offer tailor made business solutions for the big players in tourism industry. GH360 provides you with a range of services such as simple customer care to more complex accounting as well as development. All in one for your convenience and  satisfaction.</p>",
+      image: {
+        src: "/career-hero-image.jpg",
+        alt: "Company Image",
       },
     },
     services: {
@@ -48,175 +45,46 @@ const LTSHomepage = () => {
           id: 1,
           title: "Outsourcing Services",
           description:
-            "G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer  companies in particular to attract customers.",
-          icon: "users",
-          link: "#strategy",
-          image: "/api/placeholder/150/150",
+            "<p>G&H Dialog is your trustworthy partner to successfully implement these wishes. We have specialized in advising and improving customer  companies in particular to attract customers.</p>",
         },
         {
           id: 2,
           title: "Consulting Services",
           description:
-            "We harness predictive intelligence and actionable insights that enable smarter business decisions",
-          icon: "bar-chart",
-          link: "#data",
-          image: "/api/placeholder/150/150",
+            "<p>We harness predictive intelligence and actionable insights that enable smarter business decisions</p>",
         },
         {
           id: 3,
           title: "Social Media Services",
           description:
-            "We simplify all the technology for operational efficiency and competitive differentiation",
-          icon: "monitor",
-          link: "#enterprise",
-          image: "/api/placeholder/150/150",
+            "<p>We simplify all the technology for operational efficiency and competitive differentiation</p>",
         },
         {
           id: 4,
           title: "Training Services",
           description:
-            "We connect people and processes to make operations run seamlessly, innovatively, and sustainably",
-          icon: "zap",
-          link: "#digital",
-          image: "/api/placeholder/150/150",
+            "<p>We connect people and processes to make operations run seamlessly, innovatively, and sustainably</p>",
         },
         {
           id: 5,
           title: "Call Center Services",
           description:
-            "We connect people and processes to make operations run seamlessly, innovatively, and sustainably",
-          icon: "zap",
-          link: "#digital",
-          image: "/api/placeholder/150/150",
+            "<p>We connect people and processes to make operations run seamlessly, innovatively, and sustainably</p>",
         },
         {
           id: 6,
           title: "Consulting Services",
           description:
-            "We connect people and processes to make operations run seamlessly, innovatively, and sustainably",
-          icon: "zap",
-          link: "#digital",
-          image: "/api/placeholder/150/150",
+            "<p>We connect people and processes to make operations run seamlessly, innovatively, and sustainably</p>",
         },
       ],
     },
-    analytics: {
-      title: "LTS by the Numbers",
-      subtitle: "Our global presence and team strength",
-      stats: [
-        {
-          id: 1,
-          number: "350",
-          label: "Employees",
-          description: "Dedicated professionals",
-          icon: "users",
-        },
-        {
-          id: 2,
-          number: "12",
-          label: "Languages",
-          description: "Multi-lingual support capabilities",
-          icon: "globe",
-        },
-        {
-          id: 3,
-          number: "3",
-          label: "Locations",
-          description: "Strategic global offices",
-          icon: "map",
-        },
-        {
-          id: 4,
-          number: "1",
-          label: "QM Team",
-          description: "Quality management excellence",
-          icon: "shield",
-        },
-        {
-          id: 5,
-          number: "5",
-          label: "Coaches",
-          description: "Expert training specialists",
-          icon: "award",
-        },
-        {
-          id: 6,
-          number: "4",
-          label: "Project Leaders",
-          description: "Strategic project management",
-          icon: "target",
-        },
-        {
-          id: 7,
-          number: "10",
-          label: "Team Leaders",
-          description: "Operational team leadership",
-          icon: "command",
-        },
-      ],
-    },
-    ixHero: {
-      title: "iXHero",
-      subtitle: "Your advisors. With AI superpowers.",
-      description:
-        "iX years ago we moved to artificial intelligence to optimize their smartest performance capabilities to make work much better. They blend business intelligence with AI automation, enabling self-sufficient advisory solutions that make smart work across all teams.",
-      button: {
-        text: "Learn More",
-        href: "#ixhero",
-      },
-      image: "/api/placeholder/400/300",
-    },
-    // insights: {
-    //   title: "Featured Insights",
-    //   subtitle: "Stay informed with what matters most across industries",
-    //   items: [
-    //     {
-    //       id: 1,
-    //       title: "Navigating the Insurance Claims Management Landscape",
-    //       image: "/api/placeholder/250/200",
-    //       link: "#insight1",
-    //     },
-    //     {
-    //       id: 2,
-    //       title:
-    //         "The Age of Artificial Intelligence: What Does This Say & Give Era of AI",
-    //       image: "/api/placeholder/250/200",
-    //       link: "#insight2",
-    //     },
-    //     {
-    //       id: 3,
-    //       title:
-    //         "Unlocking a Culture Revolution: How to Change the Game Course",
-    //       image: "/api/placeholder/250/200",
-    //       link: "#insight3",
-    //     },
-    //     {
-    //       id: 4,
-    //       title:
-    //         "Digital CX stands transformation: How Do Customers AI Define Success",
-    //       image: "/api/placeholder/250/200",
-    //       link: "#insight4",
-    //     },
-    //   ],
-    // },
     sustainability: {
       title: "Our sustainability commitment",
-      description:
-        "As a global business, we are responsible for protecting the world around us. That's why we focus on sustainable and responsible business practices that make a positive difference for people, planet and profit.",
       subtitle:
         "At LTS, we see great opportunity to use our vision for smart and meaningful work to make the world a better place.",
-      button: {
-        text: "Learn More",
-        href: "#sustainability",
-      },
-      teamImages: [
-        "/api/placeholder/100/100",
-        "/api/placeholder/100/100",
-        "/api/placeholder/100/100",
-        "/api/placeholder/100/100",
-        "/api/placeholder/100/100",
-        "/api/placeholder/100/100",
-      ],
+      description:
+        "<p>As a global business, we are responsible for protecting the world around us. That's why we focus on sustainable and responsible business practices that make a positive difference for people, planet and profit.</p>",
     },
     timeline: {
       title: "Our Journey",
@@ -227,7 +95,7 @@ const LTSHomepage = () => {
           year: "2013",
           title: "Company Founded",
           description:
-            "LTS. was founded in 2013 from the cooperation between Lukas Hirschl and Rajner Goeg",
+            "<p>LTS. was founded in 2013 from the cooperation between Lukas Hirschl and Rajner Goeg</p>",
           milestone: "Foundation",
         },
         {
@@ -235,7 +103,7 @@ const LTSHomepage = () => {
           year: "2014",
           title: "Strategic Alignment",
           description:
-            "Acquisition of the customer Unister and thus strategic alignment: Tourism",
+            "<p>Acquisition of the customer Unister and thus strategic alignment: Tourism</p>",
           milestone: "Tourism Focus",
         },
         {
@@ -243,7 +111,7 @@ const LTSHomepage = () => {
           year: "2015",
           title: "Major Growth & Certification",
           description:
-            "PCI DSS full certification. Growth to 80 FTE, acquired 7 Travel customers and Kuoni Swiss AG",
+            "<p>PCI DSS full certification. Growth to 80 FTE, acquired 7 Travel customers and Kuoni Swiss AG</p>",
           milestone: "Growth",
         },
         {
@@ -251,7 +119,7 @@ const LTSHomepage = () => {
           year: "2016",
           title: "International Expansion",
           description:
-            "Schmetterling Reisen International is won as a costumer. Expansion of the cooperation with Kuoni to include Helvetictours.ch and Lastminute.ch growth to 100 FTE",
+            "<p>Schmetterling Reisen International is won as a costumer. Expansion of the cooperation with Kuoni to include Helvetictours.ch and Lastminute.ch growth to 100 FTE</p>",
           milestone: "Expansion",
         },
         {
@@ -259,7 +127,7 @@ const LTSHomepage = () => {
           year: "2017",
           title: "FTI Partnership",
           description:
-            "FTI is acquired as a customer. Kurz mal weg.de extends the contract, Growth to 140 FTE",
+            "<p>FTI is acquired as a customer. Kurz mal weg.de extends the contract, Growth to 140 FTE</p>",
           milestone: "Partnership",
         },
         {
@@ -267,7 +135,7 @@ const LTSHomepage = () => {
           year: "2018",
           title: "Invia Travel & New Projects",
           description:
-            "Invia Travel (formerly Unister) and LTS. conclude an exclusive agreement for the creation of a sales location in Tirana. With Sunnycare, the first 24/7/365 shifts are started Driveboo and LMX are added",
+            "<p>Invia Travel (formerly Unister) and LTS. conclude an exclusive agreement for the creation of a sales location in Tirana. With Sunnycare, the first 24/7/365 shifts are started Driveboo and LMX are added</p>",
           milestone: "Innovation",
         },
         {
@@ -275,7 +143,7 @@ const LTSHomepage = () => {
           year: "2019",
           title: "Major Milestone",
           description:
-            "LTS. has 240 employees spread over 2 locations, for the first time the business travel sector is opened up with the partner Depart24. Tour Online expands together with LTS. and we can also count TUI Suisse LTS. and Sonnenklar.TV work together. At the end of the year LTS. has 240 employees",
+            "<p>LTS. has 240 employees spread over 2 locations, for the first time the business travel sector is opened up with the partner Depart24. Tour Online expands together with LTS. and we can also count TUI Suisse LTS. and Sonnenklar.TV work together. At the end of the year LTS. has 240 employees</p>",
           milestone: "Excellence",
         },
       ],
@@ -291,7 +159,6 @@ const LTSHomepage = () => {
           author: "Sarah Mitchell",
           position: "Head of Operations",
           company: "Global Travel Solutions",
-          image: "/api/placeholder/80/80",
           rating: 5,
         },
         {
@@ -301,7 +168,6 @@ const LTSHomepage = () => {
           author: "Carlos Rodriguez",
           position: "CEO",
           company: "Mediterranean Tours",
-          image: "/api/placeholder/80/80",
           rating: 5,
         },
         {
@@ -311,8 +177,62 @@ const LTSHomepage = () => {
           author: "Emma Thompson",
           position: "VP Customer Experience",
           company: "Adventure Holidays Group",
-          image: "/api/placeholder/80/80",
           rating: 5,
+        },
+      ],
+    },
+    analytics: {
+      title: "LTS by the Numbers",
+      subtitle: "Our global presence and team strength",
+      stats: [
+        {
+          id: 1,
+          number: "350",
+          title: "Employees",
+          subTitle: "Dedicated professionals",
+          icon: "users",
+        },
+        {
+          id: 2,
+          number: "12",
+          title: "Languages",
+          subTitle: "Multi-lingual support capabilities",
+          icon: "globe",
+        },
+        {
+          id: 3,
+          number: "3",
+          title: "Locations",
+          subTitle: "Strategic global offices",
+          icon: "map",
+        },
+        {
+          id: 4,
+          number: "1",
+          title: "QM Team",
+          subTitle: "Quality management excellence",
+          icon: "shield",
+        },
+        {
+          id: 5,
+          number: "5",
+          title: "Coaches",
+          subTitle: "Expert training specialists",
+          icon: "award",
+        },
+        {
+          id: 6,
+          number: "4",
+          title: "Project Leaders",
+          subTitle: "Strategic project management",
+          icon: "target",
+        },
+        {
+          id: 7,
+          number: "10",
+          title: "Team Leaders",
+          subTitle: "Operational team leadership",
+          icon: "command",
         },
       ],
     },
@@ -323,70 +243,81 @@ const LTSHomepage = () => {
         {
           id: 1,
           name: "TravelTech Solutions",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
         {
           id: 2,
           name: "Global Hospitality Group",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
         {
           id: 3,
           name: "Adventure Tours International",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
         {
           id: 4,
           name: "Luxury Travel Partners",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
         {
           id: 5,
           name: "Eco Tourism Alliance",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
         {
           id: 6,
           name: "Digital Booking Systems",
-          logo: "/api/placeholder/150/60",
+          logo: {
+            src: "/api/placeholder/150/60",
+            alt: "TravelTech Solutions Logo",
+          },
         },
       ],
-      stats: {
-        title: "Client Success Metrics",
-        items: [
-          {
-            id: 1,
-            number: "98%",
-            label: "Client Satisfaction",
-            description: "Customer satisfaction rate",
-          },
-          {
-            id: 2,
-            number: "45%",
-            label: "Cost Reduction",
-            description: "Average operational savings",
-          },
-          {
-            id: 3,
-            number: "24/7",
-            label: "Support Coverage",
-            description: "Round-the-clock availability",
-          },
-          {
-            id: 4,
-            number: "150+",
-            label: "Active Projects",
-            description: "Ongoing client engagements",
-          },
-        ],
-      },
+      stats: [
+        {
+          id: 1,
+          number: "98%",
+          label: "Client Satisfaction",
+          description: "Customer satisfaction rate",
+        },
+        {
+          id: 2,
+          number: "45%",
+          label: "Cost Reduction",
+          description: "Average operational savings",
+        },
+        {
+          id: 3,
+          number: "24/7",
+          label: "Support Coverage",
+          description: "Round-the-clock availability",
+        },
+        {
+          id: 4,
+          number: "150+",
+          label: "Active Projects",
+          description: "Ongoing client engagements",
+        },
+      ],
     },
-    finalCta: {
+    cta: {
       title: "LTS. Powering a world that works",
-      button: {
-        text: "Get Started",
-        href: "#get-started",
-      },
     },
   };
 
@@ -426,11 +357,13 @@ const LTSHomepage = () => {
               <p className="text-xl lg:text-2xl text-teal-100 mb-4 font-medium">
                 {pageData.hero.subtitle}
               </p>
-              <p className="text-lg text-teal-50 mb-8 leading-relaxed">
-                {pageData.hero.description}
-              </p>
+
+              <div
+                className="mb-8"
+                dangerouslySetInnerHTML={{ __html: pageData.hero.description }}
+              />
               <button className="bg-second hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2">
-                {pageData.hero.primaryButton.text}
+                Learn More
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -444,21 +377,26 @@ const LTSHomepage = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-                {pageData.solutionSection.title}
+                {pageData.about.title}
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                {pageData.solutionSection.description}
-              </p>
+              <div
+                className="mb-8"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.about.description,
+                }}
+              />
+
               <button className="bg-second hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300">
-                {pageData.solutionSection.button.text}
+                Our Story
               </button>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl p-8 h-80 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <Zap className="w-16 h-16 mx-auto mb-4" />
-                  <p className="text-xl font-medium">Intelligent Technology</p>
-                </div>
+              <div className="rounded-2xl overflow-hidden p-8 h-80 relative">
+                <Image
+                  src={pageData.about.image.src}
+                  alt={pageData.about.image.alt}
+                  fill
+                />
               </div>
             </div>
           </div>
@@ -484,14 +422,19 @@ const LTSHomepage = () => {
                 className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="text-white">{getIcon(service.icon)}</div>
+                  <div className="text-white">
+                    <CircleCheck className="text-6xl h-12 w-12" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+
+                <div
+                  className="mb-6"
+                  dangerouslySetInnerHTML={{ __html: service.description }}
+                />
+
                 <button className="text-teal-600 hover:text-teal-700 font-medium flex items-center gap-2 mx-auto">
                   Learn More
                   <ArrowRight className="w-4 h-4" />
@@ -507,25 +450,30 @@ const LTSHomepage = () => {
         <div className="container max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-3 gap-4">
-              {pageData.sustainability.teamImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full"
-                ></div>
-              ))}
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-full" />
             </div>
             <div>
               <h2 className="text-4xl font-bold mb-6">
                 {pageData.sustainability.title}
               </h2>
-              <p className="text-lg text-teal-100 mb-6 leading-relaxed">
-                {pageData.sustainability.description}
-              </p>
               <p className="text-lg text-teal-50 mb-8 leading-relaxed">
                 {pageData.sustainability.subtitle}
               </p>
+
+              <div
+                className="mb-6"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.sustainability.description,
+                }}
+              />
+
               <button className="bg-second hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300">
-                {pageData.sustainability.button.text}
+                Learn More
               </button>
             </div>
           </div>
@@ -640,7 +588,7 @@ const LTSHomepage = () => {
                 </blockquote>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full"></div>
+                  {/* <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full"></div> */}
                   <div>
                     <div className="font-semibold text-gray-900">
                       {testimonial.author}
@@ -685,10 +633,10 @@ const LTSHomepage = () => {
                     {stat.number}
                   </div>
                   <div className="text-lg font-semibold mb-2 text-teal-100">
-                    {stat.label}
+                    {stat.title}
                   </div>
                   <div className="text-sm text-teal-200 leading-relaxed">
-                    {stat.description}
+                    {stat.subTitle}
                   </div>
                 </div>
               </div>
@@ -728,7 +676,7 @@ const LTSHomepage = () => {
 
             {/* Client Success Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-              {pageData.customers.stats.items.map((stat) => (
+              {pageData.customers.stats.map((stat) => (
                 <div key={stat.id} className="text-center">
                   <div className="text-3xl lg:text-4xl font-bold text-teal-600 mb-2">
                     {stat.number}
@@ -779,10 +727,10 @@ const LTSHomepage = () => {
       <section className="py-20 bg-second text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-            {pageData.finalCta.title}
+            {pageData.cta.title}
           </h2>
           <button className="bg-white hover:bg-gray-100 text-teal-600 px-10 py-4 rounded-full font-bold text-lg transition-colors duration-300">
-            {pageData.finalCta.button.text}
+            Get Started
           </button>
         </div>
       </section>
