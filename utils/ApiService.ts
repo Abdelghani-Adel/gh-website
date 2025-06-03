@@ -1,7 +1,6 @@
 export interface ISection {}
 
 let URL = "https://dist-ten-gold.vercel.app/api";
-// URL = "http://192.168.30.67:3000/api/pages/";
 
 export async function getPageData(pageId: number, lang: string) {
   const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`);
