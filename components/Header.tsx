@@ -18,6 +18,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [language, setLanguage] = useState("FR");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -63,7 +64,7 @@ const Header = () => {
   return (
     <header
       className={`fixed z-20 w-full transition-all duration-150 ease-in-out ${
-        isScrolled ? "bg-main" : ""
+        isScrolled ? "bg-blue-600" : ""
       }`}
     >
       <Sheet>
@@ -76,15 +77,24 @@ const Header = () => {
             </SheetTrigger>
 
             <Link href="/" className="relative block h-[50px] w-[100px]">
-              <Image src="/logo_white.png" alt="Logo" fill />
+              <Image src="/logo.png" alt="Logo" fill />
             </Link>
           </div>
 
-          <div>
+          {/* <div className="flex items-center gap-4">
             <button className="text-white border-2 border-white px-5 py-2 rounded-full text-xl cursor-pointer hover:bg-white hover:text-primary transition-colors duration-200">
               Careers
             </button>
-          </div>
+
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="bg-white text-black px-4 py-2 rounded cursor-pointer"
+            >
+              <option value="FR">FR</option>
+              <option value="DE">DE</option>
+            </select>
+          </div> */}
 
           <SheetContent side="left" className="bg-main border-main text-white">
             <SheetHeader>

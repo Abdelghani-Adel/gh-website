@@ -1,14 +1,27 @@
 export interface ISection {}
 
+let URL = "https://dist-ten-gold.vercel.app/api";
+// URL = "http://192.168.30.67:3000/api/pages/";
+
 export async function getPageData(pageId: number, lang: string) {
-  const response = await fetch(
-    `http://192.168.30.67:3000/api/pages/${pageId}/sections?lang=${lang}`
-  );
+  const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`);
   const result = await response.json();
 
   if (result.data) {
     const transformedSections = transformSectionsToObject(result.data);
     return transformedSections;
+  }
+  return null;
+}
+
+export async function getSectionData(sectionId: number, lang: string) {
+  const response = await fetch(
+    `${URL}/aggregated/section?id=${sectionId}&lang=${lang}`
+  );
+  const result = await response.json();
+
+  if (result.data) {
+    return result?.data?.content;
   }
   return null;
 }

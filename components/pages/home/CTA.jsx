@@ -1,0 +1,27 @@
+import React from "react";
+import { getSectionData } from "@/utils/ApiService";
+import { ArrowRight, CircleCheck, Quote, Star } from "lucide-react";
+import Image from "next/image";
+
+const CTA = async () => {
+  const content = await getSectionData(9, "en");
+
+  if (!content) {
+    return null;
+  }
+
+  return (
+    <section className="py-20 bg-second text-white text-center">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl lg:text-5xl font-bold mb-8">
+          {content?.title}
+        </h2>
+        <button className="bg-white hover:bg-gray-100 text-teal-600 px-10 py-4 rounded-full font-bold text-lg transition-colors duration-300">
+          Get Started
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default CTA;
