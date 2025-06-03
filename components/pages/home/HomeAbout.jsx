@@ -1,10 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const HomeAbout = async () => {
-  const content = await getSectionData(2, "en");
+const HomeAbout = () => {
+  const [content, setContent] = React.useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getSectionData(2, "en");
+      setContent(data);
+    };
+
+    fetchData();
+  }, []);
+
+  // const content = await getSectionData(2, "en");
 
   if (!content) {
     return null;
