@@ -3,7 +3,9 @@ export interface ISection {}
 let URL = "https://dist-ten-gold.vercel.app/api";
 
 export async function getPageData(pageId: number, lang: string) {
-  const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`);
+  const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`, {
+    cache: "no-store",
+  });
   const result = await response.json();
 
   if (result.data) {
@@ -15,7 +17,8 @@ export async function getPageData(pageId: number, lang: string) {
 
 export async function getSectionData(sectionId: number, lang: string) {
   const response = await fetch(
-    `${URL}/aggregated/section?id=${sectionId}&lang=${lang}`
+    `${URL}/aggregated/section?id=${sectionId}&lang=${lang}`,
+    { cache: "no-store" }
   );
   const result = await response.json();
 

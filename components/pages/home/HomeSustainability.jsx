@@ -1,7 +1,4 @@
-import React from "react";
 import { getSectionData } from "@/utils/ApiService";
-import { ArrowRight, CircleCheck } from "lucide-react";
-import Image from "next/image";
 
 const HomeSustainability = async () => {
   const content = await getSectionData(8, "en");

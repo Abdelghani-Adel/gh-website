@@ -1,7 +1,4 @@
-import React from "react";
 import { getSectionData } from "@/utils/ApiService";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 const TimeLine = async () => {
   const content = await getSectionData(4, "en");

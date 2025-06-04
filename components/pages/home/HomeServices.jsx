@@ -1,7 +1,5 @@
-import React from "react";
 import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight, CircleCheck } from "lucide-react";
-import Image from "next/image";
 
 const HomeServices = async () => {
   const content = await getSectionData(7, "en");

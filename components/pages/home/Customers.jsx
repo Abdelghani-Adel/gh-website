@@ -1,6 +1,5 @@
-import React from "react";
 import { getSectionData } from "@/utils/ApiService";
-import { ArrowRight, CircleCheck, Quote, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const Customers = async () => {

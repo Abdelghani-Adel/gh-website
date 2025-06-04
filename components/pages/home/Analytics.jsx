@@ -1,7 +1,5 @@
-import React from "react";
 import { getSectionData } from "@/utils/ApiService";
-import { ArrowRight, CircleCheck, Quote, Star } from "lucide-react";
-import Image from "next/image";
+import { Star } from "lucide-react";
 
 const Analytics = async () => {
   const content = await getSectionData(3, "en");
