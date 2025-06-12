@@ -7,6 +7,7 @@ import HomeServices from "@/components/pages/home/HomeServices";
 import HomeSustainability from "@/components/pages/home/HomeSustainability";
 import Testimonials from "@/components/pages/home/Testimonials";
 import TimeLine from "@/components/pages/TimeLine";
+import ContactUs from "@/components/pages/ContactUs";
 
 const LTSHomepage = async () => {
   return (
@@ -20,6 +21,7 @@ const LTSHomepage = async () => {
       <Analytics />
       <Customers />
       <CTA />
+      <ContactUs />
     </div>
   );
 };
