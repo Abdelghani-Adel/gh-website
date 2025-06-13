@@ -1,6 +1,6 @@
 export interface ISection {}
 
-let URL = "https://dist-ten-gold.vercel.app/api";
+let URL = "https://amarinaproperties.com/lts-backend/api";
 
 export async function getPageData(pageId: number, lang: string) {
   const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`, {
