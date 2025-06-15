@@ -1,5 +1,6 @@
 "use client";
 
+import { getSectionData } from "@/utils/ApiService";
 import {
   Clock,
   Facebook,
@@ -9,45 +10,28 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ContactInfo = () => {
   const [selectedBranch, setSelectedBranch] = useState(0);
-  const data = {
-    title: "Contact Information",
-    description:
-      "Choose the most convenient way to reach us. Our team is available to assist you.",
-    branches: [
-      {
-        id: 1,
-        name: "Main Office",
-        address: "Main Street 123",
-        phone: "1234567890",
-        email: "main@lts-company.com",
-        instagram: "instagram.com/lts",
-        facebook: "facebook.com/lts",
-        linkedin: "linkedin.com/company/lts",
-        businessHours: {
-          weekdays: "Mon - Fri: 9:00 AM - 6:00 PM",
-          saturday: "Sat: 9:00 AM - 2:00 PM",
-        },
-      },
-      {
-        id: 2,
-        name: "Second Office",
-        address: "Main Street 123",
-        phone: "1234567890",
-        email: "main@lts-company.com",
-        instagram: "instagram.com/lts",
-        facebook: "facebook.com/lts",
-        linkedin: "linkedin.com/company/lts",
-        businessHours: {
-          weekdays: "Mon - Fri: 9:00 AM - 6:00 PM",
-          saturday: "Sat: 9:00 AM - 2:00 PM",
-        },
-      },
-    ],
-  };
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getSectionData(17, "en");
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return null;
+  }
 
   const CURRENT_BRANCH = data.branches[selectedBranch];
 

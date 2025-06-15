@@ -1,12 +1,11 @@
-"use client";
+import { getSectionData } from "@/utils/ApiService";
 
-const ContactHero = () => {
-  const data = {
-    title: "Get in Touch",
-    subtitle: "Ready to transform your business? Let's start the conversation.",
-    description:
-      "Whether you're looking to optimize operations, enhance customer experience, or explore new markets, our team is here to help you succeed.",
-  };
+const ContactHero = async () => {
+  const data = await getSectionData(16, "en");
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="relative bg-gradient-to-br from-teal-900 via-blue-800 to-teal-800 text-white overflow-hidden">
@@ -17,9 +16,8 @@ const ContactHero = () => {
           <p className="text-xl lg:text-2xl text-teal-100 mb-8">
             {data.subtitle}
           </p>
-          <p className="text-lg text-teal-50 max-w-2xl mx-auto">
-            {data.description}
-          </p>
+
+          <div dangerouslySetInnerHTML={{ __html: data.description }}></div>
         </div>
       </div>
     </section>

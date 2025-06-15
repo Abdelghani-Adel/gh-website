@@ -15,6 +15,10 @@ import CareerIntro from "@/components/pages/career/CareerIntro";
 import Positions from "@/components/pages/career/Positions";
 import ServicesHero from "@/components/pages/services/ServicesHero";
 import ServicesList from "@/components/pages/services/ServicesList";
+import ContactHero from "@/components/pages/contact/ContactHero";
+import ContactInfo from "@/components/pages/contact/ContactInfo";
+import ContactMap from "@/components/pages/contact/ContactMap";
+import ContactCTA from "@/components/pages/contact/ContactCTA";
 
 export const sectionMap: Record<string, ComponentType> = {
   1: HomeHero,
@@ -32,4 +36,8 @@ export const sectionMap: Record<string, ComponentType> = {
   13: Positions,
   14: ServicesHero,
   15: ServicesList,
+  16: ContactHero,
+  17: ContactInfo,
+  18: ContactMap,
+  19: ContactCTA,
 };

@@ -1,28 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { getSectionData } from "@/utils/ApiService";
+import { useEffect, useState } from "react";
 
 const ContactMap = () => {
-  const data = {
-    title: "",
-    subTitle: "",
-    branches: [
-      {
-        id: 1,
-        name: "Main Office",
-        mapLocation:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d33.123456789!3d27.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x123456789abcdef!2sHurghada!5e0!3m2!1sen!2seg!4v1234567890",
-      },
-      {
-        id: 2,
-        name: "Second Office",
-        mapLocation:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d33.123456789!3d27.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x123456789abcdef!2sHurghada!5e0!3m2!1sen!2seg!4v1234567890",
-      },
-    ],
-  };
-
+  const [data, setData] = useState();
   const [selectedBranch, setSelectedBranch] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getSectionData(18, "en");
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-white">

@@ -1,11 +1,12 @@
 import React from "react";
 
 // Import the new components
-import ContactHero from "@/components/pages/Contact/ContactHero";
-import ContactMap from "@/components/pages/Contact/ContactMap";
-import ContactCTA from "@/components/pages/Contact/ContactCTA";
-import ContactForm from "@/components/pages/Contact/ContactForm";
-import ContactInfo from "@/components/pages/Contact/ContactInfo";
+
+import ContactMap from "@/components/pages/contact/ContactMap";
+import ContactCTA from "@/components/pages/contact/ContactCTA";
+import ContactForm from "@/components/pages/contact/ContactForm";
+import ContactInfo from "@/components/pages/contact/ContactInfo";
+import ContactHero from "@/components/pages/contact/ContactHero";
 
 const ContactPage = async () => {
   return (
@@ -13,7 +14,6 @@ const ContactPage = async () => {
       {/* Hero Section */}
       <ContactHero />
 
-      {/* Contact Form & Info Section */}
       <section className="py-20 bg-gray-50">
         <div className="container max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
@@ -25,10 +25,8 @@ const ContactPage = async () => {
           </div>
         </div>
       </section>
-
       {/* Map Section */}
       <ContactMap />
-
       {/* CTA Section */}
       <ContactCTA />
     </div>
