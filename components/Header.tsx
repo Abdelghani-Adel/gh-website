@@ -17,21 +17,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState("FR");
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener on component unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Navigation items configuration
   const navItems = [
@@ -63,12 +49,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-20 w-full transition-all duration-150 ease-in-out ${
-        isScrolled ? "bg-white shadow-lg" : ""
-      }`}
+      className={`fixed h-24 z-20 w-full transition-all duration-150 ease-in-out bg-white shadow-lg`}
     >
       <Sheet>
-        <div className="max-w-6xl container mx-auto flex items-center justify-between p-5 relative z-20">
+        <div className="max-w-7xl container mx-auto flex items-center justify-between p-5 relative z-20">
           <div className="flex items-center gap-2 text-white">
             <SheetTrigger asChild>
               <button className="text-second">
@@ -80,21 +64,6 @@ const Header = () => {
               <Image src="/logo.png" alt="Logo" fill />
             </Link>
           </div>
-
-          {/* <div className="flex items-center gap-4">
-            <button className="text-white border-2 border-white px-5 py-2 rounded-full text-xl cursor-pointer hover:bg-white hover:text-primary transition-colors duration-200">
-              Careers
-            </button>
-
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              className="bg-white text-black px-4 py-2 rounded cursor-pointer"
-            >
-              <option value="FR">FR</option>
-              <option value="DE">DE</option>
-            </select>
-          </div> */}
 
           <SheetContent side="left" className="bg-main border-main text-white">
             <SheetHeader>
