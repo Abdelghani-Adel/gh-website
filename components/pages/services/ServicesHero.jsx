@@ -1,11 +1,12 @@
 import React from "react";
 
-const CareerHero = () => {
+const ServicesHero = () => {
   const data = {
-    title: "Join Our Team",
-    subTitle: "Join our team and shape the future together.",
+    title: "Services",
+    subtitle: "End-to-end capabilities for tech-powered performance",
+    description:
+      "Navigate the advanced technology and operational excellence to leverage emerging technologies and modernize into a customer-centric, from front to back.",
   };
-
   return (
     <section className="relative min-h-[600px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden">
       {/* Background Pattern */}
@@ -16,12 +17,17 @@ const CareerHero = () => {
 
       <div className="relative z-10 container max-w-6xl mx-auto px-6 pt-20 lg:pt-40">
         <div className="max-w-2xl">
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8">{data.title}</h1>
-          <p className="text-xl lg:text-2xl text-blue-100">{data.subTitle}</p>
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6">{data.title}</h1>
+          <h2 className="text-xl lg:text-2xl font-light mb-8 text-cyan-100">
+            {data.subtitle}
+          </h2>
+          <p className="text-lg mb-8 text-gray-200 leading-relaxed">
+            {data.description}
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default CareerHero;
+export default ServicesHero;
