@@ -1,10 +1,12 @@
+import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 
-const CareerHero = () => {
-  const data = {
-    title: "Join Our Team",
-    subTitle: "Join our team and shape the future together.",
-  };
+const CareerHero = async () => {
+  const data = await getSectionData(10, "en");
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="relative min-h-[600px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden">
