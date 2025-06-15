@@ -64,14 +64,14 @@ const Header = () => {
   return (
     <header
       className={`fixed z-20 w-full transition-all duration-150 ease-in-out ${
-        isScrolled ? "bg-blue-600" : ""
+        isScrolled ? "bg-white shadow-lg" : ""
       }`}
     >
       <Sheet>
         <div className="max-w-6xl container mx-auto flex items-center justify-between p-5 relative z-20">
           <div className="flex items-center gap-2 text-white">
             <SheetTrigger asChild>
-              <button>
+              <button className="text-second">
                 <GiHamburgerMenu className="text-3xl" />
               </button>
             </SheetTrigger>
