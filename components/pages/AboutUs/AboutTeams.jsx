@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { MapPin } from "lucide-react";
 
 const AboutTeams = async () => {
-  const data = await getSectionData(23, "en");
+  const data = await getSectionData(23);
 
   if (!data) {
     return null;

@@ -11,7 +11,7 @@ const Positions = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getSectionData(13, "en");
+        const response = await getSectionData(13);
         setData(response);
       } catch (error) {
         console.error("Error fetching data:", error);

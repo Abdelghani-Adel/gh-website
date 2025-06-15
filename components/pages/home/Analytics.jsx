@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { Star } from "lucide-react";
 
 const Analytics = async () => {
-  const content = await getSectionData(3, "en");
+  const content = await getSectionData(3);
 
   if (!content) {
     return null;

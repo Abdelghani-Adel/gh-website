@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { Clock, Users } from "lucide-react";
 
 const AboutMission = async () => {
-  const data = await getSectionData(21, "en");
+  const data = await getSectionData(21);
 
   if (!data) {
     return null;

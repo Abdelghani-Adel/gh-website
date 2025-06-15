@@ -19,7 +19,7 @@ const ContactInfo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getSectionData(17, "en");
+        const response = await getSectionData(17);
         setData(response);
       } catch (error) {
         console.error("Error fetching data:", error);

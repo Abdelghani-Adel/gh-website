@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { Quote, Star } from "lucide-react";
 
 const Testimonials = async () => {
-  const content = await getSectionData(6, "en");
+  const content = await getSectionData(6);
 
   if (!content) {
     return null;

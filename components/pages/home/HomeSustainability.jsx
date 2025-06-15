@@ -1,7 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 
 const HomeSustainability = async () => {
-  const content = await getSectionData(8, "en");
+  const content = await getSectionData(8);
 
   if (!content) {
     return null;

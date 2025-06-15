@@ -1,7 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 
 const ContactHero = async () => {
-  const data = await getSectionData(16, "en");
+  const data = await getSectionData(16);
 
   if (!data) {
     return null;

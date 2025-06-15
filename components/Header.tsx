@@ -1,20 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
-  SheetTitle,
-  SheetTrigger,
+  SheetTrigger
 } from "@/components/ui/sheet";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const pathname = usePathname();
@@ -49,7 +46,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed h-24 z-20 w-full transition-all duration-150 ease-in-out bg-white shadow-lg`}
+      className={`fixed h-24 z-20 w-screen transition-all duration-150 ease-in-out bg-white shadow-lg`}
     >
       <Sheet>
         <div className="max-w-7xl container mx-auto flex items-center justify-between p-5 relative z-20">
@@ -64,6 +61,8 @@ const Header = () => {
               <Image src="/logo.png" alt="Logo" fill />
             </Link>
           </div>
+
+          <LanguageSelector />
 
           <SheetContent side="left" className="bg-main border-main text-white">
             <SheetHeader>

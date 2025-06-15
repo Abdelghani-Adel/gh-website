@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { Award } from "lucide-react";
 
 const AboutCertificates = async () => {
-  const data = await getSectionData(24, "en");
+  const data = await getSectionData(24);
 
   if (!data) {
     return null;

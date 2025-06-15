@@ -1,7 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 
 const ContactCTA = async () => {
-  const data = await getSectionData(19, "en");
+  const data = await getSectionData(19);
 
   if (!data) {
     return null;

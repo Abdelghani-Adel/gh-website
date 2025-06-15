@@ -1,7 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 
 const TimeLine = async () => {
-  const content = await getSectionData(4, "en");
+  const content = await getSectionData(4);
 
   if (!content) {
     return null;

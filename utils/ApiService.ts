@@ -1,3 +1,5 @@
+import { getLangCookie } from "@/lib/utils";
+
 export interface ISection {}
 
 let URL = "https://amarinaproperties.com/lts-backend/api";
@@ -15,9 +17,11 @@ export async function getPageData(pageId: number, lang: string) {
   return null;
 }
 
-export async function getSectionData(sectionId: number, lang: string) {
+export async function getSectionData(sectionId: number) {
+  const langCookie = getLangCookie();
+
   const response = await fetch(
-    `${URL}/aggregated/section?id=${sectionId}&lang=${lang}`,
+    `${URL}/aggregated/section?id=${sectionId}&lang=${langCookie ?? "en"}`,
     { cache: "no-store" }
   );
   const result = await response.json();

@@ -3,7 +3,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight } from "lucide-react";
 
 const HomeHero = async () => {
-  const content = await getSectionData(1, "en");
+  const content = await getSectionData(1);
 
   if (!content) {
     return null;

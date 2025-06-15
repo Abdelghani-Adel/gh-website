@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 
 const ServicesHero = async () => {
-  const data = await getSectionData(14, "en");
+  const data = await getSectionData(14);
 
   if (!data) {
     return null;

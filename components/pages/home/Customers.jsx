@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const Customers = async () => {
-  const content = await getSectionData(5, "en");
+  const content = await getSectionData(5);
 
   if (!content) {
     return null;

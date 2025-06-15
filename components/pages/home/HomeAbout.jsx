@@ -2,7 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import Image from "next/image";
 
 const HomeAbout = async () => {
-  const content = await getSectionData(2, "en");
+  const content = await getSectionData(2);
 
   if (!content) {
     return null;

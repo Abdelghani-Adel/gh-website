@@ -10,7 +10,7 @@ const ContactMap = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getSectionData(18, "en");
+        const response = await getSectionData(18);
         setData(response);
       } catch (error) {
         console.error("Error fetching data:", error);

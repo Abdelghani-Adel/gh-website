@@ -13,7 +13,7 @@ import {
 import React from "react";
 
 const CareerBenefits = async () => {
-  const data = await getSectionData(11, "en");
+  const data = await getSectionData(11);
 
   if (!data) {
     return null;

@@ -1,7 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 
 const CTA = async () => {
-  const content = await getSectionData(9, "en");
+  const content = await getSectionData(9);
 
   if (!content) {
     return null;
