@@ -1,12 +1,13 @@
+import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 
-const ServicesHero = () => {
-  const data = {
-    title: "Services",
-    subtitle: "End-to-end capabilities for tech-powered performance",
-    description:
-      "Navigate the advanced technology and operational excellence to leverage emerging technologies and modernize into a customer-centric, from front to back.",
-  };
+const ServicesHero = async () => {
+  const data = await getSectionData(14, "en");
+
+  if (!data) {
+    return null;
+  }
+
   return (
     <section className="relative min-h-[600px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden">
       {/* Background Pattern */}
@@ -21,9 +22,7 @@ const ServicesHero = () => {
           <h2 className="text-xl lg:text-2xl font-light mb-8 text-cyan-100">
             {data.subtitle}
           </h2>
-          <p className="text-lg mb-8 text-gray-200 leading-relaxed">
-            {data.description}
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
       </div>
     </section>

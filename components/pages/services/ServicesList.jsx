@@ -1,72 +1,16 @@
+import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 
-const ServicesList = () => {
-  const data = [
-    {
-      id: "strategy-design",
-      title: "Strategy & Design",
-      description:
-        "Experience excellence with thought leadership and talent consulting. We stay on cutting edge of the latest technology and conventional operations.",
-      image: "/service2.png",
-      items: [
-        "Customer Experience",
-        "Product Development",
-        "Digital Innovation",
-        "Business Development",
-      ],
-    },
-    {
-      id: "data-analytics",
-      title: "Data & Analytics",
-      description:
-        "Data-driven excellence to empower sustainable development with leadership and insights solutions for discovery and analytics with business intelligence for impactful business value.",
-      image: "/service2.png",
-      items: [
-        "Data Management",
-        "Data Engineering & AI Platforms",
-        "Advanced Analytics",
-        "Business Intelligence",
-        "Operational Insights",
-        "Industry & Specific Solutions",
-      ],
-    },
-    {
-      id: "enterprise-technology",
-      title: "Enterprise Technology",
-      description:
-        "Expertly positioned to be your enterprise-driven business automation partner. We seamlessly bridge solution with intelligence.",
-      image: "/service2.png",
-      items: [
-        "Agile & IT Services",
-        "Technology Transformation",
-        "Cloud Services",
-        "Enterprise Integration",
-        "Enterprise Automation",
-        "Experience Platforms",
-        "Applications Services",
-        "QA Technology",
-        "Innovation AI",
-        "Sustainability",
-      ],
-    },
-    {
-      id: "digital-operations",
-      title: "Digital Operations",
-      description:
-        "Connected smart technology, efficient, agile and connected workforce, and effective communication to enhance business processes to address specific business challenges.",
-      image: "/service2.png",
-      items: [
-        "Process",
-        "Operations",
-        "Customer Service",
-        "Trust & Safety",
-        "Content & Experience",
-      ],
-    },
-  ];
+const ServicesList = async () => {
+  const data = await getSectionData(15, "en");
+
+  if (!data) {
+    return null;
+  }
+
   return (
     <>
-      {data.map((service, index) => (
+      {data.services.map((service, index) => (
         <ServiceCard key={service.id} service={service} index={index} />
       ))}
     </>
@@ -95,7 +39,8 @@ const ServiceCard = ({ service, index }) => {
             >
               {service.title}
             </h3>
-            <p className="text-lg leading-relaxed">{service.description}</p>
+            <div dangerouslySetInnerHTML={{ __html: service.description }} />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.items.map((item, idx) => (
                 <div key={idx} className="flex items-center space-x-3">
