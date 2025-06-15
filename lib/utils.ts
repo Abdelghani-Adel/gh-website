@@ -29,21 +29,28 @@ export function getLangCookie(): string | null {
     // Server-side
     try {
       const { cookies } = require("next/headers");
-      const cookie = cookies().get("LTS_Language");
-      if (!cookie?.value) return null;
-      return cookie.value;
+      const { headers } = require("next/headers");
+
+      const url = headers().get("x-url"); // custom header (set via middleware)
+      const langFromQuery = url ? new URL(url).searchParams.get("lang") : null;
+
+      const cookie = cookies().get("LTS_Language")?.value;
+
+      return langFromQuery || cookie || null;
     } catch (error) {
-      console.error("Error parsing cookie from server cookies:", error);
+      console.error("Server error getting lang:", error);
       return null;
     }
   } else {
     // Client-side
     try {
+      const langFromQuery = new URLSearchParams(window.location.search).get(
+        "lang"
+      );
       const cookie = getCookie("LTS_Language");
-      if (!cookie) return null;
-      return cookie;
+      return langFromQuery || cookie || null;
     } catch (error) {
-      console.error("Error parsing user from client cookies:", error);
+      console.error("Client error getting lang:", error);
       return null;
     }
   }
