@@ -1,5 +1,3 @@
-"use client";
-
 import { getSectionData } from "@/utils/ApiService";
 
 const ContactCTA = async () => {

@@ -49,55 +49,6 @@ const ContactForm = () => {
   //   },
   // ]);
 
-  useEffect(() => {
-    const fetchFormData = async () => {
-      try {
-        // Fetch contact info for form config
-        const contactResponse = await fetch(
-          `${
-            process.env.NEXT_PUBLIC_API_BASE_URL ||
-            "https://api.lts-company.com"
-          }/api/contact-info`
-        );
-        if (!contactResponse.ok)
-          throw new Error("Failed to fetch contact info");
-        const contactData = await contactResponse.json();
-
-        if (contactData) {
-          if (contactData.form) {
-            setFormConfig(contactData.form);
-          }
-          if (contactData.branches && contactData.branches.length > 0) {
-            setBranches(contactData.branches);
-            setFormData((prev) => ({
-              ...prev,
-              branch: contactData.branches[0].name,
-            }));
-          }
-        }
-
-        // Fetch services
-        const servicesResponse = await fetch(
-          `${
-            process.env.NEXT_PUBLIC_API_BASE_URL ||
-            "https://api.lts-company.com"
-          }/api/services`
-        );
-        if (!servicesResponse.ok) throw new Error("Failed to fetch services");
-        const servicesData = await servicesResponse.json();
-
-        if (servicesData && servicesData.services) {
-          setServices(servicesData.services);
-        }
-      } catch (error) {
-        console.error("Error fetching form data:", error);
-        // Keep default data on error
-      }
-    };
-
-    fetchFormData();
-  }, []);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -108,41 +59,6 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch(
-        `${
-          process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.lts-company.com"
-        }/api/contact-form`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!response.ok) throw new Error("Failed to submit form");
-      setIsSubmitted(true);
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          message: "",
-          branch: branches[0]?.name || "Main Office",
-        });
-      }, 3000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      // Handle error (could show error message to user)
-    }
   };
 
   return (
