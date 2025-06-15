@@ -1,3 +1,4 @@
+import { getSectionData } from "@/utils/ApiService";
 import {
   Brain,
   Clock,
@@ -11,56 +12,12 @@ import {
 } from "lucide-react";
 import React from "react";
 
-const CareerBenefits = () => {
-  const data = {
-    title: "Why Join LTS.?",
-    subTitle:
-      "We invest in our people with comprehensive training and amazing benefits",
-    trainings: [
-      {
-        icon: "Handshake",
-        title: "Welcome Day",
-        description: "Comprehensive onboarding program",
-      },
-      {
-        icon: "Brain",
-        title: "Soft Skills Training",
-        description: "Communication and leadership development",
-      },
-      {
-        icon: "Target",
-        title: "Project Specific Training",
-        description: "Technical skills for your role",
-      },
-      {
-        icon: "UserCheck",
-        title: "On the job coaching",
-        description: "Continuous mentorship and support",
-      },
-    ],
-    benefits: [
-      {
-        icon: "Heart",
-        title: "Health Insurance",
-        description: "Comprehensive health coverage",
-      },
-      {
-        icon: "Clock",
-        title: "Flexible Hours",
-        description: "Work-life balance priority",
-      },
-      {
-        icon: "TrendingUp",
-        title: "Career Growth",
-        description: "Clear advancement opportunities",
-      },
-      {
-        icon: "Globe",
-        title: "Remote Work",
-        description: "Flexible work arrangements",
-      },
-    ],
-  };
+const CareerBenefits = async () => {
+  const data = await getSectionData(11, "en");
+
+  if (!data) {
+    return null;
+  }
 
   // Icon mapping for training items
   const getTrainingIcon = (iconName) => {

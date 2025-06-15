@@ -1,89 +1,29 @@
+"use client";
+
+import { getSectionData } from "@/utils/ApiService";
 import { CheckCircle, Mail, MapPin, Send } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Positions = () => {
   const [selectedPosition, setSelectedPosition] = useState(null);
-  const data = {
-    title: "Open Positions",
-    subTitle: "Find your perfect role and start your journey with us",
-    applicationGuidelines: [
-      "CV",
-      "Testimonies",
-      "Preferably all documents in one PDF file",
-      "Alternatively, email us up to 3 attachments (maximum 4MB)",
-      "Send us your documents to info@ghdialog.com",
-      "We look forward to receiving your application",
-    ],
-    positions: [
-      {
-        id: 1,
-        title: "Frontend Developer",
-        description:
-          "Responsible for building UI components and optimizing user experience.",
-        location: "Remote/Hybrid",
-        type: "Full-time",
-        experience: "2-4 years",
-        skills: ["React", "JavaScript", "CSS", "HTML"],
-      },
-      {
-        id: 2,
-        title: "Backend Developer",
-        description: "Handles server-side logic and database architecture.",
-        location: "Albania",
-        type: "Full-time",
-        experience: "3-5 years",
-        skills: ["Node.js", "Python", "Database", "API"],
-      },
-      {
-        id: 3,
-        title: "DevOps Engineer",
-        description: "Manages CI/CD pipelines and cloud infrastructure.",
-        location: "Kosovo",
-        type: "Full-time",
-        experience: "4-6 years",
-        skills: ["AWS", "Docker", "Kubernetes", "CI/CD"],
-      },
-      {
-        id: 4,
-        title: "QA Engineer",
-        description:
-          "Ensures the quality and reliability of applications through testing.",
-        location: "Remote",
-        type: "Full-time",
-        experience: "2-3 years",
-        skills: ["Testing", "Automation", "QA Tools", "Bug Tracking"],
-      },
-      {
-        id: 5,
-        title: "UI/UX Designer",
-        description:
-          "Designs intuitive user interfaces and seamless user experiences.",
-        location: "Albania",
-        type: "Full-time",
-        experience: "3-5 years",
-        skills: ["Figma", "Adobe", "User Research", "Prototyping"],
-      },
-      {
-        id: 6,
-        title: "Product Manager",
-        description:
-          "Oversees product development and aligns team efforts with business goals.",
-        location: "Kosovo",
-        type: "Full-time",
-        experience: "5-7 years",
-        skills: ["Strategy", "Analytics", "Leadership", "Agile"],
-      },
-      {
-        id: 7,
-        title: "Data Analyst",
-        description: "Analyzes data trends to support decision making.",
-        location: "Remote",
-        type: "Full-time",
-        experience: "2-4 years",
-        skills: ["SQL", "Python", "Tableau", "Statistics"],
-      },
-    ],
-  };
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getSectionData(13, "en");
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <>

@@ -1,10 +1,12 @@
+import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 
-const CareerIntro = () => {
-  const data = {
-    title: "Are you dedicated, hardworking and fun? Join us at LTS.!",
-    desc: "<p>We have a corporate culture of a high performance work ethic, wonderful to corporate social responsibility...</p>",
-  };
+const CareerIntro = async () => {
+  const data = await getSectionData(12, "en");
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">

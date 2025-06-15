@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 // Import the new components
@@ -9,7 +7,7 @@ import ContactCTA from "@/components/pages/Contact/ContactCTA";
 import ContactForm from "@/components/pages/Contact/ContactForm";
 import ContactInfo from "@/components/pages/Contact/ContactInfo";
 
-const ContactPage = () => {
+const ContactPage = async () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
