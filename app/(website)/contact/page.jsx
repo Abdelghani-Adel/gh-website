@@ -2,7 +2,7 @@ import React from "react";
 
 // Import the new components
 
-import ContactMap from "@/components/pages/contact/ContactMap";
+import ContactMap from "@/components/pages/ontact/ContactMap";
 import ContactCTA from "@/components/pages/contact/ContactCTA";
 import ContactForm from "@/components/pages/contact/ContactForm";
 import ContactInfo from "@/components/pages/contact/ContactInfo";
