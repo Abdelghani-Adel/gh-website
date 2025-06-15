@@ -38,8 +38,8 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/about-us", label: "About Us" },
-    // { href: "/career", label: "Careers" },
-    // { href: "/contact", label: "Contact Us" },
+    { href: "/career", label: "Careers" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   // Function to check if a route is active
