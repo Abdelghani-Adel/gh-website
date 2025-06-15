@@ -1,5 +1,3 @@
-// app/sections/[id]/page.tsx
-
 import { sectionMap } from "@/utils/sectionMap";
 import { notFound } from "next/navigation";
 

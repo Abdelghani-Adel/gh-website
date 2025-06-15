@@ -41,7 +41,7 @@ export function getLangCookie(): string | null {
     try {
       const cookie = getCookie("LTS_Language");
       if (!cookie) return null;
-      return JSON.parse(cookie);
+      return cookie;
     } catch (error) {
       console.error("Error parsing user from client cookies:", error);
       return null;
