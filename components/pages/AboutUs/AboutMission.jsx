@@ -1,33 +1,12 @@
-"use client";
+import { getSectionData } from "@/utils/ApiService";
+import { Clock, Users } from "lucide-react";
 
-import React, { useState, useEffect } from "react";
-import { Users, Clock } from "lucide-react";
+const AboutMission = async () => {
+  const data = await getSectionData(21, "en");
 
-const AboutMission = () => {
-  const data = {
-    title: "Our Mission & Vision",
-    teamTitle: "Our Team",
-    teamDescription:
-      "Together with our 350 highly skilled employees, it is our mission to provide best-in-class service with greatest flexibility in a constantly changing environment.",
-    supportTitle: "24/7 Support",
-    supportDescription:
-      "From friendly and knowledgeable customer care agents, to accountants and IT experts - we are here 24/7/365 to provide the perfect solution for your demand.",
-    whyChooseTitle: "Why Choose LTS?",
-    benefits: [
-      {
-        title: "Tourism Expertise",
-        description: "Specialized knowledge in tourism and hospitality sector",
-      },
-      {
-        title: "Flexible Solutions",
-        description: "Adaptable services that grow with your business needs",
-      },
-      {
-        title: "Quality Assurance",
-        description: "Rigorous quality control and continuous improvement",
-      },
-    ],
-  };
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -48,9 +27,7 @@ const AboutMission = () => {
                 </div>
                 {data.teamTitle}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {data.teamDescription}
-              </p>
+              <div dangerouslySetInnerHTML={{ __html: data.description }} />
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
@@ -60,9 +37,10 @@ const AboutMission = () => {
                 </div>
                 {data.supportTitle}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {data.supportDescription}
-              </p>
+
+              <div
+                dangerouslySetInnerHTML={{ __html: data.supportDescription }}
+              />
             </div>
           </div>
 

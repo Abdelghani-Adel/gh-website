@@ -1,19 +1,11 @@
-"use client";
+import { getSectionData } from "@/utils/ApiService";
 
-import { Award, Clock, Globe, Users } from "lucide-react";
+const AboutHero = async () => {
+  const data = await getSectionData(20, "en");
 
-const AboutHero = () => {
-  const data = {
-    heroImage: "/aboutus-hero2.jfif",
-    title: "LTS",
-    desc: "<p>Core focus on tourism with unmatched flexibility and expertise</p>",
-    stats: [
-      { icon: Users, label: "Team Members", value: "350+" },
-      { icon: Clock, label: "Available", value: "24/7/365" },
-      { icon: Globe, label: "Countries", value: "Multiple" },
-      { icon: Award, label: "Years Experience", value: "10+" },
-    ],
-  };
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="relative min-h-[600px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden">

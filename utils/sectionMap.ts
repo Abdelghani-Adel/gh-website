@@ -19,6 +19,12 @@ import ContactHero from "@/components/pages/contact/ContactHero";
 import ContactInfo from "@/components/pages/contact/ContactInfo";
 import ContactMap from "@/components/pages/contact/ContactMap";
 import ContactCTA from "@/components/pages/contact/ContactCTA";
+import AboutHero from "@/components/pages/AboutUs/AboutHero";
+import AboutMission from "@/components/pages/AboutUs/AboutMission";
+import AboutLeadership from "@/components/pages/AboutUs/AboutLeadership";
+import AboutTeams from "@/components/pages/AboutUs/AboutTeams";
+import AboutCertificates from "@/components/pages/AboutUs/AboutCertificates";
+import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
 
 export const sectionMap: Record<string, ComponentType> = {
   1: HomeHero,
@@ -40,4 +46,10 @@ export const sectionMap: Record<string, ComponentType> = {
   17: ContactInfo,
   18: ContactMap,
   19: ContactCTA,
+  20: AboutHero,
+  21: AboutMission,
+  22: AboutLeadership,
+  23: AboutTeams,
+  24: AboutCertificates,
+  25: AboutCTA,
 };

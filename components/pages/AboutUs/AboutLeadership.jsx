@@ -1,37 +1,11 @@
-"use client";
+import { getSectionData } from "@/utils/ApiService";
 
-import React, { useState, useEffect } from "react";
+const AboutLeadership = async () => {
+  const data = await getSectionData(22, "en");
 
-const DEFAULT_LEADERSHIP_DATA = {
-  title: "Leadership Team",
-  description:
-    "Meet the experienced professionals leading our organization to success",
-  managers: [
-    {
-      avatar: "/lukas.png",
-      name: "Lukas Hirschl",
-      position: "Director Call Center",
-      description:
-        "<p>Lukas Hirschl was born on July 16th 1991. Traveling is my passion – I was lucky that my father traveled the world with me</p>",
-    },
-  ],
-};
-
-const AboutLeadership = () => {
-  const data = {
-    title: "Leadership Team",
-    description:
-      "Meet the experienced professionals leading our organization to success",
-    managers: [
-      {
-        avatar: "/lukas.png",
-        name: "Lukas Hirschl",
-        position: "Director Call Center",
-        description:
-          "<p>Lukas Hirschl was born on July 16th 1991. Traveling is my passion – I was lucky that my father traveled the world with me</p>",
-      },
-    ],
-  };
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-white">
@@ -40,9 +14,8 @@ const AboutLeadership = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             {data.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {data.description}
-          </p>
+
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

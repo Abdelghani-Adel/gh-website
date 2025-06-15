@@ -1,35 +1,19 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import { getSectionData } from "@/utils/ApiService";
 import { Award } from "lucide-react";
 
-const AboutCertificates = () => {
-  const data = {
-    title: "Certifications & Standards",
-    description:
-      "Committed to excellence through internationally recognized standards",
-    certificates: [
-      {
-        logo: "",
-        title: "ISO 9001:2015 Quality Management",
-      },
-      {
-        logo: "",
-        title: "ISO 27001 Information Security",
-      },
-      {
-        logo: "",
-        title: "GDPR Compliance Certification",
-      },
-    ],
-  };
+const AboutCertificates = async () => {
+  const data = await getSectionData(24, "en");
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">{data.title}</h2>
-          <p className="text-xl text-gray-300">{data.description}</p>
+        <div className="text-center mb-16 text-white">
+          <h2 className="text-4xl font-bold mb-6">{data.title}</h2>
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

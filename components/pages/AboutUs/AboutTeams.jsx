@@ -1,56 +1,12 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import { getSectionData } from "@/utils/ApiService";
 import { MapPin } from "lucide-react";
 
-const AboutTeams = () => {
-  const data = {
-    title: "Our Global Presence",
-    description:
-      "Talented teams across multiple locations delivering excellence worldwide",
-    teams: [
-      {
-        location: "Tirana",
-        people: [
-          {
-            avatar: "/avatar1.png",
-            name: "Leonard Ferazini",
-            position: "Director Call Center",
-          },
-          {
-            avatar: "/avatar2.png",
-            name: "Sarah Johnson",
-            position: "Operations Manager",
-          },
-          {
-            avatar: "/avatar3.png",
-            name: "Michael Chen",
-            position: "Quality Assurance Lead",
-          },
-        ],
-      },
-      {
-        location: "Kosovo",
-        people: [
-          {
-            avatar: "/avatar4.png",
-            name: "Elena Rodriguez",
-            position: "Regional Manager",
-          },
-          {
-            avatar: "/avatar4.png",
-            name: "David Thompson",
-            position: "Customer Success Lead",
-          },
-          {
-            avatar: "/avatar4.png",
-            name: "Anna Petrov",
-            position: "Training Coordinator",
-          },
-        ],
-      },
-    ],
-  };
+const AboutTeams = async () => {
+  const data = await getSectionData(23, "en");
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-teal-50">
@@ -59,7 +15,7 @@ const AboutTeams = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             {data.title}
           </h2>
-          <p className="text-xl text-gray-600">{data.description}</p>
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
 
         <div className="space-y-16">
