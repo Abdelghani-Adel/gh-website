@@ -1,4 +1,5 @@
 import { getSectionData } from "@/utils/ApiService";
+import { API_URL } from "@/utils/constants";
 import Image from "next/image";
 
 const HomeAbout = async () => {
@@ -30,7 +31,7 @@ const HomeAbout = async () => {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden p-8 h-80 relative">
               <Image
-                src={content?.image?.imageUrl}
+                src={API_URL + content?.image?.imageUrl}
                 alt={content?.image?.imageAlt}
                 fill
               />

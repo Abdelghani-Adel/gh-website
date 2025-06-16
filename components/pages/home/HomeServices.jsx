@@ -30,7 +30,7 @@ const HomeServices = async () => {
               <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <BackendIcon
                   iconName={service.icon}
-                  className="text-6xl h-12 w-12"
+                  className="text-6xl h-12 w-12 text-white"
                 />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900">

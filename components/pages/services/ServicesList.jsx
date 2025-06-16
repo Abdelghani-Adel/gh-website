@@ -1,5 +1,6 @@
 import { getSectionData } from "@/utils/ApiService";
 import React from "react";
+import { API_URL } from "@/utils/constants";
 
 const ServicesList = async () => {
   const data = await getSectionData(15);
@@ -60,7 +61,7 @@ const ServiceCard = ({ service, index }) => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-2xl">
                 <img
-                  src={service.image}
+                  src={API_URL + service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />

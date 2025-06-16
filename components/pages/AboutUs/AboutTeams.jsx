@@ -1,5 +1,6 @@
 import { getSectionData } from "@/utils/ApiService";
 import { MapPin } from "lucide-react";
+import { API_URL } from "@/utils/constants";
 
 const AboutTeams = async () => {
   const data = await getSectionData(23);
@@ -38,7 +39,7 @@ const AboutTeams = async () => {
                       <div className="bg-gray-50 rounded-xl p-6 text-center hover:bg-gradient-to-br hover:from-teal-50 hover:to-blue-50 transition-all duration-300 border border-gray-100 hover:border-teal-200">
                         <div className="relative mb-4">
                           <img
-                            src={person.avatar}
+                            src={API_URL + person.avatar}
                             alt={person.name}
                             className="w-20 h-20 rounded-full mx-auto object-cover border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-300"
                           />

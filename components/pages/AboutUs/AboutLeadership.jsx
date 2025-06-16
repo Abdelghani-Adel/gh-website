@@ -1,4 +1,5 @@
 import { getSectionData } from "@/utils/ApiService";
+import { API_URL } from "@/utils/constants";
 
 const AboutLeadership = async () => {
   const data = await getSectionData(22);
@@ -25,7 +26,7 @@ const AboutLeadership = async () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-blue-500/20"></div>
                   <img
-                    src={manager.avatar}
+                    src={API_URL + manager.avatar}
                     alt={manager.name}
                     className="w-full h-64 object-cover"
                   />

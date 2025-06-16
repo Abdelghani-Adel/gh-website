@@ -1,6 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { API_URL } from "@/utils/constants";
 
 const Customers = async () => {
   const content = await getSectionData(5);
@@ -46,7 +47,7 @@ const Customers = async () => {
                   <div className="w-full h-16 relative rounded-lg overflow-hidden mb-2">
                     <Image
                       fill
-                      src={customer.logo.src}
+                      src={API_URL + customer.logo.src}
                       alt={customer.logo.alt}
                     />
                   </div>
