@@ -1,6 +1,6 @@
+import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
 import { getIconByName } from "@/utils/iconLibrary";
-import { Star } from "lucide-react";
 
 const Analytics = async () => {
   const content = await getSectionData(3);
@@ -25,16 +25,7 @@ const Analytics = async () => {
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors duration-300">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/30 transition-colors duration-300">
-                  <div className="text-white">
-                    {(() => {
-                      const IconComponent = getIconByName(stat.icon);
-                      return IconComponent ? (
-                        <IconComponent className="w-7 h-7 text-white" />
-                      ) : (
-                        <div className="w-5 h-5 bg-gray-300 rounded" />
-                      );
-                    })()}
-                  </div>
+                  <BackendIcon iconName={stat.icon} />
                 </div>
                 <div className="text-4xl lg:text-5xl font-bold mb-2 text-white">
                   {stat.number}

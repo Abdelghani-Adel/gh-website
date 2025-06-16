@@ -1,3 +1,4 @@
+import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight, CircleCheck } from "lucide-react";
 
@@ -27,9 +28,10 @@ const HomeServices = async () => {
               className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300"
             >
               <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <div className="text-white">
-                  <CircleCheck className="text-6xl h-12 w-12" />
-                </div>
+                <BackendIcon
+                  iconName={service.icon}
+                  className="text-6xl h-12 w-12"
+                />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900">
                 {service.title}

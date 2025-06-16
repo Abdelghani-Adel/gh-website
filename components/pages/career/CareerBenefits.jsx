@@ -1,3 +1,4 @@
+import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
 import {
   Brain,
@@ -53,7 +54,7 @@ const CareerBenefits = async () => {
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white mx-auto mb-6">
-                  {getTrainingIcon(training.icon)}
+                  <BackendIcon iconName={training.icon} />
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-3">
                   {training.title}
@@ -79,7 +80,7 @@ const CareerBenefits = async () => {
                 className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white mx-auto mb-6">
-                  <benefit.icon className="w-8 h-8" />
+                  <BackendIcon iconName={benefit.icon} />
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-3">
                   {benefit.title}

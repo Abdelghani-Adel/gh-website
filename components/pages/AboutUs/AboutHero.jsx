@@ -1,3 +1,4 @@
+import BackendIcon from "@/components/BackendIcon";
 import HeroBackgroundPattern from "@/components/HeroBackgroundPattern";
 import { getSectionData } from "@/utils/ApiService";
 
@@ -12,7 +13,7 @@ const AboutHero = async () => {
     <section className="hero_wrapper">
       <HeroBackgroundPattern />
 
-      <div className="relative z-10 max-w-7xl px-5 container mx-auto py-20 lg:px-16">
+      <div className="relative z-10 max-w-7xl px-5 container mx-auto py-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white space-y-8">
             <div className="space-y-6">
@@ -26,7 +27,11 @@ const AboutHero = async () => {
                   key={index}
                   className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
                 >
-                  <stat.icon className="w-8 h-8 text-teal-400 mx-auto mb-2" />
+                  {/* <stat.icon className="w-8 h-8 text-teal-400 mx-auto mb-2" /> */}
+                  <BackendIcon
+                    iconName={stat.icon}
+                    className="w-8 h-8 text-teal-400 mx-auto mb-2"
+                  />
                   <div className="text-2xl font-bold text-white">
                     {stat.value}
                   </div>
