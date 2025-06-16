@@ -8,10 +8,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getCookie, setCookie } from "@/lib/utils";
-import { LANGUAGE_TOKEN_KEY } from "@/utils/constants";
+import { API_URL, LANGUAGE_TOKEN_KEY } from "@/utils/constants";
 import { useEffect, useState } from "react";
 
 const LanguageSelector = () => {
+  const [langList, setLangList] = useState<any[]>([]);
   const [selectedLanguage, setSelectedLanguage] = useState<string>();
 
   useEffect(() => {
@@ -19,6 +20,17 @@ const LanguageSelector = () => {
     if (savedLanguage) {
       setSelectedLanguage(savedLanguage);
     }
+  }, []);
+
+  useEffect(() => {
+    const getLanguages = async () => {
+      const res = await fetch(`${API_URL}/api/languages`);
+      const data = await res.json();
+      setLangList(data.data);
+      console.log(data);
+    };
+
+    getLanguages();
   }, []);
 
   // Handle language change
@@ -38,7 +50,17 @@ const LanguageSelector = () => {
             <SelectValue placeholder="Language" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="en">
+            {langList?.map((lang) => (
+              <SelectItem key={lang.code} value={lang.code}>
+                <div className="flex items-center gap-2">
+                  <span>
+                    <img src={API_URL + lang.icon} width={20} />
+                  </span>
+                  <span>{lang.name}</span>
+                </div>
+              </SelectItem>
+            ))}
+            {/* <SelectItem value="en">
               <div className="flex items-center gap-2">
                 <span>
                   <img src="/english.png" width={20} />
@@ -52,7 +74,7 @@ const LanguageSelector = () => {
                 <img src="/deutsch.png" width={20} />
                 <span>Deutsch</span>
               </div>
-            </SelectItem>
+            </SelectItem> */}
           </SelectContent>
         </Select>
       </div>

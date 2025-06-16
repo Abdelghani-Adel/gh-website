@@ -1,13 +1,15 @@
 import { getLangCookie } from "@/lib/utils";
+import { API_URL } from "./constants";
 
 export interface ISection {}
 
-let URL = "https://amarinaproperties.com/lts-backend/api";
-
 export async function getPageData(pageId: number, lang: string) {
-  const response = await fetch(`${URL}/pages/${pageId}/sections?lang=${lang}`, {
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${API_URL}/api/pages/${pageId}/sections?lang=${lang}`,
+    {
+      cache: "no-store",
+    }
+  );
   const result = await response.json();
 
   if (result.data) {
@@ -21,7 +23,9 @@ export async function getSectionData(sectionId: number) {
   const langCookie = getLangCookie();
 
   const response = await fetch(
-    `${URL}/aggregated/section?id=${sectionId}&lang=${langCookie ?? "en"}`,
+    `${API_URL}/api/aggregated/section?id=${sectionId}&lang=${
+      langCookie ?? "en"
+    }`,
     { cache: "no-store" }
   );
   const result = await response.json();
