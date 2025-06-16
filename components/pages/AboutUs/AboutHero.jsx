@@ -1,3 +1,4 @@
+import HeroBackgroundPattern from "@/components/HeroBackgroundPattern";
 import { getSectionData } from "@/utils/ApiService";
 
 const AboutHero = async () => {
@@ -8,20 +9,14 @@ const AboutHero = async () => {
   }
 
   return (
-    <section className="relative mt-24 min-h-[600px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full border-4 border-cyan-400 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full border-2 border-cyan-300 animate-ping"></div>
-      </div>
+    <section className="hero_wrapper">
+      <HeroBackgroundPattern />
 
       <div className="relative z-10 max-w-7xl px-5 container mx-auto py-20 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white space-y-8">
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                {data.title}
-              </h1>
+              <h1 className="text-5xl lg:text-6xl font-bold">{data.title}</h1>
               <div dangerouslySetInnerHTML={{ __html: data.desc }} />
             </div>
 

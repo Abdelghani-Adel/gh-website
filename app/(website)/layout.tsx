@@ -12,7 +12,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      {children}
+      <div className="min-h-screen bg-white mt-24">{children}</div>
+
       <div className="mt-auto">
         <Footer />
       </div>

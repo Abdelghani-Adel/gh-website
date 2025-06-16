@@ -5,7 +5,7 @@ import CareerBenefits from "@/components/pages/career/CareerBenefits";
 
 const CareersPage = async () => {
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <CareerHero />
 
       <CareerIntro />
@@ -13,7 +13,7 @@ const CareersPage = async () => {
       <Positions />
 
       <CareerBenefits />
-    </div>
+    </>
   );
 };
 

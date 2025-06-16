@@ -85,3 +85,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .hero_wrapper {
+    @apply relative h-[500px] bg-gradient-to-br from-blue-500 via-blue-800 to-blue-500 text-white overflow-hidden;
+  }
+}

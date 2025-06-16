@@ -12,25 +12,14 @@ import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
 
 const AboutUsPage = () => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+    <>
       <AboutHero />
-
-      {/* Mission & Vision Section */}
       <AboutMission />
-
-      {/* Leadership Team Section */}
       <AboutLeadership />
-
-      {/* Regional Teams Section */}
       <AboutTeams />
-
-      {/* Certificates Section */}
       <AboutCertificates />
-
-      {/* Call to Action Section */}
       <AboutCTA />
-    </div>
+    </>
   );
 };
 

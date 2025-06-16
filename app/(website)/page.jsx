@@ -11,7 +11,7 @@ import ContactUs from "@/components/pages/ContactUs";
 
 const LTSHomepage = async () => {
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <HomeHero />
       <HomeAbout />
       <HomeServices />
@@ -22,7 +22,7 @@ const LTSHomepage = async () => {
       <Customers />
       <CTA />
       <ContactUs />
-    </div>
+    </>
   );
 };
 
