@@ -1,6 +1,5 @@
 import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
-import { getIconByName } from "@/utils/iconLibrary";
 
 const Analytics = async () => {
   const content = await getSectionData(3);
