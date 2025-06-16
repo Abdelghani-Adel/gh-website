@@ -1,6 +1,7 @@
 import BackendIcon from "@/components/BackendIcon";
 import HeroBackgroundPattern from "@/components/HeroBackgroundPattern";
 import { getSectionData } from "@/utils/ApiService";
+import { API_URL } from "@/utils/constants";
 
 const AboutHero = async () => {
   const data = await getSectionData(20);
@@ -45,7 +46,7 @@ const AboutHero = async () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl blur-xl opacity-30"></div>
               <img
-                src={data.heroImage}
+                src={API_URL + data.heroImage}
                 alt="LTS Team"
                 className="relative rounded-2xl shadow-2xl max-w-md w-full h-auto object-cover"
               />
