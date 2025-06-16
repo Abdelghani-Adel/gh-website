@@ -1,3 +1,4 @@
+import { LANGUAGE_TOKEN_KEY } from "@/utils/constants";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -34,7 +35,7 @@ export function getLangCookie(): string | null {
       const url = headers().get("x-url"); // custom header (set via middleware)
       const langFromQuery = url ? new URL(url).searchParams.get("lang") : null;
 
-      const cookie = cookies().get("LTS_Language")?.value;
+      const cookie = cookies().get(LANGUAGE_TOKEN_KEY)?.value;
 
       return langFromQuery || cookie || null;
     } catch (error) {
@@ -47,7 +48,7 @@ export function getLangCookie(): string | null {
       const langFromQuery = new URLSearchParams(window.location.search).get(
         "lang"
       );
-      const cookie = getCookie("LTS_Language");
+      const cookie = getCookie(LANGUAGE_TOKEN_KEY);
       return langFromQuery || cookie || null;
     } catch (error) {
       console.error("Client error getting lang:", error);

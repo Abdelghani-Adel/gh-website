@@ -8,13 +8,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getCookie, setCookie } from "@/lib/utils";
+import { LANGUAGE_TOKEN_KEY } from "@/utils/constants";
 import { useEffect, useState } from "react";
 
 const LanguageSelector = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string>();
 
   useEffect(() => {
-    const savedLanguage = getCookie("LTS_Language") ?? "en";
+    const savedLanguage = getCookie(LANGUAGE_TOKEN_KEY) ?? "en";
     if (savedLanguage) {
       setSelectedLanguage(savedLanguage);
     }
@@ -23,7 +24,7 @@ const LanguageSelector = () => {
   // Handle language change
   const handleLanguageChange = (newLanguage: string) => {
     setSelectedLanguage(newLanguage);
-    setCookie("LTS_Language", newLanguage);
+    setCookie(LANGUAGE_TOKEN_KEY, newLanguage);
     window.location.reload();
   };
 
