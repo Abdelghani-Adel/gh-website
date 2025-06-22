@@ -23,7 +23,15 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const reponse = await sendCustomerMessage(formData);
+
+    const submitData = new FormData();
+    submitData.append("name", formData.name);
+    submitData.append("email", formData.email);
+    submitData.append("phone", formData.phone);
+    submitData.append("company", formData.company);
+    submitData.append("message", formData.message);
+
+    const reponse = await sendCustomerMessage(submitData);
 
     if (reponse.status === 200) {
       setFormData({

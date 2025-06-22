@@ -1,12 +1,19 @@
 "use client";
 
-import { getSectionData } from "@/utils/ApiService";
-import { CheckCircle, Mail, MapPin, Send } from "lucide-react";
+import { applyForPosition, getSectionData } from "@/utils/ApiService";
+import { CheckCircle, Mail, MapPin, Send, Upload, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Positions = () => {
   const [selectedPosition, setSelectedPosition] = useState(null);
   const [data, setData] = useState();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    cv: null,
+    position: "",
+    coverLetter: "",
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +27,79 @@ const Positions = () => {
 
     fetchData();
   }, []);
+
+  const handlePositionSelect = (position) => {
+    setSelectedPosition(position);
+    setFormData((prev) => ({
+      ...prev,
+      position: position.title,
+    }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData((prev) => ({
+        ...prev,
+        cv: file,
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Create FormData for file upload
+    const submitData = new FormData();
+    submitData.append("name", formData.name);
+    submitData.append("email", formData.email);
+    submitData.append("position", formData.position);
+    submitData.append("coverLetter", formData.coverLetter);
+    if (formData.cv) {
+      submitData.append("cv", formData.cv);
+    }
+
+    try {
+      // Replace with your actual API endpoint
+      const response = await applyForPosition(submitData);
+
+      if (response.ok) {
+        alert("Application submitted successfully!");
+        setSelectedPosition(null);
+        setFormData({
+          name: "",
+          email: "",
+          cv: null,
+          position: "",
+          coverLetter: "",
+        });
+      } else {
+        throw new Error("Failed to submit application");
+      }
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      alert("Failed to submit application. Please try again.");
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedPosition(null);
+    setFormData({
+      name: "",
+      email: "",
+      cv: null,
+      position: "",
+      coverLetter: "",
+    });
+  };
 
   if (!data) {
     return null;
@@ -91,7 +171,7 @@ const Positions = () => {
                 )}
 
                 <button
-                  onClick={() => setSelectedPosition(position)}
+                  onClick={() => handlePositionSelect(position)}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-105"
                 >
                   Apply Now
@@ -102,7 +182,8 @@ const Positions = () => {
           </div>
         </div>
       </section>
-      {/* Application Modal */}
+
+      {/* Application Form Modal */}
       {selectedPosition && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -111,61 +192,187 @@ const Positions = () => {
                 Apply for {selectedPosition.title}
               </h3>
               <button
-                onClick={() => setSelectedPosition(null)}
+                onClick={closeModal}
                 className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
               >
-                ×
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="mb-8">
-              <p className="text-gray-600 mb-4">
-                {selectedPosition.description}
-              </p>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Position Info */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Position Details:
+                </h4>
+                <p className="text-gray-700 mb-4">
+                  {selectedPosition.description}
+                </p>
 
-              {selectedPosition.skills && (
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">
-                    Required Skills:
+                {selectedPosition.skills && (
+                  <div>
+                    <h5 className="font-semibold text-gray-900 mb-2">
+                      Required Skills:
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedPosition.skills.map((skill, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Application Guidelines */}
+              {data.applicationGuidelines && (
+                <div className="bg-green-50 p-6 rounded-xl">
+                  <h4 className="font-bold text-gray-900 mb-4">
+                    Application Guidelines:
                   </h4>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {selectedPosition.skills.map((skill, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                      >
-                        {skill}
-                      </span>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    {data.applicationGuidelines.map((guideline, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>{guideline}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
               )}
-            </div>
 
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl mb-6">
-              <h4 className="font-bold text-gray-900 mb-4">How to Apply:</h4>
-              <div className="space-y-2 text-sm text-gray-700">
-                {data.applicationGuidelines.map((guideline, index) => (
-                  <div key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>{guideline}</span>
+              {/* Application Form */}
+              <div className="space-y-4">
+                {/* Name */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                {/* Position (readonly) */}
+                <div>
+                  <label
+                    htmlFor="position"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Position
+                  </label>
+                  <input
+                    type="text"
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    readOnly
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 text-gray-600"
+                  />
+                </div>
+
+                {/* CV Upload */}
+                <div>
+                  <label
+                    htmlFor="cv"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Upload CV/Resume *
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="file"
+                      id="cv"
+                      name="cv"
+                      onChange={handleFileChange}
+                      accept=".pdf,.doc,.docx"
+                      required
+                      className="hidden"
+                    />
+                    <label
+                      htmlFor="cv"
+                      className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-blue-500 transition-colors flex items-center justify-center gap-2 text-gray-600 hover:text-blue-600"
+                    >
+                      <Upload className="w-5 h-5" />
+                      {formData.cv
+                        ? formData.cv.name
+                        : "Click to upload CV (PDF, DOC, DOCX)"}
+                    </label>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            <div className="flex gap-4">
-              <button
-                onClick={() => setSelectedPosition(null)}
-                className="flex-1 border-2 border-gray-300 hover:bg-gray-50 text-gray-700 py-3 px-6 rounded-xl font-semibold transition-colors"
-              >
-                Close
-              </button>
-              <button className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2">
-                <Mail className="w-5 h-5" />
-                Email Application
-              </button>
-            </div>
+                {/* Cover Letter */}
+                <div>
+                  <label
+                    htmlFor="coverLetter"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Cover Letter (Optional)
+                  </label>
+                  <textarea
+                    id="coverLetter"
+                    name="coverLetter"
+                    value={formData.coverLetter}
+                    onChange={handleInputChange}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    placeholder="Tell us why you're interested in this position..."
+                  />
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex gap-4 pt-4">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="flex-1 border-2 border-gray-300 hover:bg-gray-50 text-gray-700 py-3 px-6 rounded-xl font-semibold transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <Send className="w-5 h-5" />
+                  Submit Application
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

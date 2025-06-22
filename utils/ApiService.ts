@@ -24,11 +24,25 @@ export async function sendCustomerMessage(requestBody: any) {
 
   const response = await fetch(URL, {
     method: "POST",
+    body: requestBody,
     headers: {
-      "Content-Type": "application/json",
       lang: langCookie ?? "en",
     },
-    body: JSON.stringify(requestBody),
+  });
+
+  return response;
+}
+
+export async function applyForPosition(requestBody: any) {
+  const langCookie = getLangCookie();
+  const URL = API_URL + "/api/email/send-cv";
+
+  const response = await fetch(URL, {
+    method: "POST",
+    body: requestBody,
+    headers: {
+      lang: langCookie ?? "en",
+    },
   });
 
   return response;
