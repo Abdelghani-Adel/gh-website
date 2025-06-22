@@ -5,24 +5,65 @@ import {
   SheetClose,
   SheetContent,
   SheetHeader,
-  SheetTrigger
+  SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { ChevronDown } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
+
+interface SubLink {
+  href: string;
+  label: string;
+}
+
+interface NavItem {
+  href: string;
+  label: string;
+  subLinks?: SubLink[];
+}
 
 const Header = () => {
   const pathname = usePathname();
 
-  // Navigation items configuration
-  const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/about-us", label: "About Us" },
-    { href: "/career", label: "Careers" },
-    { href: "/contact", label: "Contact Us" },
+  // Navigation items configuration with sub-links
+  const navItems: NavItem[] = [
+    {
+      href: "/",
+      label: "Home",
+      subLinks: [
+        { href: "/#about", label: "About Us" },
+        { href: "/#services", label: "Services" },
+        { href: "/#sustainability", label: "Sustainability" },
+        { href: "/#timeline", label: "Timeline" },
+        { href: "/#testimonials", label: "Testimonials" },
+        { href: "/#analytics", label: "Analytics" },
+        { href: "/#customers", label: "Customers" },
+      ],
+    },
+    {
+      href: "/services",
+      label: "Services",
+    },
+    {
+      href: "/about-us",
+      label: "About Us",
+    },
+    {
+      href: "/career",
+      label: "Careers",
+    },
+    {
+      href: "/contact",
+      label: "Contact Us",
+    },
   ];
 
   // Function to check if a route is active
@@ -33,15 +74,27 @@ const Header = () => {
     return pathname.startsWith(href);
   };
 
-  // Function to get link styles based on active state
-  const getLinkStyles = (href: string) => {
-    const baseStyles = "block px-5 py-2 rounded transition-all duration-200";
-    const activeStyles = "bg-second text-white";
-    const inactiveStyles = "hover:bg-gray-100 hover:text-gray-800";
+  // Function to check if a sub-link is active
+  const isActiveSubLink = (href: string) => {
+    if (href.includes("#")) {
+      const [path] = href.split("#");
+      return pathname === path;
+    }
+    return pathname === href;
+  };
 
-    return `${baseStyles} ${
-      isActiveRoute(href) ? activeStyles : inactiveStyles
-    }`;
+  // Function to get link styles based on active state
+  const getLinkStyles = (href: string, isSubLink = false) => {
+    const baseStyles = isSubLink
+      ? "block px-8 py-2 rounded transition-all duration-200 text-base font-medium"
+      : "block px-5 py-2 rounded transition-all duration-200 font-bold";
+
+    const activeStyles = "bg-second text-white";
+    const inactiveStyles = "hover:bg-gray-100/10 hover:text-gray-200";
+
+    const isActive = isSubLink ? isActiveSubLink(href) : isActiveRoute(href);
+
+    return `${baseStyles} ${isActive ? activeStyles : inactiveStyles}`;
   };
 
   return (
@@ -64,7 +117,10 @@ const Header = () => {
 
           <LanguageSelector />
 
-          <SheetContent side="left" className="bg-main border-main text-white">
+          <SheetContent
+            side="left"
+            className="bg-main border-main text-white overflow-y-auto"
+          >
             <SheetHeader>
               <SheetClose asChild>
                 <Link href="/" className="relative block h-[50px] w-[100px]">
@@ -73,13 +129,56 @@ const Header = () => {
               </SheetClose>
             </SheetHeader>
 
-            <div className="flex flex-col mt-10 space-y-2 text-xl font-bold">
+            <div className="flex flex-col mt-10 space-y-2 text-xl">
               {navItems.map((item) => (
-                <SheetClose key={item.href} asChild>
-                  <Link href={item.href} className={getLinkStyles(item.href)}>
-                    {item.label}
-                  </Link>
-                </SheetClose>
+                <div key={item.href}>
+                  {item.subLinks ? (
+                    <Collapsible defaultOpen={isActiveRoute(item.href)}>
+                      <div className="group">
+                        <div className="flex items-center">
+                          <SheetClose asChild className="flex-1">
+                            <Link
+                              href={item.href}
+                              className={getLinkStyles(item.href)}
+                            >
+                              {item.label}
+                            </Link>
+                          </SheetClose>
+
+                          <CollapsibleTrigger asChild>
+                            <button className="p-2 hover:bg-gray-100/10 rounded transition-all duration-200">
+                              <ChevronDown className="w-5 h-5 transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                            </button>
+                          </CollapsibleTrigger>
+                        </div>
+
+                        <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-left-1 data-[state=open]:slide-in-from-left-1">
+                          <div className="ml-4 mt-1 space-y-1 border-l-2 border-second/30 pl-2">
+                            {item.subLinks.map((subLink) => (
+                              <SheetClose key={subLink.href} asChild>
+                                <Link
+                                  href={subLink.href}
+                                  className="block px-3 py-2 rounded transition-all duration-200 text-base font-light"
+                                >
+                                  {subLink.label}
+                                </Link>
+                              </SheetClose>
+                            ))}
+                          </div>
+                        </CollapsibleContent>
+                      </div>
+                    </Collapsible>
+                  ) : (
+                    <SheetClose asChild>
+                      <Link
+                        href={item.href}
+                        className={getLinkStyles(item.href)}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  )}
+                </div>
               ))}
             </div>
           </SheetContent>

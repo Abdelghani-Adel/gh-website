@@ -9,7 +9,10 @@ const Analytics = async () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
+    <section
+      className="py-20 bg-gradient-to-br from-teal-600 to-blue-600 text-white"
+      id="analytics"
+    >
       <div className="container max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">{content?.title}</h2>

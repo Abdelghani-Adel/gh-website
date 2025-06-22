@@ -11,7 +11,7 @@ const Customers = async () => {
   }
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" id="customers">
       <div className="container max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">

@@ -8,7 +8,10 @@ const HomeSustainability = async () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-teal-900 to-blue-900 text-white">
+    <section
+      className="py-20 bg-gradient-to-br from-teal-900 to-blue-900 text-white"
+      id="sustainability"
+    >
       <div className="container max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="grid grid-cols-3 gap-4">

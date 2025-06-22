@@ -20,7 +20,7 @@ export async function getSectionData(sectionId: number) {
 
 export async function sendCustomerMessage(requestBody: any) {
   const langCookie = getLangCookie();
-  const URL = API_URL + "/api/email/customerMessage";
+  const URL = API_URL + "/api/email/send-user-data";
 
   const response = await fetch(URL, {
     method: "POST",

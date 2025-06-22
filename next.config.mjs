@@ -5,6 +5,7 @@ const nextConfig = {
       "192.168.30.67",
       "dist-ten-gold.vercel.app",
       "amarinaproperties.com",
+      "linktalentsupport.com",
     ],
   },
 };
