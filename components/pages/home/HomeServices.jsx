@@ -1,6 +1,7 @@
 import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight, CircleCheck } from "lucide-react";
+import Link from "next/link";
 
 const HomeServices = async () => {
   const content = await getSectionData(7);
@@ -42,10 +43,13 @@ const HomeServices = async () => {
                 dangerouslySetInnerHTML={{ __html: service.description }}
               />
 
-              <button className="text-teal-600 hover:text-teal-700 font-medium flex items-center gap-2 mx-auto">
+              <Link
+                href="/services"
+                className="text-teal-600 w-max hover:text-teal-700 font-medium flex items-center gap-2 mx-auto"
+              >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           ))}
         </div>

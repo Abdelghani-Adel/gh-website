@@ -1,4 +1,5 @@
 import { getSectionData } from "@/utils/ApiService";
+import Link from "next/link";
 
 const CTA = async () => {
   const content = await getSectionData(9);
@@ -13,9 +14,12 @@ const CTA = async () => {
         <h2 className="text-4xl lg:text-5xl font-bold mb-8">
           {content?.title}
         </h2>
-        <button className="bg-white hover:bg-gray-100 text-teal-600 px-10 py-4 rounded-full font-bold text-lg transition-colors duration-300">
+        <Link
+          href="/contact"
+          className="bg-white hover:bg-gray-100 text-teal-600 px-10 py-4 rounded-full font-bold text-lg transition-colors duration-300"
+        >
           Get Started
-        </button>
+        </Link>
       </div>
     </section>
   );

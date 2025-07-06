@@ -1,6 +1,7 @@
 import { getSectionData } from "@/utils/ApiService";
 import { API_URL } from "@/utils/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const HomeAbout = async () => {
   const content = await getSectionData(2);
@@ -24,9 +25,12 @@ const HomeAbout = async () => {
               }}
             />
 
-            <button className="bg-second hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300">
+            <Link
+              href="/about-us"
+              className="bg-second w-max hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300"
+            >
               Our Story
-            </button>
+            </Link>
           </div>
           <div className="relative">
             <div className="rounded-2xl overflow-hidden p-8 h-80 relative">

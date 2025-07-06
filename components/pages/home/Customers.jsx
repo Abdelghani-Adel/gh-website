@@ -2,6 +2,7 @@ import { getSectionData } from "@/utils/ApiService";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { API_URL } from "@/utils/constants";
+import Link from "next/link";
 
 const Customers = async () => {
   const content = await getSectionData(5);
@@ -64,10 +65,13 @@ const Customers = async () => {
               Join hundreds of companies already transforming their operations
               with LTS
             </p>
-            <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300 inline-flex items-center gap-2">
+            <Link
+              href="/contact"
+              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300 inline-flex items-center gap-2"
+            >
               Become a Partner
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

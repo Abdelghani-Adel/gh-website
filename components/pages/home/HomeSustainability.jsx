@@ -1,4 +1,5 @@
 import { getSectionData } from "@/utils/ApiService";
+import Link from "next/link";
 
 const HomeSustainability = async () => {
   const content = await getSectionData(8);
@@ -35,9 +36,12 @@ const HomeSustainability = async () => {
               }}
             />
 
-            <button className="bg-second hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300">
+            <Link
+              href="/contact"
+              className="bg-second w-max hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
+            >
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </div>
