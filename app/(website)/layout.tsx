@@ -4,8 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "GH",
-  description: "GH",
+  title: "LTS",
+  description: "Link Talent Support",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

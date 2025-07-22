@@ -27,10 +27,10 @@ const Footer = () => {
 
   // Services links
   const serviceItems = [
-    { href: "/services", label: "Web Development" },
-    { href: "/services", label: "Mobile Apps" },
-    { href: "/services", label: "Digital Marketing" },
-    { href: "/services", label: "Consulting" },
+    { href: "/services", label: "Outsourcing" },
+    { href: "/services", label: "Call center services" },
+    { href: "/services", label: "Consulting services social media services" },
+    { href: "/services", label: "Pls" },
   ];
 
   // Legal links

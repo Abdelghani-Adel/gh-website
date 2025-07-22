@@ -4,7 +4,7 @@ import { sendCustomerMessage } from "@/utils/ApiService";
 import { Building, Mail, MessageSquare, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,18 +48,16 @@ const ContactForm = () => {
     <div>
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Send us a Message
+          {props?.data?.title}
         </h2>
-        <p className="text-gray-600">
-          Fill out the form below and we'll get back to you within 24 hours.
-        </p>
+        <p className="text-gray-600">{props?.data?.subtitle}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Full Name *
+              {props?.data?.nameField?.label} *
             </label>
             <div className="relative">
               <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -70,14 +68,14 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
-                placeholder="Enter your full name"
+                placeholder={props?.data?.nameField?.placeHolder}
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address *
+              {props?.data?.emailField?.label} *
             </label>
             <div className="relative">
               <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -88,7 +86,7 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
-                placeholder="Enter your email"
+                placeholder={props?.data?.emailField?.placeHolder}
               />
             </div>
           </div>
@@ -97,7 +95,7 @@ const ContactForm = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number
+              {props?.data?.phoneField?.label}
             </label>
             <div className="relative">
               <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -107,14 +105,14 @@ const ContactForm = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
-                placeholder="Enter your phone number"
+                placeholder={props?.data?.phoneField?.placeHolder}
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Company / Organization
+              {props?.data?.companyField?.label}
             </label>
             <div className="relative">
               <Building className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -124,7 +122,7 @@ const ContactForm = () => {
                 value={formData.company}
                 onChange={handleInputChange}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
-                placeholder="Enter your company name"
+                placeholder={props?.data?.companyField?.placeHolder}
               />
             </div>
           </div>
@@ -132,7 +130,7 @@ const ContactForm = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Message *
+            {props?.data?.messageField?.label} *
           </label>
           <div className="relative">
             <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -143,7 +141,7 @@ const ContactForm = () => {
               required
               rows="4"
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
-              placeholder="How can we help you?"
+              placeholder={props?.data?.messageField?.placeHolder}
             ></textarea>
           </div>
         </div>
@@ -154,7 +152,7 @@ const ContactForm = () => {
             className="w-full bg-teal-600 hover:bg-teal-700 text-white py-4 px-6 rounded-lg flex items-center justify-center gap-2 font-bold text-lg transition-colors duration-300"
           >
             <Send className="w-5 h-5" />
-            Send Message
+            {props?.data?.buttonText}
           </button>
         </div>
       </form>

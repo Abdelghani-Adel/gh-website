@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 // Import the new components
@@ -9,6 +7,11 @@ import AboutLeadership from "@/components/pages/AboutUs/AboutLeadership";
 import AboutTeams from "@/components/pages/AboutUs/AboutTeams";
 import AboutCertificates from "@/components/pages/AboutUs/AboutCertificates";
 import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
+
+export const metadata = {
+  title: "LTS / About",
+  description: "Know about us",
+};
 
 const AboutUsPage = () => {
   return (
