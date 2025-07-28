@@ -47,7 +47,7 @@ const AboutHero = async () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl blur-xl opacity-30"></div>
               <img
                 src={API_URL + data.heroImage}
-                alt="LTS Team"
+                alt="Link Talent Support Team"
                 className="relative rounded-2xl shadow-2xl max-w-md w-full h-auto object-cover"
               />
             </div>

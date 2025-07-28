@@ -9,8 +9,17 @@ import AboutCertificates from "@/components/pages/AboutUs/AboutCertificates";
 import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
 
 export const metadata = {
-  title: "LTS / About",
-  description: "Know about us",
+  title: "About Us | Link Talent Support",
+  description: "Discover the mission and team behind Link Talent Support. We are committed to empowering careers and businesses through professional support.",
+  keywords: ["about link talent", "link talent team", "career support company", "recruitment agency", "HR services company"],
+  openGraph: {
+    title: "About Us | Link Talent Support",
+    description: "Learn more about our mission, values, and the team driving Link Talent Support forward.",
+    url: "https://www.linktalentsupport.com/about",
+    siteName: "Link Talent Support",
+    
+    type: "website",
+  },
 };
 
 const AboutUsPage = () => {

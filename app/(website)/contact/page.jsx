@@ -9,8 +9,24 @@ import ContactInfo from "@/components/pages/ContactUs/ContactInfo";
 import { getSectionData } from "@/utils/ApiService";
 
 export const metadata = {
-  title: "LTS / Contact",
-  description: "Contact Us",
+  title: "Contact Us | Link Talent Support",
+  description: "Get in touch with Link Talent Support. We’re here to help you find the right job or candidate.",
+  keywords: ["contact link talent", "get in touch", "career support contact", "recruitment contact", "HR help"],
+  openGraph: {
+    title: "Contact Us | Link Talent Support",
+    description: "Reach out to us for job support or recruitment services.",
+    url: "https://www.linktalentsupport.com/contact",
+    siteName: "Link Talent Support",
+    type: "website",
+  },
+  images: [
+      {
+        url: "https://www.linktalentsupport.com/logo-icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Link Talent Support",
+      },
+    ],
 };
 
 const ContactPage = async () => {
