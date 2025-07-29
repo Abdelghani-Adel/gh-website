@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   FaFacebook,
   FaTwitter,
@@ -27,10 +26,11 @@ const Footer = () => {
 
   // Services links
   const serviceItems = [
-    { href: "/services", label: "Outsourcing" },
-    { href: "/services", label: "Call center services" },
-    { href: "/services", label: "Consulting services social media services" },
-    { href: "/services", label: "Pls" },
+    { href: "/services#outsourcing-services", label: "Outsourcing" },
+    { href: "/services#call-center-services", label: "Call center" },
+    { href: "/services#consulting-services", label: "Consulting" },
+    { href: "/services#social-media-services", label: "Social Media" },
+    { href: "/services#it-services", label: "IT Services" },
   ];
 
   // Legal links
@@ -50,15 +50,15 @@ const Footer = () => {
 
   // Contact information
   const contactInfo = [
-    { icon: FaPhone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: FaPhone, text: "+2 010 6411 5337", href: "tel:+201064115337" },
     {
       icon: FaEnvelope,
-      text: "info@company.com",
-      href: "mailto:info@company.com",
+      text: "info@linktalentsupport.com",
+      href: "mailto:info@linktalentsupport.com",
     },
     {
       icon: FaMapMarkerAlt,
-      text: "123 Business St, City, State 12345",
+      text: "114 El Tahrir Steet, Dokki, Giza, Egypt",
       href: "#",
     },
   ];

@@ -7,20 +7,24 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Link Talent Support",
-  description: "We help job seekers and employers connect through quality support and career services.",
-  keywords: ["job support", "career development", "link talent", "recruitment", "HR services"],
-  robots: {
-    index: true,
-    follow: true,
-  },
+  description:
+    "Link Talent Support offers tailored outsourcing solutions for the tourism industry, including customer service, IT services, and social media management.",
+  keywords: [
+    "tourism outsourcing",
+    "travel support",
+    "multilingual customer service",
+    "IT services tourism",
+    "Link Talent Support",
+  ],
   openGraph: {
-    title: "Link Talent Support",
-    description: "Empowering job seekers and employers.",
-    url: "https://www.linktalentsupport.com",
+    title: "Link Talent Support | Tourism Outsourcing Experts",
+    description:
+      "Efficient, multilingual, and scalable outsourcing for the travel industry. Available 24/7.",
+    url: "https://linktalentsupport.com",
     siteName: "Link Talent Support",
     images: [
       {
-        url: "https://www.linktalentsupport.com/logo-icon.png",
+        url: "https://linktalentsupport.com/images/og-home.jpg",
         width: 1200,
         height: 630,
         alt: "Link Talent Support",
@@ -28,12 +32,13 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "Link Talent Support",
-  //   description: "Helping job seekers and employers thrive.",
-  // images: ["https://www.linktalentsupport.com/og-image.jpg"],
-  // },
+  twitter: {
+    card: "summary_large_image",
+    title: "Link Talent Support | Tourism Outsourcing Experts",
+    description:
+      "Outsourcing solutions for the tourism industry: support, IT, social media, and more.",
+    images: ["https://linktalentsupport.com/images/og-home.jpg"],
+  },
   metadataBase: new URL("https://www.linktalentsupport.com"),
 };
 

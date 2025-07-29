@@ -10,15 +10,36 @@ import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
 
 export const metadata = {
   title: "About Us | Link Talent Support",
-  description: "Discover the mission and team behind Link Talent Support. We are committed to empowering careers and businesses through professional support.",
-  keywords: ["about link talent", "link talent team", "career support company", "recruitment agency", "HR services company"],
+  description: "Learn more about Link Talent Support, our mission, and our expertise in providing outsourcing services for the tourism and travel industry.",
+  keywords: ["about Link Talent Support",
+    "tourism outsourcing company",
+    "our mission",
+    "travel customer service provider",
+    "outsourcing experts",
+    "Link Talent Support",
+    "Link Talent",],
   openGraph: {
-    title: "About Us | Link Talent Support",
-    description: "Learn more about our mission, values, and the team driving Link Talent Support forward.",
-    url: "https://www.linktalentsupport.com/about",
+    title: "About Link Talent Support",
+    description:
+      "We help tourism businesses grow with reliable outsourcing and dedicated teams.",
+    url: "https://linktalentsupport.com/about-us",
     siteName: "Link Talent Support",
-    
+    images: [
+      {
+        url: "https://www.linktalentsupport.com/logo-icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Our team at Link Talent Support",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Link Talent Support",
+    description:
+      "Dedicated to quality and innovation in tourism outsourcing since day one.",
+    images: ["https://www.linktalentsupport.com/logo-icon.png"],
   },
 };
 

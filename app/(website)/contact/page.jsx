@@ -10,23 +10,37 @@ import { getSectionData } from "@/utils/ApiService";
 
 export const metadata = {
   title: "Contact Us | Link Talent Support",
-  description: "Get in touch with Link Talent Support. We’re here to help you find the right job or candidate.",
-  keywords: ["contact link talent", "get in touch", "career support contact", "recruitment contact", "HR help"],
+  description: "Get in touch with Link Talent Support. Reach out for inquiries about our outsourcing services for the tourism industry.",
+  keywords: ["contact Link Talent Support",
+    "tourism outsourcing contact",
+    "customer service support",
+    "travel industry services contact",
+    "Link Talent Support",
+    "Link Talent",
+  ],
   openGraph: {
-    title: "Contact Us | Link Talent Support",
-    description: "Reach out to us for job support or recruitment services.",
-    url: "https://www.linktalentsupport.com/contact",
+    title: "Contact Link Talent Support",
+    description:
+      "Reach out to our support and sales teams for more info on our services.",
+    url: "https://linktalentsupport.com/contact",
     siteName: "Link Talent Support",
-    type: "website",
-  },
-  images: [
+    images: [
       {
         url: "https://www.linktalentsupport.com/logo-icon.png",
         width: 1200,
         height: 630,
-        alt: "Link Talent Support",
+        alt: "Contact Link Talent Support",
       },
     ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Link Talent Support",
+    description:
+      "Talk to us about customer support, IT, or social media outsourcing for tourism.",
+    images: ["https://www.linktalentsupport.com/logo-icon.png"],
+  },
 };
 
 const ContactPage = async () => {

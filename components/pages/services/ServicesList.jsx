@@ -22,7 +22,7 @@ const ServiceCard = ({ service, index }) => {
   const isEven = index % 2 === 0;
 
   return (
-    <section
+    <section id={service.title.toLowerCase().replace(/\s+/g, "-")}
       className={`py-28 ${isEven ? "bg-white" : "bg-second text-white"}`}
     >
       <div className="container max-w-6xl mx-auto px-6">
