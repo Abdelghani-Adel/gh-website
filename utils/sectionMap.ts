@@ -26,6 +26,7 @@ import AboutTeams from "@/components/pages/AboutUs/AboutTeams";
 import AboutCertificates from "@/components/pages/AboutUs/AboutCertificates";
 import AboutCTA from "@/components/pages/AboutUs/AboutCTA";
 import ContactUs from "@/components/pages/ContactUs";
+import Policies from "@/components/pages/Policies";
 
 export const sectionMap: Record<string, ComponentType> = {
   1: HomeHero,
@@ -54,4 +55,5 @@ export const sectionMap: Record<string, ComponentType> = {
   24: AboutCertificates,
   25: AboutCTA,
   26: ContactUs,
+  27: Policies,
 };

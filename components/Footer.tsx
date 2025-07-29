@@ -35,9 +35,9 @@ const Footer = () => {
 
   // Legal links
   const legalItems = [
-    { href: "#", label: "Privacy Policy" },
-    { href: "#", label: "Terms of Service" },
-    { href: "#", label: "Cookie Policy" },
+    { href: "/policies?tab=privacy", label: "Privacy Policy" },
+    { href: "/policies?tab=terms", label: "Terms of Service" },
+    { href: "/policies?tab=cookies", label: "Cookie Policy" },
   ];
 
   // Social media links
