@@ -26,11 +26,11 @@ const Footer = () => {
 
   // Services links
   const serviceItems = [
-    { href: "/services#outsourcing-services", label: "Outsourcing" },
-    { href: "/services#call-center-services", label: "Call center" },
-    { href: "/services#consulting-services", label: "Consulting" },
-    { href: "/services#social-media-services", label: "Social Media" },
-    { href: "/services#it-services", label: "IT Services" },
+    { href: "/services#outsourcing", label: "Outsourcing" },
+    { href: "/services#call-center", label: "Call center" },
+    { href: "/services#consulting", label: "Consulting" },
+    { href: "/services#social-media", label: "Social Media" },
+    { href: "/services#it", label: "IT Services" },
   ];
 
   // Legal links
