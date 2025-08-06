@@ -16,7 +16,7 @@ const AboutTeams = async () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             {data.title}
           </h2>
-          <div dangerouslySetInnerHTML={{ __html: data.description }} />
+          <div dangerouslySetInnerHTML={{ __html: data.description ?? "" }} />
         </div>
 
         <div className="space-y-16">

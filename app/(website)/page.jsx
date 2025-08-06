@@ -8,6 +8,7 @@ import HomeSustainability from "@/components/pages/home/HomeSustainability";
 import Testimonials from "@/components/pages/home/Testimonials";
 import TimeLine from "@/components/pages/TimeLine";
 import ContactUs from "@/components/pages/ContactUs";
+import CoreValues from "@/components/pages/home/CoreValues";
 
 const LTSHomepage = async () => {
   return (
@@ -17,9 +18,10 @@ const LTSHomepage = async () => {
       <HomeServices />
       <HomeSustainability />
       <TimeLine />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Analytics />
       <Customers />
+      <CoreValues />
       <CTA />
       <ContactUs />
     </>

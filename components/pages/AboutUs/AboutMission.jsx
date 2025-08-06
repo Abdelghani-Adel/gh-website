@@ -27,7 +27,9 @@ const AboutMission = async () => {
                 </div>
                 {data.teamTitle}
               </h3>
-              <div dangerouslySetInnerHTML={{ __html: data.description }} />
+              <div
+                dangerouslySetInnerHTML={{ __html: data.description ?? "" }}
+              />
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
@@ -39,7 +41,9 @@ const AboutMission = async () => {
               </h3>
 
               <div
-                dangerouslySetInnerHTML={{ __html: data.supportDescription }}
+                dangerouslySetInnerHTML={{
+                  __html: data.supportDescription ?? "",
+                }}
               />
             </div>
           </div>

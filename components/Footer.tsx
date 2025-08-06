@@ -14,7 +14,6 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-
 type Branch = {
   id: number;
   name: string;
@@ -72,6 +71,7 @@ const Footer = () => {
     const fetchBranch = async () => {
       try {
         const data = await getSectionData(17);
+
         if (data && data.branches?.length > 0) {
           setBranch(data.branches[0]);
         }
@@ -83,7 +83,7 @@ const Footer = () => {
     fetchBranch();
   }, []);
 
-   if (!branch) return null;
+  if (!branch) return null;
 
   const contactInfo = [
     {
@@ -241,8 +241,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-    </div>
-  </footer>
+      </div>
+    </footer>
   );
 };
 

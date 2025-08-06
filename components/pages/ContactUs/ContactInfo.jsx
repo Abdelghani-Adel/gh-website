@@ -99,15 +99,11 @@ const ContactInfo = () => {
 
           <div className="flex items-center gap-3">
             <Clock className="w-5 h-5 text-teal-600 flex-shrink-0" />
-            <div>
-              <p className="font-medium text-gray-900">Business Hours</p>
-              <p className="text-gray-600">
-                {CURRENT_BRANCH.businessHours.weekdays}
-              </p>
-              <p className="text-gray-600">
-                {CURRENT_BRANCH.businessHours.saturday}
-              </p>
-            </div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: CURRENT_BRANCH.businessHours ?? "",
+              }}
+            />
           </div>
         </div>
 

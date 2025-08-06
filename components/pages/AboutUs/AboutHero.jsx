@@ -19,7 +19,7 @@ const AboutHero = async () => {
           <div className="text-white space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold">{data.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: data.desc }} />
+              <div dangerouslySetInnerHTML={{ __html: data.desc ?? "" }} />
             </div>
 
             <div className="grid grid-cols-2 gap-6">

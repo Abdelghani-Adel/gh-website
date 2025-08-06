@@ -37,29 +37,7 @@ const Customers = async () => {
         </div>
 
         {/* Customer Logos */}
-        <div className="bg-white rounded-2xl p-12 shadow-lg">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {content?.logos?.map((customer) => (
-              <div
-                key={customer.id}
-                className="group hover:scale-105 transition-transform duration-300"
-              >
-                <div>
-                  {/* <div className="w-full h-16 relative rounded-lg overflow-hidden mb-2">
-                    <Image
-                      fill
-                      src={API_URL + customer.logo.src}
-                      alt={customer.logo.alt}
-                    />
-                  </div> */}
-                  <div className="text-gray-500 group-hover:text-teal-600 transition-colors duration-300 text-sm font-medium text-center px-2">
-                    {customer.name}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
+        <div className="bg-white rounded-2xl pb-8 shadow-lg">
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6">
               Join hundreds of companies already transforming their operations

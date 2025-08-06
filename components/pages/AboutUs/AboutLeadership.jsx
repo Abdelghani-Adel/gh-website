@@ -16,7 +16,7 @@ const AboutLeadership = async () => {
             {data.title}
           </h2>
 
-          <div dangerouslySetInnerHTML={{ __html: data.description }} />
+          <div dangerouslySetInnerHTML={{ __html: data.description ?? "" }} />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,7 +41,9 @@ const AboutLeadership = async () => {
                   </p>
                   <div
                     className="text-gray-600 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: manager.description }}
+                    dangerouslySetInnerHTML={{
+                      __html: manager.description ?? "",
+                    }}
                   />
                 </div>
               </div>

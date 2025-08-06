@@ -13,7 +13,7 @@ const AboutCertificates = async () => {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16 text-white">
           <h2 className="text-4xl font-bold mb-6">{data.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: data.description }} />
+          <div dangerouslySetInnerHTML={{ __html: data.description ?? "" }} />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
