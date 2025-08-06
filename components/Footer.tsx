@@ -1,5 +1,7 @@
 "use client";
 
+import { getSectionData } from "@/utils/ApiService";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,8 +14,25 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
+
+type Branch = {
+  id: number;
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+  businessHours: {
+    weekdays: string;
+    saturday: string;
+  };
+  facebook: string;
+  instagram: string;
+  linkedin: string;
+};
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [branch, setBranch] = useState<Branch | null>(null);
 
   // Navigation items configuration (same as header)
   const navItems = [
@@ -27,7 +46,7 @@ const Footer = () => {
   // Services links
   const serviceItems = [
     { href: "/services#outsourcing", label: "Outsourcing" },
-    { href: "/services#call-center", label: "Call center" },
+    { href: "/services#call-center", label: "Call Center" },
     { href: "/services#consulting", label: "Consulting" },
     { href: "/services#social-media", label: "Social Media" },
     { href: "/services#it", label: "IT Services" },
@@ -49,16 +68,37 @@ const Footer = () => {
   ];
 
   // Contact information
+  useEffect(() => {
+    const fetchBranch = async () => {
+      try {
+        const data = await getSectionData(17);
+        if (data && data.branches?.length > 0) {
+          setBranch(data.branches[0]);
+        }
+      } catch (err) {
+        console.error("Error loading contact info:", err);
+      }
+    };
+
+    fetchBranch();
+  }, []);
+
+   if (!branch) return null;
+
   const contactInfo = [
-    { icon: FaPhone, text: "+2 010 6411 5337", href: "tel:+201064115337" },
+    {
+      icon: FaPhone,
+      text: branch.phone,
+      href: `tel:${branch.phone}`,
+    },
     {
       icon: FaEnvelope,
-      text: "info@linktalentsupport.com",
-      href: "mailto:info@linktalentsupport.com",
+      text: branch.email,
+      href: `mailto:${branch.email}`,
     },
     {
       icon: FaMapMarkerAlt,
-      text: "114 El Tahrir Steet, Dokki, Giza, Egypt",
+      text: branch.address,
       href: "#",
     },
   ];
@@ -168,30 +208,41 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-5 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <div className="text-gray-400 text-sm">
-              © {currentYear} LTS. All rights reserved.
-            </div>
+      {/* Bottom Footer */}
+  <div className="border-t border-gray-700">
+    <div className="max-w-7xl mx-auto px-5 py-6">
+      <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        {/* Copyright */}
+        <div className="text-gray-400 text-sm">
+          © {currentYear} Link Talent Support. All rights reserved.
+        </div>
 
-            {/* Legal Links */}
-            <div className="flex flex-wrap justify-center md:justify-end space-x-6">
-              {legalItems.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+        {/* Legal Links */}
+        <div className="flex flex-col md:items-end text-center md:text-right space-y-2">
+          <div className="flex flex-wrap justify-center md:justify-end space-x-6">
+            {legalItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
+
+          {/* Email under legal links */}
+          <a
+            href={contactInfo[1].href}
+            className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
+          >
+            {contactInfo[1].text}
+          </a>
         </div>
       </div>
-    </footer>
+    </div>
+</div>
+</footer>
   );
 };
 

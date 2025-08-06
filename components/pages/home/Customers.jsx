@@ -45,13 +45,13 @@ const Customers = async () => {
                 className="group hover:scale-105 transition-transform duration-300"
               >
                 <div>
-                  <div className="w-full h-16 relative rounded-lg overflow-hidden mb-2">
+                  {/* <div className="w-full h-16 relative rounded-lg overflow-hidden mb-2">
                     <Image
                       fill
                       src={API_URL + customer.logo.src}
                       alt={customer.logo.alt}
                     />
-                  </div>
+                  </div> */}
                   <div className="text-gray-500 group-hover:text-teal-600 transition-colors duration-300 text-sm font-medium text-center px-2">
                     {customer.name}
                   </div>

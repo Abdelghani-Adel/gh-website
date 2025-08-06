@@ -1,38 +1,6 @@
 import { getSectionData } from "@/utils/ApiService";
 import ContactForm from "./ContactUs/ContactForm";
 
-// const content = {
-//   title: "Let's Connect",
-//   subtitle: "We are excited to get in touch with you.",
-//   note: "We are online",
-//   formText: {
-//     title: "Send us a message",
-//     subtitle:
-//       "Fill out the form below and we'll get back to you within 24 hours.",
-//     nameField: {
-//       label: "Full Name",
-//       placeHolder: "Enter your full name",
-//     },
-//     emailField: {
-//       label: "Email",
-//       placeHolder: "Enter your email",
-//     },
-//     phoneField: {
-//       label: "Phone Number",
-//       placeHolder: "Enter your phone number",
-//     },
-//     companyField: {
-//       label: "Company / Organization",
-//       placeHolder: "Enter your company name",
-//     },
-//     messageField: {
-//       label: "Message",
-//       placeHolder: "How can we help you?",
-//     },
-//     buttonText: "Send Message",
-//   },
-// };
-
 const ContactUs = async () => {
   const content = await getSectionData(26);
 
