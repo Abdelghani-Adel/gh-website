@@ -209,40 +209,40 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       {/* Bottom Footer */}
-  <div className="border-t border-gray-700">
-    <div className="max-w-7xl mx-auto px-5 py-6">
-      <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        {/* Copyright */}
-        <div className="text-gray-400 text-sm">
-          © {currentYear} Link Talent Support. All rights reserved.
-        </div>
+      <div className="border-t border-gray-700">
+        <div className="max-w-7xl mx-auto px-5 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            {/* Copyright */}
+            <div className="text-gray-400 text-sm">
+              © {currentYear} Link Talent Support. All rights reserved.
+            </div>
 
-        {/* Legal Links */}
-        <div className="flex flex-col md:items-end text-center md:text-right space-y-2">
-          <div className="flex flex-wrap justify-center md:justify-end space-x-6">
-            {legalItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
+            {/* Legal Links */}
+            <div className="flex flex-col md:items-end text-center md:text-right space-y-2">
+              <div className="flex flex-wrap justify-center md:justify-end space-x-6">
+                {legalItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Email under legal links */}
+              <a
+                href={contactInfo[1].href}
                 className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
               >
-                {item.label}
-              </Link>
-            ))}
+                {contactInfo[1].text}
+              </a>
+            </div>
           </div>
-
-          {/* Email under legal links */}
-          <a
-            href={contactInfo[1].href}
-            className="text-gray-400 hover:text-second transition-colors duration-200 text-sm"
-          >
-            {contactInfo[1].text}
-          </a>
         </div>
-      </div>
     </div>
-</div>
-</footer>
+  </footer>
   );
 };
 
