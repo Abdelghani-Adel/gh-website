@@ -40,7 +40,7 @@ const HomeSustainability = async () => {
               href="/contact"
               className="bg-second w-max hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
             >
-              Learn More
+              {content?.buttonText}
             </Link>
           </div>
         </div>

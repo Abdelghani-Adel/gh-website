@@ -18,7 +18,7 @@ const CTA = async () => {
           href="/contact"
           className="bg-white hover:bg-gray-100 text-teal-600 px-10 py-4 rounded-full font-bold text-lg transition-colors duration-300"
         >
-          Get Started
+          {content?.buttonText}
         </Link>
       </div>
     </section>

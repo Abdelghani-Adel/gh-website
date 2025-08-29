@@ -47,7 +47,7 @@ const HomeServices = async () => {
                 href="/services"
                 className="text-teal-600 w-max hover:text-teal-700 font-medium flex items-center gap-2 mx-auto"
               >
-                Learn More
+                {content?.buttonText}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

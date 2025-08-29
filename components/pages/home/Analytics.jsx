@@ -44,7 +44,7 @@ const Analytics = async () => {
         </div>
 
         {/* Additional visual elements */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-teal-300 rounded-full animate-pulse"></div>
@@ -59,7 +59,7 @@ const Analytics = async () => {
               <span className="text-white">Quality Focus</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

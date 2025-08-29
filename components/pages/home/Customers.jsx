@@ -37,17 +37,13 @@ const Customers = async () => {
         </div>
 
         {/* Customer Logos */}
-        <div className="bg-white rounded-2xl pb-8 shadow-lg">
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
-              Join hundreds of companies already transforming their operations
-              with LTS
-            </p>
+        <div className="bg-white rounded-2xl py-8 shadow-lg">
+          <div className="text-center">
             <Link
               href="/contact"
               className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300 inline-flex items-center gap-2"
             >
-              Become a Partner
+              {content?.buttonText}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

@@ -29,7 +29,7 @@ const HomeAbout = async () => {
               href="/about-us"
               className="bg-second w-max hover:bg-teal-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300"
             >
-              Our Story
+              {content?.buttonText}
             </Link>
           </div>
           <div className="relative">

@@ -46,33 +46,33 @@ const Header = () => {
     {
       href: "/services",
       label: "Services",
-      subLinks: [
-        {
-          href: "/services#outsourcing",
-          label: "Outsourcing",
-        },
-        {
-          href: "/services#call-center",
-          label: "Call Center",
-        },
-        {
-          href: "/services#consulting",
-          label: "Consulting",
-        },
-        {
-          href: "/services#social-media",
-          label: "Social Media",
-        },
-        {
-          href: "/services#it",
-          label: "IT Services",
-        },
-      ],
+      // subLinks: [
+      //   {
+      //     href: "/services#outsourcing",
+      //     label: "Outsourcing",
+      //   },
+      //   {
+      //     href: "/services#call-center",
+      //     label: "Call Center",
+      //   },
+      //   {
+      //     href: "/services#consulting",
+      //     label: "Consulting",
+      //   },
+      //   {
+      //     href: "/services#social-media",
+      //     label: "Social Media",
+      //   },
+      //   {
+      //     href: "/services#it",
+      //     label: "IT Services",
+      //   },
+      // ],
     },
-    {
-      href: "/#core-values",
-      label: "Our core values",
-    },
+    // {
+    //   href: "/#core-values",
+    //   label: "Our core values",
+    // },
     {
       href: "/career",
       label: "Join our team",

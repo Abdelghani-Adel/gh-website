@@ -31,7 +31,7 @@ const HomeHero = async () => {
             href="/services"
             className="bg-second w-max hover:bg-teal-300 text-teal-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2"
           >
-            Learn More
+            {content?.buttonText}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
