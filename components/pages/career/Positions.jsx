@@ -1,8 +1,17 @@
 "use client";
 
 import { applyForPosition, getSectionData } from "@/utils/ApiService";
-import { CheckCircle, Mail, MapPin, Send, Upload, X } from "lucide-react";
+import {
+  CheckCircle,
+  Loader2,
+  Mail,
+  MapPin,
+  Send,
+  Upload,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const Positions = () => {
   const [selectedPosition, setSelectedPosition] = useState(null);
@@ -14,6 +23,8 @@ const Positions = () => {
     position: "",
     coverLetter: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,6 +67,7 @@ const Positions = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Create FormData for file upload
     const submitData = new FormData();
@@ -72,7 +84,7 @@ const Positions = () => {
       const response = await applyForPosition(submitData);
 
       if (response.ok) {
-        alert("Application submitted successfully!");
+        toast("Application submitted successfully!");
         setSelectedPosition(null);
         setFormData({
           name: "",
@@ -82,11 +94,14 @@ const Positions = () => {
           coverLetter: "",
         });
       } else {
-        throw new Error("Failed to submit application");
+        toast("Failed to send message. Please try again.");
+        // throw new Error("Failed to submit application");
       }
     } catch (error) {
       console.error("Error submitting application:", error);
-      alert("Failed to submit application. Please try again.");
+      toast("Failed to submit application. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -157,14 +172,14 @@ const Positions = () => {
                     <h4 className="font-semibold text-gray-900 mb-3">
                       Key Skills:
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-col gap-2">
                       {position.skills.map((skill, index) => (
-                        <span
+                        <div
                           key={index}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm"
                         >
                           {skill}
-                        </span>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -341,7 +356,7 @@ const Positions = () => {
                     htmlFor="coverLetter"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Cover Letter (Optional)
+                    Cover Letter
                   </label>
                   <textarea
                     id="coverLetter"
@@ -364,12 +379,23 @@ const Positions = () => {
                 >
                   Cancel
                 </button>
+
                 <button
                   type="submit"
                   className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                  disabled={isLoading}
                 >
-                  <Send className="w-5 h-5" />
-                  Submit Application
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Submit Application
+                    </>
+                  )}
                 </button>
               </div>
             </form>

@@ -1,8 +1,17 @@
 "use client";
 
 import { sendCustomerMessage } from "@/utils/ApiService";
-import { Building, Mail, MessageSquare, Phone, Send, User } from "lucide-react";
+import {
+  Building,
+  Mail,
+  MessageSquare,
+  Phone,
+  Send,
+  User,
+  Loader2,
+} from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const ContactForm = (props) => {
   const [formData, setFormData] = useState({
@@ -12,6 +21,8 @@ const ContactForm = (props) => {
     company: "",
     message: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,24 +34,35 @@ const ContactForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const submitData = new FormData();
-    submitData.append("name", formData.name);
-    submitData.append("email", formData.email);
-    submitData.append("phone", formData.phone);
-    submitData.append("company", formData.company);
-    submitData.append("message", formData.message);
+    try {
+      const submitData = new FormData();
+      submitData.append("name", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("phone", formData.phone);
+      submitData.append("company", formData.company);
+      submitData.append("message", formData.message);
+      const response = await sendCustomerMessage(submitData);
 
-    const reponse = await sendCustomerMessage(submitData);
+      if (response.status == 200 || response.status == 201) {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
 
-    if (reponse.status === 200) {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: "",
-      });
+        toast("Thank you for your message. We'll get back to you soon.");
+      } else {
+        toast("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -67,7 +89,8 @@ const ContactForm = (props) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                disabled={isLoading}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={props?.data?.nameField?.placeHolder}
               />
             </div>
@@ -85,7 +108,8 @@ const ContactForm = (props) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                disabled={isLoading}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={props?.data?.emailField?.placeHolder}
               />
             </div>
@@ -102,9 +126,11 @@ const ContactForm = (props) => {
               <input
                 type="tel"
                 name="phone"
+                required
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                disabled={isLoading}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={props?.data?.phoneField?.placeHolder}
               />
             </div>
@@ -119,9 +145,11 @@ const ContactForm = (props) => {
               <input
                 type="text"
                 name="company"
+                required
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                disabled={isLoading}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder={props?.data?.companyField?.placeHolder}
               />
             </div>
@@ -130,7 +158,7 @@ const ContactForm = (props) => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            {props?.data?.messageField?.label} *
+            {props?.data?.messageField?.label}
           </label>
           <div className="relative">
             <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -139,8 +167,9 @@ const ContactForm = (props) => {
               value={formData.message}
               onChange={handleInputChange}
               required
+              disabled={isLoading}
               rows="4"
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               placeholder={props?.data?.messageField?.placeHolder}
             ></textarea>
           </div>
@@ -149,10 +178,20 @@ const ContactForm = (props) => {
         <div>
           <button
             type="submit"
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white py-4 px-6 rounded-lg flex items-center justify-center gap-2 font-bold text-lg transition-colors duration-300"
+            disabled={isLoading}
+            className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 disabled:cursor-not-allowed text-white py-4 px-6 rounded-lg flex items-center justify-center gap-2 font-bold text-lg transition-colors duration-300"
           >
-            <Send className="w-5 h-5" />
-            {props?.data?.buttonText}
+            {isLoading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5" />
+                {props?.data?.buttonText}
+              </>
+            )}
           </button>
         </div>
       </form>

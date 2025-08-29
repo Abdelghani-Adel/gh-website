@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Link Talent Support",
   icons: {
-    icon: '/favicon.png',
+    icon: "/favicon.png",
   },
-  description: "Link Talent Support offers tailored outsourcing solutions for the tourism industry, including customer service, IT services, and social media management.",
-  keywords: ["tourism outsourcing",
+  description:
+    "Link Talent Support offers tailored outsourcing solutions for the tourism industry, including customer service, IT services, and social media management.",
+  keywords: [
+    "tourism outsourcing",
     "travel support",
     "multilingual customer service",
     "IT services tourism",
     "Link Talent Support",
-    "Link Talent",],
+    "Link Talent",
+  ],
   robots: {
     index: true,
     follow: true,
@@ -46,9 +50,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html>
+    <html className="scroll-smooth scroll-pt-24">
       <body className="overflow-x-hidden flex flex-col min-h-screen">
         {children}
+        <Toaster closeButton position="top-center" />
       </body>
     </html>
   );

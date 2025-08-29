@@ -44,13 +44,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="pt-24 bg-red-500">
       <Header />
-      <div className="min-h-screen bg-white mt-24">{children}</div>
+      <div className="bg-white">{children}</div>
 
       <div className="mt-auto">
         <Footer />
       </div>
-    </>
+    </div>
   );
 }

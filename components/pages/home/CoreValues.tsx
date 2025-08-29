@@ -5,14 +5,16 @@ import React from "react";
 const CoreValues = async () => {
   const content = await getSectionData(28);
 
+  if (!content) return null;
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" id="core-values">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
           Our Core Values
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {content.items.map((value: any, index: any) => (
+          {content?.items?.map((value: any, index: any) => (
             <div
               key={index}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"

@@ -36,9 +36,9 @@ const Footer = () => {
   // Navigation items configuration (same as header)
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
     { href: "/about-us", label: "About Us" },
-    { href: "/career", label: "Careers" },
+    { href: "/services", label: "Services" },
+    { href: "/career", label: "Join our team" },
     { href: "/contact", label: "Contact Us" },
   ];
 
@@ -60,10 +60,21 @@ const Footer = () => {
 
   // Social media links
   const socialLinks = [
-    { href: "#", icon: FaFacebook, label: "Facebook" },
-    { href: "#", icon: FaTwitter, label: "Twitter" },
-    { href: "#", icon: FaLinkedin, label: "LinkedIn" },
-    { href: "#", icon: FaInstagram, label: "Instagram" },
+    {
+      href: "https://www.facebook.com/profile.php?id=61576271777849",
+      icon: FaFacebook,
+      label: "Facebook",
+    },
+    {
+      href: "https://www.linkedin.com/company/link-talent-support-lts",
+      icon: FaLinkedin,
+      label: "LinkedIn",
+    },
+    {
+      href: "https://www.instagram.com/ltsegypt/",
+      icon: FaInstagram,
+      label: "Instagram",
+    },
   ];
 
   // Contact information
@@ -126,11 +137,11 @@ const Footer = () => {
                 className="object-contain"
               />
             </Link>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            {/* <p className="text-gray-300 text-sm leading-relaxed">
               We are a leading company providing exceptional services and
               solutions to help businesses grow and succeed in the digital
               world.
-            </p>
+            </p> */}
 
             {/* Social Media Links */}
             <div className="flex space-x-4 pt-2">
@@ -142,6 +153,7 @@ const Footer = () => {
                     href={social.href}
                     className="text-gray-300 hover:text-second transition-colors duration-200"
                     aria-label={social.label}
+                    target="_blank"
                   >
                     <IconComponent className="h-5 w-5" />
                   </Link>

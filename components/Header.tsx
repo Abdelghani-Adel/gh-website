@@ -38,27 +38,44 @@ const Header = () => {
     {
       href: "/",
       label: "Home",
-      subLinks: [
-        { href: "/#about", label: "About Us" },
-        { href: "/#services", label: "Services" },
-        { href: "/#sustainability", label: "Sustainability" },
-        { href: "/#timeline", label: "Timeline" },
-        { href: "/#testimonials", label: "Testimonials" },
-        { href: "/#analytics", label: "Analytics" },
-        { href: "/#customers", label: "Customers" },
-      ],
-    },
-    {
-      href: "/services",
-      label: "Services",
     },
     {
       href: "/about-us",
       label: "About Us",
     },
     {
+      href: "/services",
+      label: "Services",
+      subLinks: [
+        {
+          href: "/services#outsourcing",
+          label: "Outsourcing",
+        },
+        {
+          href: "/services#call-center",
+          label: "Call Center",
+        },
+        {
+          href: "/services#consulting",
+          label: "Consulting",
+        },
+        {
+          href: "/services#social-media",
+          label: "Social Media",
+        },
+        {
+          href: "/services#it",
+          label: "IT Services",
+        },
+      ],
+    },
+    {
+      href: "/#core-values",
+      label: "Our core values",
+    },
+    {
       href: "/career",
-      label: "Careers",
+      label: "Join our team",
     },
     {
       href: "/contact",
@@ -99,7 +116,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed h-24 z-20 w-screen transition-all duration-150 ease-in-out bg-white shadow-lg`}
+      className={`fixed h-24 z-20 top-0 w-screen transition-all duration-150 ease-in-out bg-white shadow-lg`}
     >
       <Sheet>
         <div className="max-w-7xl container mx-auto flex items-center justify-between p-5 relative z-20">
@@ -133,7 +150,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <div key={item.href}>
                   {item.subLinks ? (
-                    <Collapsible defaultOpen={isActiveRoute(item.href)}>
+                    <Collapsible defaultOpen>
                       <div className="group">
                         <div className="flex items-center">
                           <SheetClose asChild className="flex-1">
