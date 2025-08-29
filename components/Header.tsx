@@ -7,117 +7,79 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { ChevronDown } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
-
-interface SubLink {
-  href: string;
-  label: string;
-}
+import { useEffect, useState } from "react";
+import { getSectionData } from "@/utils/ApiService";
 
 interface NavItem {
   href: string;
   label: string;
-  subLinks?: SubLink[];
 }
 
 const Header = () => {
   const pathname = usePathname();
+  const [navItems, setNavItems] = useState<NavItem[]>([]);
 
-  // Navigation items configuration with sub-links
-  const navItems: NavItem[] = [
-    {
-      href: "/",
-      label: "Home",
-    },
-    {
-      href: "/about-us",
-      label: "About Us",
-    },
-    {
-      href: "/services",
-      label: "Services",
-      // subLinks: [
-      //   {
-      //     href: "/services#outsourcing",
-      //     label: "Outsourcing",
-      //   },
-      //   {
-      //     href: "/services#call-center",
-      //     label: "Call Center",
-      //   },
-      //   {
-      //     href: "/services#consulting",
-      //     label: "Consulting",
-      //   },
-      //   {
-      //     href: "/services#social-media",
-      //     label: "Social Media",
-      //   },
-      //   {
-      //     href: "/services#it",
-      //     label: "IT Services",
-      //   },
-      // ],
-    },
-    // {
-    //   href: "/#core-values",
-    //   label: "Our core values",
-    // },
-    {
-      href: "/career",
-      label: "Join our team",
-    },
-    {
-      href: "/contact",
-      label: "Contact Us",
-    },
-  ];
-
-  // Function to check if a route is active
-  const isActiveRoute = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-    return pathname.startsWith(href);
+  // Fixed hrefs
+  const fixedNavMap = {
+    home: "/",
+    aboutUs: "/about-us",
+    services: "/services",
+    career: "/career",
+    contact: "/contact",
   };
 
-  // Function to check if a sub-link is active
-  const isActiveSubLink = (href: string) => {
-    if (href.includes("#")) {
-      const [path] = href.split("#");
-      return pathname === path;
-    }
-    return pathname === href;
+  // Default JSON fallback
+  const defaultJson = {
+    navItems: [
+      { key: "home", label: "Home" },
+      { key: "aboutUs", label: "About Us" },
+      { key: "services", label: "Services" },
+      { key: "career", label: "Join our team" },
+      { key: "contact", label: "Contact Us" },
+    ],
   };
 
-  // Function to get link styles based on active state
-  const getLinkStyles = (href: string, isSubLink = false) => {
-    const baseStyles = isSubLink
-      ? "block px-8 py-2 rounded transition-all duration-200 text-base font-medium"
-      : "block px-5 py-2 rounded transition-all duration-200 font-bold";
+  const mergeItems = (
+    apiItems: { key: string; label: string }[],
+    fixedMap: Record<string, string>
+  ): NavItem[] =>
+    apiItems.map((item) => ({
+      href: fixedMap[item.key],
+      label: item.label,
+    }));
 
-    const activeStyles = "bg-second text-white";
-    const inactiveStyles = "hover:bg-gray-100/10 hover:text-gray-200";
+  // Fetch navigation labels
+  useEffect(() => {
+    const fetchLabels = async () => {
+      try {
+        const data = await getSectionData(30);
+        console.log(data);
+        setNavItems(mergeItems(data.navItems, fixedNavMap));
+      } catch (err) {
+        console.error("Error fetching navigation labels:", err);
+        setNavItems(mergeItems(defaultJson.navItems, fixedNavMap));
+      }
+    };
+    fetchLabels();
+  }, []);
 
-    const isActive = isSubLink ? isActiveSubLink(href) : isActiveRoute(href);
+  const isActiveRoute = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-    return `${baseStyles} ${isActive ? activeStyles : inactiveStyles}`;
-  };
+  const getLinkStyles = (href: string) =>
+    `block px-5 py-2 rounded transition-all duration-200 font-bold ${
+      isActiveRoute(href)
+        ? "bg-second text-white"
+        : "hover:bg-gray-100/10 hover:text-gray-200"
+    }`;
 
   return (
-    <header
-      className={`fixed h-24 z-20 top-0 w-screen transition-all duration-150 ease-in-out bg-white shadow-lg`}
-    >
+    <header className="fixed h-24 z-20 top-0 w-screen transition-all duration-150 ease-in-out bg-white shadow-lg">
       <Sheet>
         <div className="max-w-7xl container mx-auto flex items-center justify-between p-5 relative z-20">
           <div className="flex items-center gap-2 text-white">
@@ -148,54 +110,11 @@ const Header = () => {
 
             <div className="flex flex-col mt-10 space-y-2 text-xl">
               {navItems.map((item) => (
-                <div key={item.href}>
-                  {item.subLinks ? (
-                    <Collapsible defaultOpen>
-                      <div className="group">
-                        <div className="flex items-center">
-                          <SheetClose asChild className="flex-1">
-                            <Link
-                              href={item.href}
-                              className={getLinkStyles(item.href)}
-                            >
-                              {item.label}
-                            </Link>
-                          </SheetClose>
-
-                          <CollapsibleTrigger asChild>
-                            <button className="p-2 hover:bg-gray-100/10 rounded transition-all duration-200">
-                              <ChevronDown className="w-5 h-5 transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                            </button>
-                          </CollapsibleTrigger>
-                        </div>
-
-                        <CollapsibleContent className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-left-1 data-[state=open]:slide-in-from-left-1">
-                          <div className="ml-4 mt-1 space-y-1 border-l-2 border-second/30 pl-2">
-                            {item.subLinks.map((subLink) => (
-                              <SheetClose key={subLink.href} asChild>
-                                <Link
-                                  href={subLink.href}
-                                  className="block px-3 py-2 rounded transition-all duration-200 text-base font-light"
-                                >
-                                  {subLink.label}
-                                </Link>
-                              </SheetClose>
-                            ))}
-                          </div>
-                        </CollapsibleContent>
-                      </div>
-                    </Collapsible>
-                  ) : (
-                    <SheetClose asChild>
-                      <Link
-                        href={item.href}
-                        className={getLinkStyles(item.href)}
-                      >
-                        {item.label}
-                      </Link>
-                    </SheetClose>
-                  )}
-                </div>
+                <SheetClose key={item.href} asChild>
+                  <Link href={item.href} className={getLinkStyles(item.href)}>
+                    {item.label}
+                  </Link>
+                </SheetClose>
               ))}
             </div>
           </SheetContent>
