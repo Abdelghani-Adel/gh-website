@@ -1,14 +1,20 @@
 import BackendIcon from "@/components/BackendIcon";
 import { getSectionData } from "@/utils/ApiService";
-import { ArrowRight, CircleCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const HomeServices = async () => {
   const content = await getSectionData(7);
+  const data = await getSectionData(15);
 
-  if (!content) {
+  if (!content || !data) {
     return null;
   }
+
+  const mergedServices = content.items?.map((service, index) => ({
+    ...service,
+    id: data.services[index]?.id,
+  }));
 
   return (
     <section className="py-20 bg-gray-50" id="services">
@@ -23,8 +29,9 @@ const HomeServices = async () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {content?.items?.map((service) => (
+          {mergedServices?.map((service) => (
             <div
+              id={`service-${service.id}`}
               key={service.id}
               className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300"
             >
@@ -44,10 +51,10 @@ const HomeServices = async () => {
               />
 
               <Link
-                href="/services"
+                href={`/services#${service.id}`}
                 className="text-teal-600 w-max hover:text-teal-700 font-medium flex items-center gap-2 mx-auto"
               >
-                {content?.buttonText}
+                {service?.buttonText}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

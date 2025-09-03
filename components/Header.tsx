@@ -20,9 +20,14 @@ interface NavItem {
   label: string;
 }
 
+interface ServiceItem {
+  id: string;
+  title: string;
+}
 const Header = () => {
   const pathname = usePathname();
   const [navItems, setNavItems] = useState<NavItem[]>([]);
+  const [serviceItems, setServiceItems] = useState<ServiceItem[]>([]);
 
   // Fixed hrefs
   const fixedNavMap = {
@@ -68,6 +73,26 @@ const Header = () => {
     fetchLabels();
   }, []);
 
+  // Fetch services data
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const data = await getSectionData(15);
+        if (data?.services) {
+          setServiceItems(
+            data.services.map((service: any) => ({
+              id: service.id,
+              title: service.title,
+            }))
+          );
+        }
+      } catch (err) {
+        console.error("Error fetching services:", err);
+      }
+    };
+    fetchServices();
+  }, []);
+
   const isActiveRoute = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -110,11 +135,29 @@ const Header = () => {
 
             <div className="flex flex-col mt-10 space-y-2 text-xl">
               {navItems.map((item) => (
-                <SheetClose key={item.href} asChild>
-                  <Link href={item.href} className={getLinkStyles(item.href)}>
-                    {item.label}
-                  </Link>
-                </SheetClose>
+                <div key={item.href}>
+                  <SheetClose asChild>
+                    <Link href={item.href} className={getLinkStyles(item.href)}>
+                      {item.label}
+                    </Link>
+                  </SheetClose>
+
+                  {/* Services Submenu */}
+                  {item.href === "/services" && serviceItems.length > 0 && (
+                    <div className="mt-2 ml-4 space-y-1">
+                      {serviceItems.map((service) => (
+                        <SheetClose key={service.id} asChild>
+                          <Link
+                            href={`/services#${service.id}`}
+                            className="block px-4 py-2 rounded transition-all duration-200 font-medium text-gray-300 hover:bg-gray-100/10 hover:text-gray-200 text-base"
+                          >
+                            {service.title}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </SheetContent>
