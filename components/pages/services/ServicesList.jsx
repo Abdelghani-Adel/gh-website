@@ -2,6 +2,41 @@ import { getSectionData } from "@/utils/ApiService";
 import React from "react";
 import { API_URL } from "@/utils/constants";
 
+const mockData = {
+  services: [
+    {
+      id: "outsourcing",
+      image:
+        "/public/galleries/c7b1d35018826782-Bildschirmfoto_2025-08-12_um_20.48.14.png",
+      items: [
+        "Multilingual customer support around the clock",
+        "Flexible capacity management for seasonal fluctuations",
+        "Integration with your existing systems and workflows",
+        "High-quality reporting and monitoring",
+        "IT security and data protection",
+      ],
+      title: "Outsourcing Services",
+      description:
+        "<p>We provide tailored outsourcing solutions for the tourism sector that combine efficiency, quality, and scalability. Our teams take over your customer service processes so you can focus on your core business.</p>",
+    },
+    {
+      id: "call-center",
+      image:
+        "/public/galleries/3a4b462444e5ead8-Bildschirmfoto_2025-08-12_um_20.35.11.png",
+      items: [
+        "Phone support for bookings",
+        "Inquiries and complaints",
+        "24/7 availability with flexible shifts",
+        "Multilingual communication training and qualification of agents specialized in tourism topics",
+        "Real-time quality control and performance tracking",
+      ],
+      title: "Call Center Services",
+      description:
+        "<p>Our call center services specialize in the travel and tourism sector, offering reliable, personal support—24/7 and in multiple languages.</p>",
+    },
+  ],
+};
+
 const ServicesList = async () => {
   const data = await getSectionData(15);
 
@@ -11,9 +46,11 @@ const ServicesList = async () => {
 
   return (
     <>
-      {data.services.map((service, index) => (
-        <ServiceCard key={service.id} service={service} index={index} />
-      ))}
+      {data.services
+        .filter((service) => service.isActive)
+        .map((service, index) => (
+          <ServiceCard key={service.id} service={service} index={index} />
+        ))}
     </>
   );
 };
@@ -23,7 +60,8 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     // <section id={service.title.toLowerCase().replace(/\s+/g, "-")}
-    <section id={service.id}
+    <section
+      id={service.id}
       className={`py-28 ${isEven ? "bg-white" : "bg-second text-white"}`}
     >
       <div className="container max-w-6xl mx-auto px-6">

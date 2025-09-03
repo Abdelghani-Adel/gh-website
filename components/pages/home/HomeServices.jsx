@@ -11,11 +11,6 @@ const HomeServices = async () => {
     return null;
   }
 
-  const mergedServices = content.items?.map((service, index) => ({
-    ...service,
-    id: data.services[index]?.id,
-  }));
-
   return (
     <section className="py-20 bg-gray-50" id="services">
       <div className="container max-w-6xl mx-auto px-6">
@@ -29,36 +24,38 @@ const HomeServices = async () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {mergedServices?.map((service) => (
-            <div
-              id={`service-${service.id}`}
-              key={service.id}
-              className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <BackendIcon
-                  iconName={service.icon}
-                  className="text-6xl h-12 w-12 text-white"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                {service.title}
-              </h3>
-
+          {data?.services
+            .filter((service) => service.isActive && service.isShowHome)
+            .map((service) => (
               <div
-                className="mb-6"
-                dangerouslySetInnerHTML={{ __html: service.description }}
-              />
-
-              <Link
-                href={`/services#${service.id}`}
-                className="text-teal-600 w-max hover:text-teal-700 font-medium flex items-center gap-2 mx-auto"
+                id={`service-${service.id}`}
+                key={service.id}
+                className="bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300"
               >
-                {service?.buttonText}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          ))}
+                <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <BackendIcon
+                    iconName={service.icon}
+                    className="text-6xl h-12 w-12 text-white"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
+                  {service.title}
+                </h3>
+                <div
+                  className="mb-6"
+                  dangerouslySetInnerHTML={{
+                    __html: service.short_description,
+                  }}
+                />
+                <Link
+                  href={`/services#${service.id}`}
+                  className="text-teal-600 w-max hover:text-teal-700 font-medium flex items-center gap-2 mx-auto"
+                >
+                  {service?.buttonText}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </section>

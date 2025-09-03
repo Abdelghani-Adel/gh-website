@@ -80,10 +80,12 @@ const Header = () => {
         const data = await getSectionData(15);
         if (data?.services) {
           setServiceItems(
-            data.services.map((service: any) => ({
-              id: service.id,
-              title: service.title,
-            }))
+            data.services
+              .filter((service: any) => service.isActive)
+              .map((service: any) => ({
+                id: service.id,
+                title: service.title,
+              }))
           );
         }
       } catch (err) {

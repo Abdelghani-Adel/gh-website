@@ -49,14 +49,6 @@ const Footer = () => {
     contact: "/contact",
   };
 
-  const fixedServiceMap = {
-    outsourcing: "/services#outsourcing",
-    callCenter: "/services#call-center",
-    consulting: "/services#consulting",
-    socialMedia: "/services#social-media",
-    it: "/services#it",
-  };
-
   const fixedLegalMap = {
     privacy: "/policies?tab=privacy",
     terms: "/policies?tab=terms",
@@ -110,26 +102,52 @@ const Footer = () => {
     fetchBranch();
   }, []);
 
-  // Fetch labels from API
+  // Fetch nav + legal labels
   useEffect(() => {
     const fetchLabels = async () => {
       try {
         const data = await getSectionData(29);
 
-        console.log(data);
-
         setNavItems(mergeItems(data.navItems, fixedNavMap));
-        setServiceItems(mergeItems(data.serviceItems, fixedServiceMap));
         setLegalItems(mergeItems(data.legalItems, fixedLegalMap));
       } catch (err) {
         console.error("Error fetching navigation labels:", err);
         // fallback to default JSON
         setNavItems(mergeItems(defaultJson.navItems, fixedNavMap));
-        setServiceItems(mergeItems(defaultJson.serviceItems, fixedServiceMap));
         setLegalItems(mergeItems(defaultJson.legalItems, fixedLegalMap));
       }
     };
     fetchLabels();
+  }, []);
+
+  // Fetch services from API (id=15) with filter
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const data = await getSectionData(15);
+
+        if (data?.services) {
+          const filteredServices = data.services
+            .filter((s: any) => s.isActive && s.isShowFooter)
+            .map((s: any) => ({
+              href: `/services#${s.id}`,
+              label: s.title,
+            }));
+
+          setServiceItems(filteredServices);
+        }
+      } catch (err) {
+        console.error("Error fetching services:", err);
+        // fallback to default services
+        setServiceItems(
+          defaultJson.serviceItems.map((item) => ({
+            href: `/services#${item.key}`,
+            label: item.label,
+          }))
+        );
+      }
+    };
+    fetchServices();
   }, []);
 
   if (!branch) return null;
